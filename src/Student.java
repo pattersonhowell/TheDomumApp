@@ -1,6 +1,6 @@
 import java.util.ArrayList;
 
-public class Student {
+public class Student extends User {
 
 	private String studentID;
 	private ArrayList<Listing> favoriteListings;
