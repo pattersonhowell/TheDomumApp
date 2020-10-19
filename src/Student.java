@@ -6,7 +6,7 @@ public class Student extends User {
 	private ArrayList<Listing> favoriteListings;
 	
 	public Student(String studentID) {
-		
+		this.studentID = studentID;
 	}
 	
 	public String toString() {
