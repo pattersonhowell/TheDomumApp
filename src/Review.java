@@ -11,13 +11,4 @@ public class Review {
 		this.date = date;
 		this.reviewText = reviewText; 
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
 }
