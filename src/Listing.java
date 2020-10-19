@@ -10,10 +10,7 @@ public class Listing {
 	protected ArrayList<Review> reviews; 
 	protected int numberAvalible; 
 	protected int yearBuilt;
-	
-	
-	
-	
+
 	public Listing(Agent agent, int listingID, double price, String address, int numBathroom, int numBedroom,
 			ArrayList<Review> reviews, int numberAvalible, int yearBuilt) {		
 		this.agent = agent;
@@ -32,8 +29,7 @@ public class Listing {
 				+ ", numBathroom=" + numBathroom + ", numBedroom=" + numBedroom + ", reviews=" + reviews
 				+ ", numberAvalible=" + numberAvalible + ", yearBuilt=" + yearBuilt + "]";
 	} 
-	
-	
+
 	public ArrayList<Review> getReview() {
 		return this.reviews;
 	}
@@ -41,16 +37,5 @@ public class Listing {
 	public void addReview(Review review) {
 		reviews.add(review);
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+
 }
