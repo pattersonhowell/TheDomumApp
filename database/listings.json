@@ -1,20 +1,20 @@
 {"listings":[
 	{
-		"agent":"Tom Burch",
+		"agentID":"A390393",
 		"listingID":12,
 		"price":698.2,
 		"address":"321 Avenue Dr",
 		"numberAvailable":2,
 		"yearBuilt":2001
 	},{
-		"agent":"Joey Calzone",
+		"agentID":"A567585",
 		"listingID":34,
 		"price":560.34,
 		"address":"300 Parklane St",
 		"numberAvailable":7,
 		"yearBuilt":2000
 	},{
-		"agent":"Jessica Peters",
+		"agentID":"A465769",
 		"listingID":5,
 		"price":690.42,
 		"address":"800 Twinpeak Rd",

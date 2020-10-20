@@ -6,21 +6,14 @@
 		"phone":"(123) 456-7890",
 		"email":"johndoe@gmail.com",
 		"studentID":"V47848585",
-		"favoriteListings":[{
-			"agent":"Tom Burch",
-			"listingID":12,
-			"price":698.2,
-			"address":"321 Avenue Dr",
-			"numberAvailable":2,
-			"yearBuilt":2001
-		}],
+		"favoriteListingIDs":[12,5],
 		"reviews":[{
-			"author":"Rich Douglass",
+			"authorID":"303029",
 			"date":"9/17/2020",
 			"reviewText":"Lorem Ipsum",
 			"rating":5
 		},{
-			"author":"Tom Birch",
+			"authorID":"390393",
 			"date":"10/1/2020",
 			"reviewText":"Terrible person, would give zero stars if I could",
 			"rating":1
@@ -32,24 +25,10 @@
 		"phone":"(803) 999-9999",
 		"email":"tburch@gmail.com",
 		"realtyGroup":"Star Bean Agency",
-		"employeeID":390393,
-		"managedListings":[{
-			"agent":"Tom Burch",
-			"listingID":12,
-			"price":698.2,
-			"address":"321 Avenue Dr",
-			"numberAvailable":2,
-			"yearBuilt":2001
-		},{
-			"agent":"Tom Burch",
-			"listingID":13,
-			"price":760.3,
-			"address":"456 Brook Rd",
-			"numberAvailable":7,
-			"yearBuilt":2010
-		}],
+		"employeeID":"390393",
+		"managedListingIDs":[12,13],
 		"reviews":[{
-			"author":"John Doe",
+			"authorID":"V47848585",
 			"date":"9/10/2020",
 			"reviewText":"Great realtor!",
 			"rating":5
