@@ -25,7 +25,7 @@ public class Listing {
 	}
 
 	public String toString() {
-		return "Listing [agent=" + agent + ", listingID=" + listingID + ", price=" + price + ", address=" + address
+		return "Listing [agentID=" + agentID + ", listingID=" + listingID + ", price=" + price + ", address=" + address
 				+ ", numBathroom=" + numBathroom + ", numBedroom=" + numBedroom + ", reviews=" + reviews
 				+ ", numberAvalible=" + numberAvalible + ", yearBuilt=" + yearBuilt + "]";
 	} 
