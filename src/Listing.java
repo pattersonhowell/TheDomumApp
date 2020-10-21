@@ -1,8 +1,8 @@
 import java.util.ArrayList;
 
 public class Listing {
-	public Agent agent;
-	public int listingID; 
+	public int listingID;
+	public String agentID;
 	protected double price;
 	protected String address; 
 	protected int numBathroom; 
@@ -11,10 +11,10 @@ public class Listing {
 	protected int numberAvalible; 
 	protected int yearBuilt;
 
-	public Listing(Agent agent, int listingID, double price, String address, int numBathroom, int numBedroom,
-			ArrayList<Review> reviews, int numberAvalible, int yearBuilt) {		
-		this.agent = agent;
+	public Listing(int listingID, String agentID, double price, String address, int numBathroom, int numBedroom,
+			ArrayList<Review> reviews, int numberAvalible, int yearBuilt) {
 		this.listingID = listingID;
+		this.agentID = agentID;
 		this.price = price;
 		this.address = address;
 		this.numBathroom = numBathroom;

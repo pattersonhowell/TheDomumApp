@@ -1,11 +1,11 @@
 {"users":[
 	{
+		"id":"V47848585",
 		"name":"John Doe",
 		"password":"somepassword123",
 		"address":"123 Sesame St",
 		"phone":"(123) 456-7890",
 		"email":"johndoe@gmail.com",
-		"studentID":"V47848585",
 		"favoriteListingIDs":[12,5],
 		"reviews":[{
 			"authorID":"303029",
@@ -19,13 +19,13 @@
 			"rating":1
 		}]
 	},{
+		"id":"390393",
 		"name":"Tom Burch",
 		"password":"reallybadpassword",
 		"address":"505 Woodland Ave",
 		"phone":"(803) 999-9999",
 		"email":"tburch@gmail.com",
 		"realtyGroup":"Star Bean Agency",
-		"employeeID":"390393",
 		"managedListingIDs":[12,13],
 		"reviews":[{
 			"authorID":"V47848585",

@@ -1,24 +1,58 @@
 {"listings":[
 	{
-		"agentID":"A390393",
 		"listingID":12,
+		"agentID":"A390393",
 		"price":698.2,
 		"address":"321 Avenue Dr",
+		"numBathroom":3,
+		"numBedroom":3,
+		"reviews":[{
+			"authorID":"G303029",
+			"date":"2/3/2020",
+			"reviewText":"Love this place!",
+			"rating":5
+		}],
 		"numberAvailable":2,
 		"yearBuilt":2001
 	},{
+		"listingID":34,		
 		"agentID":"A567585",
-		"listingID":34,
 		"price":560.34,
 		"address":"300 Parklane St",
+		"numBathroom":1,
+		"numBedroom":2,
+		"reviews":[{
+			"authorID":"D754765",
+			"date":"9/17/2020",
+			"reviewText":"Pretty good place",
+			"rating":3
+		},{
+			"authorID":"F390908",
+			"date":"10/1/2020",
+			"reviewText":"Terrible place!",
+			"rating":1
+		}],
 		"numberAvailable":7,
 		"yearBuilt":2000
 	},{
+		"listingID":5,		
 		"agentID":"A465769",
-		"listingID":5,
 		"price":690.42,
 		"address":"800 Twinpeak Rd",
 		"numberAvailable":1,
+		"numBathroom":4,
+		"numBathroom":4,
+		"reviews":[{
+			"authorID":"303029",
+			"date":"9/17/2020",
+			"reviewText":"Cool!",
+			"rating":5
+		},{
+			"authorID":"390393",
+			"date":"10/1/2020",
+			"reviewText":"Amazing!",
+			"rating":5
+		}],
 		"yearBuilt":2013
 	}
 ]}

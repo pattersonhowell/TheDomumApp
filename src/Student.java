@@ -2,11 +2,10 @@ import java.util.ArrayList;
 
 public class Student extends User {
 
-	private String studentID;
 	private ArrayList<Listing> favoriteListings;
 	
-	public Student(String studentID) {
-		this.studentID = studentID;
+	public Student() {
+
 	}
 	
 	public String toString() {
