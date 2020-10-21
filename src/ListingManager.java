@@ -1,10 +1,17 @@
+import java.io.InputStream;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class ListingManager {
+	Scanner kb = Scanner(System.in);
 	private ArrayList<Listing> listings;	
 	
 	public void addListing(Listing listing) {
 		listings.add(listing);
+	}
+	private Scanner Scanner(InputStream in) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 	public void removeListing(Listing listing) {
 		listings.remove(listing);
@@ -79,15 +86,46 @@ public class ListingManager {
 		System.out.println("Displaying the current Listing:");
 		listing.toString();
 		System.out.println("What would you like to edit");
-		System.out.println("Press 1 to edit agent \nPress 2 to edit price");
-		//TBD
+		System.out.println(""
+				+ "Press 1 to edit agent "
+				+ "\nPress 2 to edit price"
+				+ "\nPress 3 to edit address"
+				+ "\nPress 4 to edit the number of bedrooms "
+				+ "\nPress 5 to edit the number of bathrooms"
+				+ "\nPress 6 to edit the year built "
+				+ "\nPress 7 to edit the distance from campus"
+				+ "\nPress 8 to edit the number avalible");
+		int choice = kb.nextInt();		
+		switch(choice) {
+		case 1:		
+			System.out.println("Please enter the modified agent");				
+			break; 			
+		case 2: 	
+			System.out.println("Please enter the modified price");
+			break;		
+			
+		case 3:		
+			System.out.println("Please enter the modified address");
+			break;
+						
+		case 4:		
+			System.out.println("Please enter the modified number of bedrooms");
+			break;
 		
-		
-		
-		
-		
-		
-	}
+		case 5:
+			System.out.println("Please enter the modified number of bathrooms");
+			break;
+		case 6:
+			System.out.println("Please enter the modified number of year built");
+			break;
+		case 7: 
+			System.out.println("Please enter the modified distance from campus");
+			break;
+		case 8:
+			System.out.println("Please enter the modified number avalible");
+			break;
 	
+		}			
+	}	
 }
 
