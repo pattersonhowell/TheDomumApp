@@ -1,5 +1,6 @@
 
 public class Review {
+	
 	public String author; 
 	public String date;
 	public String reviewText;

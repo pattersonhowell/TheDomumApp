@@ -2,7 +2,7 @@ import java.util.ArrayList;
 
 public class Student extends User {
 
-	private ArrayList<String> favoriteListings;
+	private ArrayList<Integer> favoriteListings;
 	
 	public Student() {
 		super();
@@ -13,11 +13,18 @@ public class Student extends User {
 	}
 	
 	public void leaveReview(Review review) {
-		//leave a review
+		
+		int rating = 0;
+		String author = "";
+		String date = "";
+		String reviewText = "";
+		
+		
+		Review rev = new Review(rating, author, date, reviewText);
 	}
 	
-	public void favoriteListing(Listing listing) {
-		//favorite a listing
+	public void favoriteListing(Integer listing) {
+		 favoriteListings.add(listing);
 	}
 	
 }

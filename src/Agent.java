@@ -3,7 +3,7 @@ import java.util.ArrayList;
 public class Agent extends User {
 
 	private String realtyGroup;
-	private ArrayList<String> managedListings;
+	private ArrayList<Integer> managedListings;
 	
 	public Agent(String realtyGroup) {
 		super();
