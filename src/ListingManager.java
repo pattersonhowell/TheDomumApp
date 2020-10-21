@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 
 public class ListingManager {
-	private ArrayList<Listing> listings; 
+	private ArrayList<Listing> listings;	
 	
 	public void addListing(Listing listing) {
 		listings.add(listing);
@@ -10,10 +10,19 @@ public class ListingManager {
 		listings.remove(listing);
 	}
 	public ArrayList<Listing> showAllListings() {
-		return null;
+		return listings; 
 	}
 	public Listing findListing(int listingId) {
-		return null;//TODO search listings by Listing ID 
+		
+		
+		for (Listing listing: listings) {
+			if(listing.getListingID()==listingId) {
+				return listing;
+			}
+		}
+		System.out.println("Could not find Listing with that ID");
+		return null;
+		
 	}
 	
 	public ArrayList<Listing> priceSearch(double price) {

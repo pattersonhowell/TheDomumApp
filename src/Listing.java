@@ -38,4 +38,68 @@ public class Listing {
 		reviews.add(review);
 	}
 
+	public int getListingID() {
+		return listingID;
+	}
+
+	public void setListingID(int listingID) {
+		this.listingID = listingID;
+	}
+
+	public String getAgentID() {
+		return agentID;
+	}
+
+	public void setAgentID(String agentID) {
+		this.agentID = agentID;
+	}
+
+	public double getPrice() {
+		return price;
+	}
+
+	public void setPrice(double price) {
+		this.price = price;
+	}
+
+	public String getAddress() {
+		return address;
+	}
+
+	public void setAddress(String address) {
+		this.address = address;
+	}
+
+	public int getNumBathroom() {
+		return numBathroom;
+	}
+
+	public void setNumBathroom(int numBathroom) {
+		this.numBathroom = numBathroom;
+	}
+
+	public int getNumBedroom() {
+		return numBedroom;
+	}
+
+	public void setNumBedroom(int numBedroom) {
+		this.numBedroom = numBedroom;
+	}
+
+	public int getNumberAvalible() {
+		return numberAvalible;
+	}
+
+	public void setNumberAvalible(int numberAvalible) {
+		this.numberAvalible = numberAvalible;
+	}
+
+	public int getYearBuilt() {
+		return yearBuilt;
+	}
+
+	public void setYearBuilt(int yearBuilt) {
+		this.yearBuilt = yearBuilt;
+	}
+
 }
