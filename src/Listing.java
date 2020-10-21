@@ -10,10 +10,10 @@ public class Listing {
 	protected ArrayList<Review> reviews; 
 	protected int numberAvalible; 
 	protected int yearBuilt;
-	protected int distFromCampus; 
+	protected double distFromCampus; 
 
 	public Listing(int listingID, String agentID, double price, String address, int numBathroom, int numBedroom,
-			ArrayList<Review> reviews, int numberAvalible, int yearBuilt, int distFromCampus) {
+			ArrayList<Review> reviews, int numberAvalible, int yearBuilt, double distFromCampus) {
 		this.listingID = listingID;
 		this.agentID = agentID;
 		this.price = price;
@@ -98,11 +98,11 @@ public class Listing {
 		this.yearBuilt = yearBuilt;
 	}
 	
-	public int getDistFromCampus() {
+	public double getDistFromCampus() {
 		return distFromCampus;
 	}
 
-	public void setDistFromCampus(int distFromCampus) {
+	public void setDistFromCampus(double distFromCampus) {
 		this.distFromCampus = distFromCampus;
 	}
 
