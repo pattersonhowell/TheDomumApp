@@ -6,11 +6,12 @@ public class Agent extends User {
 	private ArrayList<Listing> managedListings;
 	
 	public Agent(String realtyGroup) {
+		super();
 		this.realtyGroup = realtyGroup;
 	}
 	
 	public String toString() {
-		return "";
+		return super.toString() + "\nRealtyGroup: " + realtyGroup;
 	}
 	
 }

@@ -5,11 +5,11 @@ public class Student extends User {
 	private ArrayList<Listing> favoriteListings;
 	
 	public Student() {
-
+		super();
 	}
 	
 	public String toString() {
-		return "";
+		return super.toString();
 	}
 	
 	public void leaveReview(Review review) {

@@ -11,7 +11,8 @@ public class User {
 	public ArrayList<Review> reviews;
 	
 	public String toString() {
-		return "";
+		return "ID: " + id + "\nName: " + name + "\nPassword: " + password + "\nAddress: " 
+				+ address + "\nPhone: " + phone + "\nEmail: " + email;
 	}
 	
 }
