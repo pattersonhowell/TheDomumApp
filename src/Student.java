@@ -2,7 +2,7 @@ import java.util.ArrayList;
 
 public class Student extends User {
 
-	private ArrayList<Listing> favoriteListings;
+	private ArrayList<String> favoriteListings;
 	
 	public Student() {
 		super();
