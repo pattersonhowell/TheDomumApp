@@ -10,9 +10,10 @@ public class Listing {
 	protected ArrayList<Review> reviews; 
 	protected int numberAvalible; 
 	protected int yearBuilt;
+	protected int distFromCampus; 
 
 	public Listing(int listingID, String agentID, double price, String address, int numBathroom, int numBedroom,
-			ArrayList<Review> reviews, int numberAvalible, int yearBuilt) {
+			ArrayList<Review> reviews, int numberAvalible, int yearBuilt, int distFromCampus) {
 		this.listingID = listingID;
 		this.agentID = agentID;
 		this.price = price;
@@ -22,13 +23,8 @@ public class Listing {
 		this.reviews = reviews;
 		this.numberAvalible = numberAvalible;
 		this.yearBuilt = yearBuilt;
+		this.distFromCampus = distFromCampus;
 	}
-
-	public String toString() {
-		return "Listing [agentID=" + agentID + ", listingID=" + listingID + ", price=" + price + ", address=" + address
-				+ ", numBathroom=" + numBathroom + ", numBedroom=" + numBedroom + ", reviews=" + reviews
-				+ ", numberAvalible=" + numberAvalible + ", yearBuilt=" + yearBuilt + "]";
-	} 
 
 	public ArrayList<Review> getReview() {
 		return this.reviews;
@@ -101,5 +97,20 @@ public class Listing {
 	public void setYearBuilt(int yearBuilt) {
 		this.yearBuilt = yearBuilt;
 	}
+	
+	public int getDistFromCampus() {
+		return distFromCampus;
+	}
 
+	public void setDistFromCampus(int distFromCampus) {
+		this.distFromCampus = distFromCampus;
+	}
+
+	//temporary toString
+	public String toString() {
+		return "Listing [listingID=" + listingID + ", agentID=" + agentID + ", price=" + price + ", address=" + address
+				+ ", numBathroom=" + numBathroom + ", numBedroom=" + numBedroom + ", reviews=" + reviews
+				+ ", numberAvalible=" + numberAvalible + ", yearBuilt=" + yearBuilt + ", distFromCampus="
+				+ distFromCampus + "]";
+	}
 }
