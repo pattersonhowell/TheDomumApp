@@ -1,6 +1,6 @@
 import java.util.ArrayList;
 
-public class System {
+public class Systems {
 
 	private ArrayList<String> users;
 	private ListingManager listingManager;
