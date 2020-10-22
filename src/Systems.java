@@ -15,7 +15,6 @@ public class Systems {
 			index = users.indexOf(name);
 
 			reqPassword = users.get(index).getPassword();
-
 			
 			if (password.equals(reqPassword))
 				exists = true;
