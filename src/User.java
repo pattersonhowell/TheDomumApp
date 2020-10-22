@@ -6,7 +6,7 @@ import java.util.Scanner;
 public class User {
 	
 	
-	private String id;
+	private int id;
 	private String name;
 	private String password;
 	private String address;
@@ -14,7 +14,7 @@ public class User {
 	private String email;
 	public ArrayList<Review> reviews;
 	
-	public User(String id, String name, String password, String address, String phone, String email, ArrayList<Review> reviews) {
+	public User(int id, String name, String password, String address, String phone, String email, ArrayList<Review> reviews) {
 		this.id = id;
 		this.name = name;
 		this.password = password;
@@ -24,11 +24,11 @@ public class User {
 		this.reviews = reviews;
 	}
 
-	public String getId() {
+	public int getId() {
 		return id;
 	}
 	
-	public void setId(String id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 
