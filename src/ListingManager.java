@@ -73,7 +73,9 @@ public class ListingManager {
 			if(listing.getYearBuilt() <= yearBuilt) {
 				mathchingListings.add(listing);
 			}
-		}		Li
+		}		
+		
+		
 		return mathchingListings; 
 	}
 	public void printListings() {
@@ -87,7 +89,7 @@ public class ListingManager {
 		listing.toString();
 		System.out.println("What would you like to edit");
 		System.out.println(""
-				+ "Press 1 to edit agent "
+				+ "Press 1 to edit agent ID "
 				+ "\nPress 2 to edit price"
 				+ "\nPress 3 to edit address"
 				+ "\nPress 4 to edit the number of bedrooms "
@@ -98,39 +100,47 @@ public class ListingManager {
 		int choice = kb.nextInt();		
 		switch(choice) {
 		case 1:		
-			System.out.println("Please enter the modified agent");
+			System.out.println("Please enter the modified agent ID");
 			String agent = kb.nextLine();
+			listing.setAgentID(agent);
 			break; 			
 		case 2: 	
 			System.out.println("Please enter the modified price");
 			double price = kb.nextDouble();
+			listing.setPrice(price);
 			break;		
 			
 		case 3:		
 			System.out.println("Please enter the modified address");
 			String address = kb.nextLine();
+			listing.setAddress(address);
 			break;
 						
 		case 4:		
 			System.out.println("Please enter the modified number of bedrooms");
 			int numBed = kb.nextInt();
+			listing.setNumBedroom(numBed);
 			break;
 		
 		case 5:
 			System.out.println("Please enter the modified number of bathrooms");
 			int numbath = kb.nextInt();
+			listing.setNumBathroom(numbath);
 			break;
 		case 6:
 			System.out.println("Please enter the modified number of year built");
 			int yearBuilt = kb.nextInt();
+			listing.setYearBuilt(yearBuilt);
 			break;
 		case 7: 
 			System.out.println("Please enter the modified distance from campus");
 			double distance = kb.nextDouble();
+			listing.setDistFromCampus(distance);
 			break;
 		case 8:
 			System.out.println("Please enter the modified number avalible");
 			int numAvalible = kb.nextInt();
+			listing.setNumberAvalible(numAvalible);
 			break;
 	
 		}			
