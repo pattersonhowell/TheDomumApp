@@ -3,15 +3,11 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class ListingManager {
-	Scanner kb = Scanner(System.in);
+	Scanner kb = new Scanner(System.in);
 	private ArrayList<Listing> listings;	
 	
 	public void addListing(Listing listing) {
 		listings.add(listing);
-	}
-	private Scanner Scanner(InputStream in) {
-		// TODO Auto-generated method stub
-		return null;
 	}
 	public void removeListing(Listing listing) {
 		listings.remove(listing);

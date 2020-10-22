@@ -6,6 +6,7 @@
 		"address":"321 Avenue Dr",
 		"numBathroom":3,
 		"numBedroom":3,
+		"distFromCampus":5,
 		"reviews":[{
 			"authorID":"G303029",
 			"date":"2/3/2020",
@@ -21,6 +22,7 @@
 		"address":"300 Parklane St",
 		"numBathroom":1,
 		"numBedroom":2,
+		"distFromCampus":2,
 		"reviews":[{
 			"authorID":"D754765",
 			"date":"9/17/2020",
@@ -42,6 +44,7 @@
 		"numberAvailable":1,
 		"numBathroom":4,
 		"numBathroom":4,
+		"distFromCampus":7,
 		"reviews":[{
 			"authorID":"303029",
 			"date":"9/17/2020",
