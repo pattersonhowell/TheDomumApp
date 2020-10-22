@@ -2,7 +2,6 @@ import java.util.Scanner;
 
 public class HousingDriver {
 	private Systems systems = new Systems();
-	public UserManager userManager = new UserManager();
 	public Scanner kb = new Scanner(System.in);
 	
 	public HousingDriver() {};
