@@ -2,7 +2,7 @@ import java.util.ArrayList;
 
 public class Systems {
 
-	private ArrayList<String> users;
+	private ArrayList<User> users;
 	private ListingManager listingManager;
 	private UserManager userManager;
 	
@@ -13,7 +13,9 @@ public class Systems {
 		
 		if (users.contains(name)) {
 			index = users.indexOf(name);
-			reqPassword = users.get(index).getPassword;
+
+			reqPassword = users.get(index).getPassword();
+
 			
 			if (password.equals(reqPassword))
 				exists = true;
@@ -23,7 +25,9 @@ public class Systems {
 	
 	public void signUp(String name, String password, String address, String phone, String email) {
 		int id = users.size()+1;
-		ArrayList<String> reviews = new ArrayList<String>();
+
+		ArrayList<Review> reviews = new ArrayList<Review>();
+
 		
 		User newUser = new User(id, name, password, address, phone, email, reviews);
 	}
