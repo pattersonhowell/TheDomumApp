@@ -5,13 +5,16 @@ public class HousingDriver {
 	public UserManager userManager = new UserManager();
 	public Scanner kb = new Scanner(System.in);
 	
+	public HousingDriver() {};
+	
 	public static void main(String[] args) {
-		run();
+		HousingDriver driver = new HousingDriver();
+		driver.run();
 	}
 	
 	public void run() {
 		
-		System.out.println("Welcome to Domum! Enter the number respective to the menu option you would like to choose:\n1. Log in\n2. Create account\n3. Browse as guest\n");
+		System.out.println("Welcome to Domum! Enter the number respective to the menu option you would like to choose:\n(1) Log in\n(2) Create account\n(3) Browse as guest\n");
 		int option = kb.nextInt();
 		
 		switch(option) {
@@ -22,7 +25,7 @@ public class HousingDriver {
 				createAccountPage();
 				break;
 			case 3:
-				//continue browse as guest
+				homePage();
 				break;
 			default:
 				System.out.println("Invalid menu option, returning to welcome page\n");
@@ -33,41 +36,35 @@ public class HousingDriver {
 	}
 	
 	private void loginPage() {
-		System.out.println("Log in:\nEnter your username: ");
-		String username = kb.next();
-		//create temp user
-		boolean taken = userManager.userTaken(user);
+		System.out.println("--Log in--\nEnter your first and last name separated by a space: ");
+		String name = kb.next();
+		System.out.println("Please enter your password: ");
+		String password = kb.next();
 		
-		if(taken == true) {
-			System.out.println("Username: " + username + "\nPlease enter your password: ");
-			String password = kb.next();
-			boolean verified = systems.verifiedLogin(username, password);
-			
-			if(verified ==true)
-				homePage();
-			else {
-				System.out.println("Invalid password for user: " + user);
-				loginPage();
-			}
-		}
+		boolean verified = systems.verifiedLogin(name, password);
+		
+		if(verified == true)
+			homePage();
 		else {
-			System.out.println("That username isn't associated with an account\n1. Enter a different username\n2. Create new account");
+			System.out.println("Invalid login (1) Enter a different login, or (2) Return to welcome page");
 			int option = kb.nextInt();
 			
 			switch(option) {
-				case 1: 
-					loginPage();
-				case 2: 
-					createAccountPage();
-				default:
-					System.out.println("Invalid choice, returning to login page\n");
-					loginPage();
+			case 1:
+				loginPage();
+				break;
+			case 2:
+				run();
+				break;
+			default:
+				System.out.println("Invalid menu option, returning to welcome page");
+				run();
 			}
 		}
 	}
 	
 	private void createAccountPage() {
-		System.out.println("Create account:\nPlease enter your name: ");
+		System.out.println("--Create account--\nPlease enter your first and last name: ");
 		String name = kb.next();
 		System.out.println("Please enter a password: ");
 		String password = kb.next();
@@ -79,6 +76,29 @@ public class HousingDriver {
 		String email = kb.next();
 		
 		systems.signUp(name, password, address, phone, email);
+		loginPage();
 	}
 
+	private void homePage() {
+		ListingManager listingManager = new ListingManager();
+		System.out.println("Welcome to the Domum home page!\nWould you like to (1) Browse all listings, (2) Enter search preferences, or (3) Search listings by ID?");
+		int option = kb.nextInt();
+		
+		switch(option) {
+			case 1:
+				listingManager.showAllListings();
+				break;
+			case 2: 
+				//start search survey
+				break;
+			case 3:
+				System.out.println("Please enter the listing ID: ");
+				int id = kb.nextInt();
+				listingManager.findListing(id);
+				break;
+			default:
+				System.out.println("Invalid menu option, returning to home page");
+				homePage();
+		}
+	}
 }
