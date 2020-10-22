@@ -73,7 +73,7 @@ public class ListingManager {
 			if(listing.getYearBuilt() <= yearBuilt) {
 				mathchingListings.add(listing);
 			}
-		}		
+		}		Li
 		return mathchingListings; 
 	}
 	public void printListings() {
@@ -98,31 +98,39 @@ public class ListingManager {
 		int choice = kb.nextInt();		
 		switch(choice) {
 		case 1:		
-			System.out.println("Please enter the modified agent");				
+			System.out.println("Please enter the modified agent");
+			String agent = kb.nextLine();
 			break; 			
 		case 2: 	
 			System.out.println("Please enter the modified price");
+			double price = kb.nextDouble();
 			break;		
 			
 		case 3:		
 			System.out.println("Please enter the modified address");
+			String address = kb.nextLine();
 			break;
 						
 		case 4:		
 			System.out.println("Please enter the modified number of bedrooms");
+			int numBed = kb.nextInt();
 			break;
 		
 		case 5:
 			System.out.println("Please enter the modified number of bathrooms");
+			int numbath = kb.nextInt();
 			break;
 		case 6:
 			System.out.println("Please enter the modified number of year built");
+			int yearBuilt = kb.nextInt();
 			break;
 		case 7: 
 			System.out.println("Please enter the modified distance from campus");
+			double distance = kb.nextDouble();
 			break;
 		case 8:
 			System.out.println("Please enter the modified number avalible");
+			int numAvalible = kb.nextInt();
 			break;
 	
 		}			
