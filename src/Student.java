@@ -4,7 +4,7 @@ public class Student extends User {
 
 	private ArrayList<Integer> favoriteListings;
 	
-	public Student(String id, String name, String password, String address, String phone, String email, ArrayList<Review> reviews) {
+	public Student(int id, String name, String password, String address, String phone, String email, ArrayList<Review> reviews) {
 		super(id, name, password, address, phone, email, reviews);
 	}
 	
