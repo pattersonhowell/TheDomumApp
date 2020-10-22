@@ -62,7 +62,7 @@ public class Listing {
 		return address;
 	}
 
-	public void setAddress(String address) {
+	public void A(String address) {
 		this.address = address;
 	}
 
