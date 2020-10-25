@@ -80,7 +80,7 @@ public class ListingManager {
 			System.out.println(listing.toString());
 		}		
 	}
-	public void editListing(Listing listing) { //should this take in a Listing ID instead? 
+	public void editListing(Listing listing) {
 		System.out.println("Displaying the current Listing:");
 		listing.toString();
 		System.out.println("What would you like to edit");
