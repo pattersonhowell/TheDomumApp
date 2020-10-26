@@ -37,9 +37,12 @@ public class HousingDriver {
 	
 	private void loginPage() {
 		System.out.println("--Log in--\nEnter your first and last name separated by a space: ");
-		String name = kb.next();
+		String name = kb.nextLine();
+		
 		System.out.println("Please enter your password: ");
 		String password = kb.next();
+		kb.nextLine();
+		
 		
 		boolean verified = systems.verifiedLogin(name, password);
 		
@@ -51,6 +54,7 @@ public class HousingDriver {
 			
 			switch(option) {
 			case 1:
+				kb.nextLine();
 				loginPage();
 				break;
 			case 2:
@@ -65,15 +69,26 @@ public class HousingDriver {
 	
 	private void createAccountPage() {
 		System.out.println("--Create account--\nPlease enter your first and last name: ");
-		String name = kb.next();
+		kb.nextLine();
+		String name = kb.nextLine(); 
+		
+		
 		System.out.println("Please enter a password: ");
 		String password = kb.next();
+		kb.nextLine();
+		
 		System.out.println("Please enter your address (Ex: 123 Love Street, Apt #2, Columbia, SC, 12345): ");
-		String address = kb.next();
+		String address = kb.nextLine();
+		
 		System.out.println("Please enter your phone number (no special characters): ");
 		String phone = kb.next();
+		kb.nextLine();
+		
 		System.out.println("Please enter your email: ");
 		String email = kb.next();
+		kb.nextLine();
+		
+		
 		
 		systems.signUp(name, password, address, phone, email);
 		loginPage();

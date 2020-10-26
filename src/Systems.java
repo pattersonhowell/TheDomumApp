@@ -15,7 +15,7 @@ public class Systems {
 		
 		for(int i = 0; i < manager.users.size(); i++) {
 			if (manager.users.get(i).getName().equals(name)) {
-				System.out.println("found it");
+				//System.out.println("found it");
 				
 
 
@@ -47,7 +47,7 @@ public class Systems {
 		
 		manager.addUser(id, name, password, address, phone, email);
 		System.out.println(manager.users.size());
-		System.out.println(manager.users.get(0).getName());
+		System.out.println(manager.users);
 		
 	}
 	
