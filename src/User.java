@@ -1,5 +1,8 @@
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -85,29 +88,53 @@ public class User {
 				+ address + "\nPhone: " + phone + "\nEmail: " + email;
 	}
 	
-	public void generateUserAgreement() throws FileNotFoundException {
-		
-		Scanner fileIn = new Scanner(new File("LeasingAgreement.txt"));
-		
-		while(fileIn.hasNextLine()) {
-			
-			String userAgreement = fileIn.nextLine();
-			System.out.println(userAgreement);
-			
+	public void generateUserAgreement() {		
+		try {	
+			File fileRead  = new File("/DomumApp/src/LeasingAgreement.txt");
+			File fileWrite  = new File("/DomumApp/src/LeasingAgreement"+"test");
+			Scanner scan = new Scanner(fileRead);		
+			if (!fileWrite.exists()) {//create new file for lease to be shown 
+				fileWrite.createNewFile();
+			  }	
+			FileWriter file = new FileWriter(fileWrite);
+		    BufferedWriter output = new BufferedWriter(file);		      
+		    String line ="";
+		    while(scan.hasNextLine()) {
+		    	line = scan.nextLine();
+		    	
+		    	//Fill in blanks with IF line.contains 
+		    	output.write(line+"\n");
+		    	  		    		    	    	
+		    }
+		    output.close();//close IO devices
+		    scan.close();
+		} catch (IOException e) {
+			e.printStackTrace();
 		}
-		fileIn.close();
-	}
-	
-	public void generateApplication() throws FileNotFoundException {
-		
-		Scanner fileIn = new Scanner(new File("Application.txt"));
-		
-		while(fileIn.hasNextLine()) {
-			
-			String application = fileIn.nextLine();
-			System.out.println(application);
+	}	
+	public void generateApplication()  {
+		try {	
+			File fileRead  = new File("/DomumApp/src/Application.txt");
+			File fileWrite  = new File("/DomumApp/src/Application"+"test");
+			Scanner scan = new Scanner(fileRead);		
+			if (!fileWrite.exists()) {//create new file for lease to be shown 
+				fileWrite.createNewFile();
+			  }	
+			FileWriter file = new FileWriter(fileWrite);
+		    BufferedWriter output = new BufferedWriter(file);		      
+		    String line ="";
+		    while(scan.hasNextLine()) {
+		    	line = scan.nextLine();
+		    	
+		    	//Fill in blanks with IF line.contains 
+		    	output.write(line+"\n");
+		    	  		    		    	    	
+		    }
+		    output.close();//close IO devices
+		    scan.close();
+		} catch (IOException e) {
+			e.printStackTrace();
 		}
-		fileIn.close();
-	}
-	
+	}		
 }
+	
