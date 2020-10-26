@@ -3,7 +3,7 @@ import java.util.ArrayList;
 
 public class Systems {
 
-	//private ArrayList<User> users;
+	
 	private ListingManager listingManager;
 	//private UserManager userManager;
 	UserManager manager = UserManager.getInstance();
@@ -14,9 +14,9 @@ public class Systems {
 		String reqPassword;
 		
 		for(int i = 0; i < manager.users.size(); i++) {
-			if (manager.users.get(i).getName().contains(name)) {
+			if (manager.users.get(i).getName().equals(name)) {
 				System.out.println("found it");
-				//index = i;
+				
 
 
 			reqPassword = manager.users.get(i).getPassword();
@@ -38,14 +38,13 @@ public class Systems {
 	
 	public void signUp(String name, String password, String address, String phone, String email) {
 		
-		UserManager manager = UserManager.getInstance();
+		
 		
 		int id = 0; //users.size()+1;
 
 		ArrayList<Review> reviews = new ArrayList<Review>();
 
 		
-		//User newUser = new User(id, name, password, address, phone, email);//reviews);
 		manager.addUser(id, name, password, address, phone, email);
 		System.out.println(manager.users.size());
 		System.out.println(manager.users.get(0).getName());
