@@ -17,14 +17,14 @@ public class User {
 	private String email;
 	public ArrayList<Review> reviews;
 	
-	public User(int id, String name, String password, String address, String phone, String email, ArrayList<Review> reviews) {
+	public User(int id, String name, String password, String address, String phone, String email)  {// ArrayList<Review> reviews) {
 		this.id = id;
 		this.name = name;
 		this.password = password;
 		this.address = address;
 		this.phone = phone;
 		this.email = email;
-		this.reviews = reviews;
+		//this.reviews = reviews;
 	}
 
 	public int getId() {

@@ -13,6 +13,7 @@ public class HousingDriver {
 	
 	public void run() {
 		
+		
 		System.out.println("Welcome to Domum! Enter the number respective to the menu option you would like to choose:\n(1) Log in\n(2) Create account\n(3) Browse as guest\n");
 		int option = kb.nextInt();
 		
