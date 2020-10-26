@@ -3,15 +3,11 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class ListingManager {
-	Scanner kb = Scanner(System.in);
-	private ArrayList<Listing> listings;	
+	Scanner kb = new Scanner(System.in);
+	private ArrayList<Listing> listings = ListingLoader.loadListings();
 	
 	public void addListing(Listing listing) {
 		listings.add(listing);
-	}
-	private Scanner Scanner(InputStream in) {
-		// TODO Auto-generated method stub
-		return null;
 	}
 	public void removeListing(Listing listing) {
 		listings.remove(listing);
@@ -84,7 +80,7 @@ public class ListingManager {
 			System.out.println(listing.toString());
 		}		
 	}
-	public void editListing(Listing listing) { //should this take in a Listing ID instead? 
+	public void editListing(Listing listing) {
 		System.out.println("Displaying the current Listing:");
 		listing.toString();
 		System.out.println("What would you like to edit");

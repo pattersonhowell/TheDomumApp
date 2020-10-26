@@ -1,14 +1,14 @@
 
 public class Review {
 	
-	public String author; 
+	public String authorID;
 	public String date;
 	public String reviewText;
 	public int rating; 
 	
-	public Review(int rating, String author, String date,String reviewText) {
+	public Review(int rating, String authorID, String date,String reviewText) {
 		this.rating = rating; 
-		this.author = author;
+		this.authorID = authorID;
 		this.date = date;
 		this.reviewText = reviewText; 
 	}

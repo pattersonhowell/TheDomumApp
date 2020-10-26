@@ -1,34 +1,14 @@
 RENTAL APPLICATION 
+Address: 
+Price: 
 
-Address: _____________________________
-City: ___________________________
-State:____________________
-Zip: ________________________
 
 APPLICANT INFORMATION 
-Name:________________________
-Phone: ________________________
-Email:________________________
-SSN: ________________________
-Driver License Number: ________________________
-Date of Birth: ________________________
-Current Address:: ________________________
-Reason For Moving: : ________________________
-Student ID: : ________________________
+Name:
+Phone: 
+Email:
+Student ID:
 
 
-CO-Sign Information 
-Name:________________________
-Phone: ________________________
-Email:________________________
-SSN: ________________________
-Driver License Number: ________________________
-Date of Birth: ________________________
-Annual Income:________________________
-Current Employer:_______________________
 
 
-Additional Information 
-(Y or N) Has the Applicant ever filed bankruptcy?
-(Y or N) Has the Applicant ever been evicted?
-(Y or N) Has the Applicant ever refused to pay rent?
