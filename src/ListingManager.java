@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class ListingManager {
 	Scanner kb = new Scanner(System.in);
-	private ArrayList<Listing> listings;	
+	private ArrayList<Listing> listings = ListingLoader.loadListings();
 	
 	public void addListing(Listing listing) {
 		listings.add(listing);

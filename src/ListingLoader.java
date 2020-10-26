@@ -9,7 +9,7 @@ public class ListingLoader {
 
 	private static final String FILE_LOCATION = "database/listing.json";
 	// TODO Still needs to interface with ListingManager
-	public ArrayList<Listing> loadListings() {
+	public static ArrayList<Listing> loadListings() {
 		Gson gson = new Gson();
 		ArrayList<Listing> listings = new ArrayList<>();
 
