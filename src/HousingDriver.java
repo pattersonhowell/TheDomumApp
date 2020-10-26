@@ -19,6 +19,7 @@ public class HousingDriver {
 		
 		switch(option) {
 			case 1:
+				kb.nextLine();
 				loginPage();
 				break;
 			case 2:
