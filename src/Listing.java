@@ -120,8 +120,9 @@ public class Listing {
 	}
 	
 	
+	
 
-	public void generateLease() {	//This needs some way of getting userData and listing Data	
+	public void generateLease(User user) {	//This needs some way of getting userData and listing Data	
 		try {	
 			File fileRead  = new File("/DomumApp/src/LeasingAgreement.txt");
 			File fileWrite  = new File("/DomumApp/src/LeasingAgreement"+"test");
