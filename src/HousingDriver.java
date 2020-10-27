@@ -116,6 +116,12 @@ public class HousingDriver {
 
 	private void homePage() {
 		ListingManager listingManager = new ListingManager();
+		double price;
+		double distance;
+		int bath;
+		int bed;
+		int yearBuilt;
+		
 		System.out.println("/nWelcome to the Domum home page!\nWould you like to (1) Browse all listings, (2) Enter search preferences, or (3) Search listings by ID?");
 		int option = kb.nextInt();
 		
@@ -124,7 +130,13 @@ public class HousingDriver {
 				listingManager.printListings();
 				break;
 			case 2: 
-				//start search survey
+				System.out.println("/nListing Search:/nSet your preferences for each search parameter, if you don't have a preference enter 'pass'");
+				System.out.println("What is your maximum price?");
+				price = kb.nextDouble();
+				System.out.println("What is your maximum distance from campus? (in miles)");
+				distance = kb.nextDouble();
+				System.out.println("What is the minimum number of bathrooms");
+				//continue search
 				break;
 			case 3:
 				System.out.println("Please enter the listing ID: ");
