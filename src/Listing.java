@@ -16,6 +16,11 @@ public class Listing {
 	protected int numberAvalible; 
 	protected int yearBuilt;
 	protected double distFromCampus; 
+	protected boolean freeWifi;
+	protected boolean laundry; 
+	protected boolean petFriendly;
+	protected boolean pool;
+	protected boolean furnished; 
 
 	public Listing(int listingID, String agentID, double price, String address, int numBathroom, int numBedroom,
 			ArrayList<Review> reviews, int numberAvalible, int yearBuilt, double distFromCampus) {
@@ -109,13 +114,55 @@ public class Listing {
 
 	public void setDistFromCampus(double distFromCampus) {
 		this.distFromCampus = distFromCampus;
+	}	
+	public boolean isFreeWifi() {
+		return freeWifi;
 	}
+
+	public void setFreeWifi(boolean freeWifi) {
+		this.freeWifi = freeWifi;
+	}
+
+	public boolean isLaundry() {
+		return laundry;
+	}
+
+	public void setLaundry(boolean laundry) {
+		this.laundry = laundry;
+	}
+
+	public boolean isPetFriendly() {
+		return petFriendly;
+	}
+
+	public void setPetFriendly(boolean petFriendly) {
+		this.petFriendly = petFriendly;
+	}
+
+	public boolean isPool() {
+		return pool;
+	}
+
+	public void setPool(boolean pool) {
+		this.pool = pool;
+	}
+
+	public boolean isFurnished() {
+		return furnished;
+	}
+
+	public void setFurnished(boolean furnished) {
+		this.furnished = furnished;
+	}		
+
+	@Override
 	public String toString() {
 		return "Listing [listingID=" + listingID + ", agentID=" + agentID + ", price=" + price + ", address=" + address
-				+ ", numBathroom=" + numBathroom + ", numBedroom=" + numBedroom + ", reviews=" + reviews
-				+ ", numberAvalible=" + numberAvalible + ", yearBuilt=" + yearBuilt + ", distFromCampus="
-				+ distFromCampus + "]";
-	}	
+				+ ", numBathroom=" + numBathroom + ", numBedroom=" + numBedroom + ", numberAvalible=" + numberAvalible
+				+ ", yearBuilt=" + yearBuilt + ", distFromCampus=" + distFromCampus + ", freeWifi=" + freeWifi
+				+ ", laundry=" + laundry + ", petFriendly=" + petFriendly + ", pool=" + pool + ", furnished="
+				+ furnished + "]";
+	}
 
 	public void generateLease(Student student) {
 		try {	
