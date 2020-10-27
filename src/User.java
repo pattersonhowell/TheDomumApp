@@ -88,7 +88,7 @@ public class User {
 				+ address + "\nPhone: " + phone + "\nEmail: " + email;
 	}
 	
-	public void generateLease() {		
+	public void generateLease() {	//This needs some way of getting userData and listing Data	
 		try {	
 			File fileRead  = new File("/DomumApp/src/LeasingAgreement.txt");
 			File fileWrite  = new File("/DomumApp/src/LeasingAgreement"+"test");
@@ -100,33 +100,22 @@ public class User {
 		    BufferedWriter output = new BufferedWriter(file);		      
 		    String line ="";
 		    while(scan.hasNextLine()) {
-		    	line = scan.nextLine();
+		    	line = scan.nextLine(); 			    	
 		    	
-		    	
-		    	
-		    	if(line.contains("Agent:")) {
-		    		
-		    	}
-		    	if(line.contains("Agent:")) {
-		    		
+		    	if(line.contains("Tenant:")) {
+		    		 output.write(line+this.getName()+"\n");
 		    	}		    	
-		    	if(line.contains("Agent:")) {
-		    		
-		    	}
-		    	if(line.contains("Agent:")) {
-		    		
-		    	}		    		
-		    	if(line.contains("Agent:")) {
-		    		
-		    	}		    	
+		    	else if(line.contains("Address:")) {
+		    		output.write(line+this.getAddress()+"\n");
+		    	}		    	   		    		
+		    	else if(line.contains("Tenant Signature:")) {
+		    		output.write(line+this.getName()+"\n");
+		    	}	
+		    	else {
+			    	output.write(line+"\n");
+
+		    	}      		 
 		    	
-		    	
-		    	
-		    	
-		    	
-		    	
-		    	
-		    	output.write(line+"\n");
 		    	  		    		    	    	
 		    }
 		    output.close();//close IO devices
@@ -135,7 +124,7 @@ public class User {
 			e.printStackTrace();
 		}
 	}	
-	public void generateApplication()  {
+	public void generateApplication()  {//This needs some way of getting userData and listing Data	
 		try {	
 			File fileRead  = new File("/DomumApp/src/Application.txt");
 			File fileWrite  = new File("/DomumApp/src/Application"+"test");

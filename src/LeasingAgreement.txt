@@ -1,15 +1,10 @@
 Leasing Agreement Template 
 
-Agent: 
-
 Tenant: 
 
 The landlord herby agrees to lease the property located at: 
 
 Address: 
-
-The agreed amount of $:
-Shall be paid every month. 
 
 1.  USE OF PROPERTY 
 The property shall only be used for residentaial purposes. 
@@ -23,8 +18,5 @@ Tenant shall be responsible for arranging for and paying for all utility service
 4. ABANDONMENT
 . If at any time during the Term of this Standard Lease Agreement Tenant abandons the Property or any part thereof, 
 Landlord may, at Landlord's option, obtain possession of the Property in the manner provided by law
-
-
-Agent Signature: 
 
 Tenant Signature: 
