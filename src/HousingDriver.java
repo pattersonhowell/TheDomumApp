@@ -116,12 +116,12 @@ public class HousingDriver {
 
 	private void homePage() {
 		ListingManager listingManager = new ListingManager();
-		System.out.println("Welcome to the Domum home page!\nWould you like to (1) Browse all listings, (2) Enter search preferences, or (3) Search listings by ID?");
+		System.out.println("/nWelcome to the Domum home page!\nWould you like to (1) Browse all listings, (2) Enter search preferences, or (3) Search listings by ID?");
 		int option = kb.nextInt();
 		
 		switch(option) {
 			case 1:
-				listingManager.showAllListings();
+				listingManager.printListings();
 				break;
 			case 2: 
 				//start search survey
