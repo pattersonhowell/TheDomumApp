@@ -88,7 +88,7 @@ public class User {
 				+ address + "\nPhone: " + phone + "\nEmail: " + email;
 	}
 	
-	public void generateUserAgreement() {		
+	public void generateLease() {		
 		try {	
 			File fileRead  = new File("/DomumApp/src/LeasingAgreement.txt");
 			File fileWrite  = new File("/DomumApp/src/LeasingAgreement"+"test");
@@ -102,7 +102,30 @@ public class User {
 		    while(scan.hasNextLine()) {
 		    	line = scan.nextLine();
 		    	
-		    	//Fill in blanks with IF line.contains 
+		    	
+		    	
+		    	if(line.contains("Agent:")) {
+		    		
+		    	}
+		    	if(line.contains("Agent:")) {
+		    		
+		    	}		    	
+		    	if(line.contains("Agent:")) {
+		    		
+		    	}
+		    	if(line.contains("Agent:")) {
+		    		
+		    	}		    		
+		    	if(line.contains("Agent:")) {
+		    		
+		    	}		    	
+		    	
+		    	
+		    	
+		    	
+		    	
+		    	
+		    	
 		    	output.write(line+"\n");
 		    	  		    		    	    	
 		    }
