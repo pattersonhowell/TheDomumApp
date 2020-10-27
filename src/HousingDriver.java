@@ -1,10 +1,18 @@
 import java.util.Scanner;
 
 public class HousingDriver {
+	
 	private Systems systems = new Systems();
 	public Scanner kb = new Scanner(System.in);
+	private boolean welcome;
+	private boolean login;
+	private boolean home;
 	
-	public HousingDriver() {};
+	public HousingDriver() {
+		welcome = false;
+		login = false;
+		home = false;
+	}
 	
 	public static void main(String[] args) {
 		HousingDriver driver = new HousingDriver();
@@ -13,6 +21,20 @@ public class HousingDriver {
 	
 	public void run() {
 		
+		while (welcome = false) {
+			welcomePage();
+		}
+		
+		while (login = false) {
+			loginPage();
+		}
+		
+		while (home = false) {
+			homePage();
+		}
+	}
+	
+	private void welcomePage() {
 		
 		System.out.println("Welcome to Domum! Enter the number respective to the menu option you would like to choose:\n(1) Log in\n(2) Create account\n(3) Browse as guest\n");
 		int option = kb.nextInt();
@@ -20,20 +42,17 @@ public class HousingDriver {
 		switch(option) {
 			case 1:
 				kb.nextLine();
-				loginPage();
+				welcome = true;
 				break;
 			case 2:
 				createAccountPage();
 				break;
 			case 3:
-				homePage();
+				login = true;
 				break;
 			default:
 				System.out.println("Invalid menu option, returning to welcome page\n");
-				run();
 		}
-		
-		
 	}
 	
 	private void loginPage() {
@@ -92,7 +111,6 @@ public class HousingDriver {
 		
 		
 		systems.signUp(name, password, address, phone, email);
-		loginPage();
 	}
 
 	private void homePage() {
@@ -114,7 +132,7 @@ public class HousingDriver {
 				break;
 			default:
 				System.out.println("Invalid menu option, returning to home page");
-				homePage();
+				
 		}
 	}
 }
