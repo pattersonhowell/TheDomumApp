@@ -110,22 +110,17 @@ public class Listing {
 	public void setDistFromCampus(double distFromCampus) {
 		this.distFromCampus = distFromCampus;
 	}
-
-	//temporary toString
 	public String toString() {
 		return "Listing [listingID=" + listingID + ", agentID=" + agentID + ", price=" + price + ", address=" + address
 				+ ", numBathroom=" + numBathroom + ", numBedroom=" + numBedroom + ", reviews=" + reviews
 				+ ", numberAvalible=" + numberAvalible + ", yearBuilt=" + yearBuilt + ", distFromCampus="
 				+ distFromCampus + "]";
-	}
-	
-	
-	
+	}	
 
-	public void generateLease(User user) {	//This needs some way of getting userData and listing Data	
+	public void generateLease(Student student) {
 		try {	
-			File fileRead  = new File("/DomumApp/src/LeasingAgreement.txt");
-			File fileWrite  = new File("/DomumApp/src/LeasingAgreement"+"test");
+			File fileRead  = new File("/DomumApp/TextFiles/LeasingAgreement.txt");
+			File fileWrite  = new File("/DomumApp/TextFiles/LeasingAgreement"+student.getName());
 			Scanner scan = new Scanner(fileRead);		
 			if (!fileWrite.exists()) {//create new file for lease to be shown 
 				fileWrite.createNewFile();
@@ -134,23 +129,22 @@ public class Listing {
 		    BufferedWriter output = new BufferedWriter(file);		      
 		    String line ="";
 		    while(scan.hasNextLine()) {
-		    	line = scan.nextLine(); 			    	
-		    	
+		    	line = scan.nextLine(); 	   	
 		    	if(line.contains("Tenant:")) {
-		    		 output.write(line+this.getName()+"\n");
+		    		 output.write(line +student.getName() +"\n");
 		    	}		    	
 		    	else if(line.contains("Address:")) {
-		    		output.write(line+this.getAddress()+"\n");
+		    		output.write(line+this.getAddress()+ "\n");
 		    	}		    	   		    		
-		    	else if(line.contains("Tenant Signature:")) {
-		    		output.write(line+this.getName()+"\n");
+		    	else if(line.contains(":$")) {
+		    		output.write(line+this.getPrice()+"\n");
 		    	}	
-		    	else {
-			    	output.write(line+"\n");
-
-		    	}      		 
-		    	
-		    	  		    		    	    	
+		    	else  if (line.contains("Tenant Signature:")){
+			    	output.write(line+student.getName()+"\n");
+		    	}
+		    	else {		    	
+		    		output.write(line+"\n");
+		    	}		    	  		    		    	    	
 		    }
 		    output.close();//close IO devices
 		    scan.close();
@@ -158,10 +152,10 @@ public class Listing {
 			e.printStackTrace();
 		}
 	}	
-	public void generateApplication()  {//This needs some way of getting userData and listing Data	
+	public void generateApplication(Student student)  {	
 		try {	
-			File fileRead  = new File("/DomumApp/src/Application.txt");
-			File fileWrite  = new File("/DomumApp/src/Application"+"test");
+			File fileRead  = new File("/DomumApp/TextFiles/Application.txt");
+			File fileWrite  = new File("/DomumApp/TextFiles/Application"+student.getName());
 			Scanner scan = new Scanner(fileRead);		
 			if (!fileWrite.exists()) {//create new file for lease to be shown 
 				fileWrite.createNewFile();
@@ -172,10 +166,26 @@ public class Listing {
 		    while(scan.hasNextLine()) {
 		    	line = scan.nextLine();
 		    	
-		    	//Fill in blanks with IF line.contains 
-		    	output.write(line+"\n");
-		    	  		    		    	    	
+		    if(line.contains("Address:")) {
+		    	output.write(line+this.getAddress()+ "\n");
+		    }	
+		    else if (line.contains("Price:")) {
+		    	output.write(line+this.getPrice()+ "\n");
 		    }
+		    else if (line.contains("Name:")) {
+		    	output.write(line + student.getName()+ "\n");
+		    }
+		    else if (line.contains("Phone:")) {
+		    	output.write(line+ student.getPhone() + "\n");
+		    }		    	
+		    else if (line.contains("Email:")) {
+		    	output.write(line+student.getEmail()+ "\n");
+		    }		    	
+		    else if (line.contains("Student ID:")) {
+		    	output.write(line+ student.getId()+ "\n");
+		    }	   	
+  		    		    	    	
+		   }
 		    output.close();//close IO devices
 		    scan.close();
 		} catch (IOException e) {
