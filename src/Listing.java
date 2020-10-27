@@ -32,7 +32,7 @@ public class Listing {
 		this.numBathroom = numBathroom;
 		this.numBedroom = numBedroom;
 		this.reviews = reviews;
-		this.numberAvalible = numberAvalible;
+		this.numberAvalible = numberAvalible;		
 		this.yearBuilt = yearBuilt;
 		this.distFromCampus = distFromCampus;
 		this.freeWifi = freeWifi;
@@ -41,7 +41,8 @@ public class Listing {
 		this.pool = pool; 
 		this.furnished = furnished; 
 	}
-
+	
+	
 	public ArrayList<Review> getReview() {
 		return this.reviews;
 	}

@@ -9,13 +9,13 @@ public class ListingManager {
 		ArrayList<Review> blueHouseRev = new ArrayList<Review>();
 		Review myRev = new Review(5,"authorID","10/10/20","The best");				
 		blueHouseRev.add(myRev);
-		Listing blueHouse = new Listing(001,"72892%String",500.50,"672 School Drive",5,3,blueHouseRev,1,1960,4.0);
+		Listing blueHouse = new Listing(001,"72892%String",500.50,"672 School Drive",5,3,blueHouseRev,1,1960,4.0,true,true,false,false,true);
 		listings.add(blueHouse);
 			
 		ArrayList<Review> redHouseRev = new ArrayList<Review>();
 		Review myRev1 = new Review(5,"authorID","10/10/20","The best");				
 		redHouseRev.add(myRev1);
-		Listing redHouse = new Listing(001,"12323",1100,"555 Timber Lane",1,1,redHouseRev,1,2020,15.3);
+		Listing redHouse = new Listing(001,"12323",1100,"555 Timber Lane",1,1,redHouseRev,1,2020,15.3,true,true,false,false,true);
 		listings.add(redHouse);		
 			
 	}
@@ -65,7 +65,7 @@ public class ListingManager {
 	public ArrayList<Listing> numBathSearch(int numBath) {
 		ArrayList<Listing> mathchingListings = new ArrayList<Listing>();
 		for (Listing listing: listings) {
-			if(listing.getNumBathroom() = numBath) {
+			if(listing.getNumBathroom() >= numBath) {
 				mathchingListings.add(listing);
 			}
 		}		
@@ -88,8 +88,52 @@ public class ListingManager {
 			}
 		}				
 		return mathchingListings; 
-	}	
-	
+	}		
+	public ArrayList<Listing> laundrySearch() {
+		ArrayList<Listing> mathchingListings = new ArrayList<Listing>();
+		for(Listing listing: listings) {
+			if(listing.isLaundry()==true) {
+				mathchingListings.add(listing);
+			}
+		}
+		return mathchingListings; 		
+	}
+	public ArrayList<Listing> petFriendlySearch() {
+		ArrayList<Listing> mathchingListings = new ArrayList<Listing>();
+		for(Listing listing: listings) {
+			if(listing.isPetFriendly()==true) {
+				mathchingListings.add(listing);
+			}
+		}
+		return mathchingListings; 		
+	}
+	public ArrayList<Listing> hasPoolSearch() {
+		ArrayList<Listing> mathchingListings = new ArrayList<Listing>();
+		for(Listing listing: listings) {
+			if(listing.isPool()==true) {
+				mathchingListings.add(listing);
+			}
+		}
+		return mathchingListings; 		
+	}
+	public ArrayList<Listing> hasFreeWifiSearch() {
+		ArrayList<Listing> mathchingListings = new ArrayList<Listing>();
+		for(Listing listing: listings) {
+			if(listing.isFreeWifi()==true) {
+				mathchingListings.add(listing);
+			}
+		}
+		return mathchingListings; 		
+	}
+	public ArrayList<Listing> isFurnishedSearch() {
+		ArrayList<Listing> mathchingListings = new ArrayList<Listing>();
+		for(Listing listing: listings) {
+			if(listing.isFurnished()==true) {
+				mathchingListings.add(listing);
+			}
+		}
+		return mathchingListings; 		
+	}
 	public void printListings() {
 		System.out.println("Printing Listings");
 		for (Listing listing: listings) {
@@ -145,12 +189,84 @@ public class ListingManager {
 			}
 		}
 	}		
-	public void enterNumAvalible(Listing listing, int numAvalible) {
+	public void editNumAvalible(Listing listing, int numAvalible) {
 		for(Listing x:listings) {
 			if(x==listing) {
 				x.setNumberAvalible(numAvalible);
 			}
 		}			
 	}
+	
+	public void editFreeWifiStatus(Listing listing,boolean value) {
+		for(Listing x:listings) {
+			if(x==listing) {
+				x.setFreeWifi(value);
+			}
+		}		
+	}
+	public void editLaundryStatus(Listing listing,boolean value) {
+		for(Listing x:listings) {
+			if(x==listing) {
+				x.setLaundry(value);
+			}
+		}		
+	}
+	public void editPetFriendlyStatus(Listing listing,boolean value) {
+		for(Listing x:listings) {
+			if(x==listing) {
+				x.setPetFriendly(value);
+			}
+		}		
+	}
+	public void editPoolStatus(Listing listing,boolean value) {
+		for(Listing x:listings) {
+			if(x==listing) {
+				x.setPool(value);
+			}
+		}		
+	}
+	public void editFurnishedStatus(Listing listing,boolean value) {
+		for(Listing x:listings) {
+			if(x==listing) {
+				x.setFurnished(value);
+			}
+		}		
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 }			
 
