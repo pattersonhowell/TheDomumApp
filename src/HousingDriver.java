@@ -75,14 +75,13 @@ public class HousingDriver {
 			switch(option) {
 			case 1:
 				kb.nextLine();
-				loginPage();
 				break;
 			case 2:
-				run();
+				welcomePage();
 				break;
 			default:
 				System.out.println("Invalid menu option, returning to welcome page");
-				run();
+				welcomePage();
 			}
 		}
 	}
