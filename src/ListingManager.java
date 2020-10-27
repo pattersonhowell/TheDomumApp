@@ -1,18 +1,29 @@
 import java.util.ArrayList;
 
 public class ListingManager {
-	public static ArrayList<Listing> listings; //= ListingLoader.loadListings();
+	public static ArrayList<Listing> listings = new ArrayList<>(); //= ListingLoader.loadListings();
 	
-	public static ListingManager listingManager;
+	//public static ListingManager listingManager;
 	
 	public ListingManager() {
-		listings = ListingLoader.loadListings();
+		ArrayList<Review> blueHouseRev = new ArrayList<Review>();
+		Review myRev = new Review(5,"authorID","10/10/20","The best");				
+		blueHouseRev.add(myRev);
+		Listing blueHouse = new Listing(001,"72892%String",500.50,"672 School Drive",5,3,blueHouseRev,1,1960,4.0);
+		listings.add(blueHouse);
+			
+		ArrayList<Review> redHouseRev = new ArrayList<Review>();
+		Review myRev1 = new Review(5,"authorID","10/10/20","The best");				
+		redHouseRev.add(myRev1);
+		Listing redHouse = new Listing(001,"12323",1100,"555 Timber Lane",1,1,redHouseRev,1,2020,15.3);
+		listings.add(redHouse);		
+			
 	}
 	
-	public static ListingManager getInstance() {
-		if(listingManager == null) listingManager = new ListingManager();
-		return listingManager;
-	}
+//	public static ListingManager getInstance() {
+//		if(listingManager == null) listingManager = new ListingManager();
+//		return listingManager;
+//	}
 	
 	
 	
