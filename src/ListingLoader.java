@@ -3,6 +3,8 @@ import java.io.FileReader;
 import java.util.ArrayList;
 
 import com.google.gson.*;
+import com.google.gson.reflect.TypeToken;
+import com.google.gson.stream.JsonReader;
 
 public class ListingLoader extends DataConstants{
 
@@ -11,14 +13,18 @@ public class ListingLoader extends DataConstants{
 	// TODO Still needs to interface with ListingManager
 	public static ArrayList<Listing> loadListings() {
 		Gson gson = new Gson();
-		//ArrayList<Listing> listings = new ArrayList<>();
+//		ArrayList<Listing> listings = new ArrayList<>();
 
 		try {
 			// TODO Trying something else on this: Instead, try making the Parser's output an object instead?
+//			private static final Type SOMETHING = new TypeToken<>();
+			JsonReader jsonReader = new JsonReader(new FileReader(LISTING_FILE_LOCATION));
+			jsonReader.beginArray();
+//			JsonArray jsonArray = (JsonArray);
 //			JsonArray jsonArray= (JsonArray)JsonParser.parseReader(new FileReader(LISTING_FILE_LOCATION));
-			JsonArray jsonArray = new JsonArray();
-			JsonObject jParserOut = (JsonObject)JsonParser.parseReader(new FileReader(LISTING_FILE_LOCATION));
-			jsonArray.add(jParserOut);
+//			JsonArray jsonArray = new JsonArray();
+//			JsonObject jParserOut = (JsonObject)JsonParser.parseReader(new FileReader(LISTING_FILE_LOCATION));
+//			jsonArray.add(jParserOut);
 			System.out.println(jsonArray); // TODO Debug, remove after this is fixed
 			for (int i = 0; i < jsonArray.size(); i++) {
 				JsonObject listingJSON = (JsonObject)jsonArray.get(i);
