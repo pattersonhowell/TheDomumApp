@@ -111,6 +111,7 @@ public class HousingDriver {
 		
 		
 		systems.signUp(name, password, address, phone, email);
+		welcome = true;
 	}
 
 	private void homePage() {
