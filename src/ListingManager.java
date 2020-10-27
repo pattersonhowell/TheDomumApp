@@ -20,8 +20,7 @@ public class ListingManager {
 		}
 		System.out.println("Could not find Listing with that ID");
 		return null;		
-	}
-	
+	}	
 	public ArrayList<Listing> priceSearch(double price) {	
 		ArrayList<Listing> mathchingListings = new ArrayList<Listing>();
 		for (Listing listing: listings) {
@@ -30,8 +29,7 @@ public class ListingManager {
 			}
 		}		
 		return mathchingListings; 
-	}
-	
+	}	
 	public ArrayList<Listing> distFromCampusSearch(double distance) {
 		ArrayList<Listing> mathchingListings = new ArrayList<Listing>();
 		for (Listing listing: listings) {
@@ -40,8 +38,7 @@ public class ListingManager {
 			}
 		}		
 		return mathchingListings; 
-	}
-	
+	}	
 	public ArrayList<Listing> numBathSearch(int numBath) {
 		ArrayList<Listing> mathchingListings = new ArrayList<Listing>();
 		for (Listing listing: listings) {
@@ -108,10 +105,7 @@ public class ListingManager {
 			if(x==listing) {
 				x.setNumBathroom(numBath);
 			}
-		}	
-		
-		
-		
+		}		
 	}	
 	public void editYearBuilt(Listing listing, int yearBuilt) {
 		for(Listing x:listings) {

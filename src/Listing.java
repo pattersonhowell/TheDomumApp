@@ -1,4 +1,9 @@
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class Listing {
 	public int listingID;
@@ -113,4 +118,115 @@ public class Listing {
 				+ ", numberAvalible=" + numberAvalible + ", yearBuilt=" + yearBuilt + ", distFromCampus="
 				+ distFromCampus + "]";
 	}
+	
+	
+
+	public void generateLease() {	//This needs some way of getting userData and listing Data	
+		try {	
+			File fileRead  = new File("/DomumApp/src/LeasingAgreement.txt");
+			File fileWrite  = new File("/DomumApp/src/LeasingAgreement"+"test");
+			Scanner scan = new Scanner(fileRead);		
+			if (!fileWrite.exists()) {//create new file for lease to be shown 
+				fileWrite.createNewFile();
+			  }	
+			FileWriter file = new FileWriter(fileWrite);
+		    BufferedWriter output = new BufferedWriter(file);		      
+		    String line ="";
+		    while(scan.hasNextLine()) {
+		    	line = scan.nextLine(); 			    	
+		    	
+		    	if(line.contains("Tenant:")) {
+		    		 output.write(line+this.getName()+"\n");
+		    	}		    	
+		    	else if(line.contains("Address:")) {
+		    		output.write(line+this.getAddress()+"\n");
+		    	}		    	   		    		
+		    	else if(line.contains("Tenant Signature:")) {
+		    		output.write(line+this.getName()+"\n");
+		    	}	
+		    	else {
+			    	output.write(line+"\n");
+
+		    	}      		 
+		    	
+		    	  		    		    	    	
+		    }
+		    output.close();//close IO devices
+		    scan.close();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}	
+	public void generateApplication()  {//This needs some way of getting userData and listing Data	
+		try {	
+			File fileRead  = new File("/DomumApp/src/Application.txt");
+			File fileWrite  = new File("/DomumApp/src/Application"+"test");
+			Scanner scan = new Scanner(fileRead);		
+			if (!fileWrite.exists()) {//create new file for lease to be shown 
+				fileWrite.createNewFile();
+			  }	
+			FileWriter file = new FileWriter(fileWrite);
+		    BufferedWriter output = new BufferedWriter(file);		      
+		    String line ="";
+		    while(scan.hasNextLine()) {
+		    	line = scan.nextLine();
+		    	
+		    	//Fill in blanks with IF line.contains 
+		    	output.write(line+"\n");
+		    	  		    		    	    	
+		    }
+		    output.close();//close IO devices
+		    scan.close();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}		
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 }
