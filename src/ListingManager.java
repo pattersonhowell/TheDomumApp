@@ -25,13 +25,8 @@ public class ListingManager {
 		return listingManager;
 	}
 	
-	
-	
-	
-	public void addListing(Listing listing) {
-		
-		Listing listed = listing;
-		
+	public void addListing(Listing listing) {		
+		Listing listed = listing;		
 		listings.add(listed);
 	}
 	public void removeListing(Listing listing) {
@@ -70,7 +65,7 @@ public class ListingManager {
 	public ArrayList<Listing> numBathSearch(int numBath) {
 		ArrayList<Listing> mathchingListings = new ArrayList<Listing>();
 		for (Listing listing: listings) {
-			if(listing.getNumBathroom() <= numBath) {
+			if(listing.getNumBathroom() = numBath) {
 				mathchingListings.add(listing);
 			}
 		}		
@@ -79,7 +74,7 @@ public class ListingManager {
 	public ArrayList<Listing> numBedSearch(int numBed) {
 		ArrayList<Listing> mathchingListings = new ArrayList<Listing>();
 		for (Listing listing: listings) {
-			if(listing.getNumBedroom() <= numBed) {
+			if(listing.getNumBedroom() >= numBed) {
 				mathchingListings.add(listing);
 			}
 		}		
@@ -88,12 +83,13 @@ public class ListingManager {
 	public ArrayList<Listing> yearBuiltSearch(int yearBuilt) {
 		ArrayList<Listing> mathchingListings = new ArrayList<Listing>();
 		for (Listing listing: listings) {
-			if(listing.getYearBuilt() <= yearBuilt) {
+			if(listing.getYearBuilt() >= yearBuilt) {
 				mathchingListings.add(listing);
 			}
 		}				
 		return mathchingListings; 
-	}
+	}	
+	
 	public void printListings() {
 		System.out.println("Printing Listings");
 		for (Listing listing: listings) {
