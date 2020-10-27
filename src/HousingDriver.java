@@ -21,15 +21,15 @@ public class HousingDriver {
 	
 	public void run() {
 		
-		while (welcome = false) {
+		while (!welcome) {
 			welcomePage();
 		}
 		
-		while (login = false) {
+		while (!login) {
 			loginPage();
 		}
 		
-		while (home = false) {
+		while (!home) {
 			homePage();
 		}
 	}
