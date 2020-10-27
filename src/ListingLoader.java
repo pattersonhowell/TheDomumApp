@@ -17,8 +17,12 @@ public class ListingLoader {
 		//ArrayList<Listing> listings = new ArrayList<>();
 
 		try {
-			// Parses the given file using JsonParser and casts it as a JsonArray
-			JsonArray jsonArray= (JsonArray)JsonParser.parseReader(new FileReader(FILE_LOCATION));
+			// TODO Trying something else on this: Instead, try making the Parser's output an object instead?
+//			JsonArray jsonArray= (JsonArray)JsonParser.parseReader(new FileReader(FILE_LOCATION));
+			JsonArray jsonArray = new JsonArray();
+			JsonObject jParserOut = (JsonObject)JsonParser.parseReader(new FileReader(FILE_LOCATION));
+			jsonArray.add(jParserOut);
+			System.out.println(jsonArray); // TODO Debug, remove after this is fixed
 			for (int i = 0; i < jsonArray.size(); i++) {
 				JsonObject listingJSON = (JsonObject)jsonArray.get(i);
 				// Gets each field and transforms them into their respective type

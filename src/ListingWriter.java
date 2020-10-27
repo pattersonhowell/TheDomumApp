@@ -28,13 +28,13 @@ public class ListingWriter {
 	
 	private JsonObject getListingJSON(Listing listing) {
 		JsonObject listingDetails = new JsonObject();
-		listingDetails.addProperty("listingID", listing.listingID);
-		listingDetails.addProperty("agentID", listing.agentID);
-		listingDetails.addProperty("price", listing.price);
-		listingDetails.addProperty("address", listing.address);
-		listingDetails.addProperty("numBathroom", listing.numBathroom);
-		listingDetails.addProperty("numBedroom", listing.numBedroom);
-		listingDetails.addProperty("distFromCampus", listing.distFromCampus);
+		listingDetails.addProperty("listingID", listing.getListingID());
+		listingDetails.addProperty("agentID", listing.getAgentID());
+		listingDetails.addProperty("price", listing.getPrice());
+		listingDetails.addProperty("address", listing.getAddress());
+		listingDetails.addProperty("numBathroom", listing.getNumBathroom());
+		listingDetails.addProperty("numBedroom", listing.getNumBedroom());
+		listingDetails.addProperty("distFromCampus", listing.getDistFromCampus());
 		JsonArray jReviewArray = new JsonArray();
 		for (Review r:listing.reviews) {
 			JsonObject jReview = new JsonObject();
@@ -45,8 +45,8 @@ public class ListingWriter {
 			jReviewArray.add(jReview);
 		}
 		listingDetails.add("reviews", jReviewArray);
-		listingDetails.addProperty("numberAvailable", listing.numberAvalible);
-		listingDetails.addProperty("yearBuilt", listing.yearBuilt);
+		listingDetails.addProperty("numberAvailable", listing.getNumberAvalible());
+		listingDetails.addProperty("yearBuilt", listing.getYearBuilt());
 		return listingDetails;
 	}
 }
