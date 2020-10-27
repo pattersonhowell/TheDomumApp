@@ -48,6 +48,7 @@ public class HousingDriver {
 				createAccountPage();
 				break;
 			case 3:
+				welcome = true;
 				login = true;
 				break;
 			default:
