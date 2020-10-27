@@ -1,10 +1,27 @@
 import java.util.ArrayList;
 
 public class ListingManager {
-	private ArrayList<Listing> listings = ListingLoader.loadListings();
+	public static ArrayList<Listing> listings; //= ListingLoader.loadListings();
+	
+	public static ListingManager listingManager;
+	
+	public ListingManager() {
+		listings = ListingLoader.loadListings();
+	}
+	
+	public static ListingManager getInstance() {
+		if(listingManager == null) listingManager = new ListingManager();
+		return listingManager;
+	}
+	
+	
+	
 	
 	public void addListing(Listing listing) {
-		listings.add(listing);
+		
+		Listing listed = listing;
+		
+		listings.add(listed);
 	}
 	public void removeListing(Listing listing) {
 		listings.remove(listing);

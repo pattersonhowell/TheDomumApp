@@ -7,11 +7,14 @@ import com.google.gson.*;
 
 public class ListingLoader {
 
-	private static final String FILE_LOCATION = "database/listing.json";
+	private static final String FILE_LOCATION = "database/listings.json";
+	
+	ListingManager manager = ListingManager.getInstance(); //don't know if singleton is needed
+	
 	// TODO Still needs to interface with ListingManager
 	public static ArrayList<Listing> loadListings() {
 		Gson gson = new Gson();
-		ArrayList<Listing> listings = new ArrayList<>();
+		//ArrayList<Listing> listings = new ArrayList<>();
 
 		try {
 			// Parses the given file using JsonParser and casts it as a JsonArray
@@ -45,9 +48,9 @@ public class ListingLoader {
 				// Finally, add all these together
 				Listing l = new Listing(listingID, agentID, price, address, numBathroom, numBedroom,
 						reviews, numAvailable, yearBuilt, distFromCampus);
-				listings.add(l);
+				ListingManager.listings.add(l);
 			}
-			return listings;
+			return ListingManager.listings;
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
