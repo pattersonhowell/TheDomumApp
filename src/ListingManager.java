@@ -3,7 +3,7 @@ import java.util.ArrayList;
 public class ListingManager {
 	public static ArrayList<Listing> listings = new ArrayList<>(); //= ListingLoader.loadListings();
 	
-	//public static ListingManager listingManager;
+	public static ListingManager listingManager;
 	
 	public ListingManager() {
 		ArrayList<Review> blueHouseRev = new ArrayList<Review>();
@@ -20,10 +20,10 @@ public class ListingManager {
 			
 	}
 	
-//	public static ListingManager getInstance() {
-//		if(listingManager == null) listingManager = new ListingManager();
-//		return listingManager;
-//	}
+	public static ListingManager getInstance() {
+		if(listingManager == null) listingManager = new ListingManager();
+		return listingManager;
+	}
 	
 	
 	

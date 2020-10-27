@@ -3,12 +3,9 @@ import java.io.FileReader;
 import java.util.ArrayList;
 
 import com.google.gson.*;
-//import org.json.simple.JSONArray;
 
-public class ListingLoader {
+public class ListingLoader extends DataConstants{
 
-	private static final String FILE_LOCATION = "database/listings.json";
-	
 	ListingManager manager = ListingManager.getInstance(); //don't know if singleton is needed
 	
 	// TODO Still needs to interface with ListingManager
@@ -18,9 +15,9 @@ public class ListingLoader {
 
 		try {
 			// TODO Trying something else on this: Instead, try making the Parser's output an object instead?
-//			JsonArray jsonArray= (JsonArray)JsonParser.parseReader(new FileReader(FILE_LOCATION));
+//			JsonArray jsonArray= (JsonArray)JsonParser.parseReader(new FileReader(LISTING_FILE_LOCATION));
 			JsonArray jsonArray = new JsonArray();
-			JsonObject jParserOut = (JsonObject)JsonParser.parseReader(new FileReader(FILE_LOCATION));
+			JsonObject jParserOut = (JsonObject)JsonParser.parseReader(new FileReader(LISTING_FILE_LOCATION));
 			jsonArray.add(jParserOut);
 			System.out.println(jsonArray); // TODO Debug, remove after this is fixed
 			for (int i = 0; i < jsonArray.size(); i++) {

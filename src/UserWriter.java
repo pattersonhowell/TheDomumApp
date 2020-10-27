@@ -7,8 +7,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 
-public class UserWriter {
-    private static final String FILE_LOCATION = "database/users.json";
+public class UserWriter extends DataConstants {
     public static void writeUser() {
         JsonArray jArray = new JsonArray();
         UserManager um =  UserManager.getInstance(); // Calling the singleton
@@ -17,7 +16,7 @@ public class UserWriter {
         for(User u:users)
             jArray.add(getUserJSON(u));
         // Create file and write to it
-        File f = new File(FILE_LOCATION);
+        File f = new File(USERS_FILE_LOCATION);
         try (FileWriter file = new FileWriter(f)) {
             file.write(jArray.toString());
             file.flush();

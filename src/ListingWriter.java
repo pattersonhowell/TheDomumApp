@@ -7,8 +7,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 
-public class ListingWriter {
-	private static final String FILE_LOCATION = "database/listing.json";
+public class ListingWriter extends DataConstants {
 
 	// TODO Still needs to interface with ListingManager
 	public void writeListings(ArrayList<Listing> listings) {
@@ -17,7 +16,7 @@ public class ListingWriter {
 		for(Listing l:listings)
 			jArray.add(getListingJSON(l));
 		// Create a file and write to it
-		File f = new File(FILE_LOCATION);
+		File f = new File(LISTING_FILE_LOCATION);
 		try (FileWriter file = new FileWriter(f)) {
 			file.write(jArray.toString());
 			file.flush();
