@@ -138,8 +138,8 @@ public class ListingManager {
 		}
 		return mathchingListings; 		
 	}
-	public void printListings() {		
-		for (Listing listing: listings) {
+	public void printListings(ArrayList<Listing> listOfListings) {		
+		for (Listing listing: listOfListings) {
 			System.out.println("_____________________________________________________________________");
 			System.out.println(listing.toString());
 		}		
@@ -238,10 +238,20 @@ public class ListingManager {
 			}
 		}		
 	}
+	/**
+	 * This method generates all of the listings that fit a certain criteria
+	 * @param price
+	 * @param bed
+	 * @param bath
+	 * @param distance
+	 * @param wifi
+	 * @param laundry
+	 * @param petFriendly
+	 * @param pool
+	 * @param furnished
+	 */
 	
-	
-	public void comprehensiveSearch(Double price, int bed, int bath, double distance, boolean wifi, boolean laundry, boolean petFriendly, boolean pool, boolean furnished) 
-	{
+	public void comprehensiveSearch(Double price, int bed, int bath, double distance, boolean wifi, boolean laundry, boolean petFriendly, boolean pool, boolean furnished) {
 		ArrayList<Listing> searchResults = new ArrayList<>();
 		searchResults = (priceSearch(price));//	starting off arrayList with all matching price results		
 		searchResults = checkDups(numBedSearch(bed),searchResults);//comparing the results so far with the new results and moving on the listings that are in common to next round
@@ -254,11 +264,7 @@ public class ListingManager {
 		searchResults = checkDups(isFurnishedSearch(furnished),searchResults);
 		
 		//printing search results 
-		for (Listing listing: searchResults) {
-			System.out.println("_____________________________________________________________________");
-			System.out.println(listing.toString());
-		}		
-		System.out.println("_____________________________________________________________________");
+		this.printListings(searchResults);
 		
 	}
 	/**
@@ -268,6 +274,11 @@ public class ListingManager {
 	 * @param searchResults
 	 * @return
 	 */
+	
+	
+	
+	
+	
 	private ArrayList<Listing> checkDups(ArrayList<Listing> currentList, ArrayList<Listing> searchResults) {
 		ArrayList<Listing> returnList = new ArrayList<>();		
 		for(Listing list:searchResults) {

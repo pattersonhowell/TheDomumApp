@@ -125,7 +125,7 @@ public class HousingDriver {
 		
 		switch(option) {
 			case 1:
-				listingManager.printListings();
+				listingManager.printListings(listingManager.listings);
 				break;
 			case 2: 
 				searchInput(listingManager);				
@@ -162,7 +162,7 @@ public class HousingDriver {
 		System.out.println("Do you want to search for Units that are furnished ? (Enter true or false)");
 		boolean furnished = kb.nextBoolean();					
 		listingManager.comprehensiveSearch(price,bed,bath,distance,wifi,laundry,petFriendly,pool,furnished);
-		System.exit(0);
+		
 	}
 	
 	
