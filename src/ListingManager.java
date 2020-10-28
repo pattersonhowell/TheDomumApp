@@ -7,16 +7,25 @@ public class ListingManager {
 	
 	public ListingManager() {
 		ArrayList<Review> blueHouseRev = new ArrayList<Review>();
-		Review myRev = new Review(5,"authorID","10/10/20","The best");				
+		Review myRev = new Review(5,"32342","10/11/20","The best");				
 		blueHouseRev.add(myRev);
-		Listing blueHouse = new Listing(001,"72892%String",500.50,"672 School Drive",5,3,blueHouseRev,1,1960,4.0,true,true,false,false,true);
+		Listing blueHouse = new Listing(001,"72892%String",50.5,"672 School Drive",5,3,blueHouseRev,1,1960,4,true,false,true,false,true);
 		listings.add(blueHouse);
 			
 		ArrayList<Review> redHouseRev = new ArrayList<Review>();
-		Review myRev1 = new Review(5,"authorID","10/10/20","The best");				
+		Review myRev1 = new Review(5,"authorID","03/1/21","The best");				
 		redHouseRev.add(myRev1);
-		Listing redHouse = new Listing(001,"12323",1100,"555 Timber Lane",1,1,redHouseRev,1,2020,15.3,true,true,false,false,true);
+		Listing redHouse = new Listing(001,"12323",1100,"555 Timber Lane",1,1,redHouseRev,1,2020,15.3,false,true,false,false,true);
 		listings.add(redHouse);		
+				
+		ArrayList<Review> greenHouseRev = new ArrayList<Review>();
+		Review myrev2 = new Review(5,"1738","6/10/20","Amazing Customer Service");				
+		greenHouseRev.add(myrev2);
+		Listing greenhouse = new Listing(001,"12323",1100,"1330 Glenhardie Rd",5,5,greenHouseRev,1,2020,15.3,true,false,true,false,true);
+		listings.add(greenhouse);	
+		
+		
+		
 			
 	}
 	
@@ -24,6 +33,7 @@ public class ListingManager {
 		if(listingManager == null) listingManager = new ListingManager();
 		return listingManager;
 	}
+	
 	
 	public void addListing(Listing listing) {		
 		Listing listed = listing;		

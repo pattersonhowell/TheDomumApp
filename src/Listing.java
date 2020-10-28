@@ -42,7 +42,8 @@ public class Listing {
 		this.furnished = furnished; 
 	}
 	
-	
+
+
 	public ArrayList<Review> getReview() {
 		return this.reviews;
 	}
