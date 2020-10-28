@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class HousingDriver {
@@ -19,12 +20,10 @@ public class HousingDriver {
 		driver.run();
 	}
 	
-	public void run() {
-		
+	public void run() {		
 		while (!welcome) {
 			welcomePage();
-		}
-		
+		}		
 		while (!login) {
 			loginPage();
 		}
@@ -34,8 +33,7 @@ public class HousingDriver {
 		}
 	}
 	
-	private void welcomePage() {
-		
+	private void welcomePage() {		
 		System.out.println("Welcome to Domum! Enter the number respective to the menu option you would like to choose:\n(1) Log in\n(2) Create account\n(3) Browse as guest\n");
 		int option = kb.nextInt();
 		
@@ -122,7 +120,7 @@ public class HousingDriver {
 		int bed;
 		int yearBuilt;
 		
-		System.out.println("/nWelcome to the Domum home page!\nWould you like to (1) Browse all listings, (2) Enter search preferences, or (3) Search listings by ID?");
+		System.out.println("Welcome to the Domum home page!\nWould you like to (1) Browse all listings, (2) Enter search preferences, or (3) Search listings by ID?");
 		int option = kb.nextInt();
 		
 		switch(option) {
@@ -130,13 +128,7 @@ public class HousingDriver {
 				listingManager.printListings();
 				break;
 			case 2: 
-				System.out.println("/nListing Search:/nSet your preferences for each search parameter, if you don't have a preference enter 'pass'");
-				System.out.println("What is your maximum price?");
-				price = kb.nextDouble();
-				System.out.println("What is your maximum distance from campus? (in miles)");
-				distance = kb.nextDouble();
-				System.out.println("What is the minimum number of bathrooms");
-				//continue search
+				searchInput();				
 				break;
 			case 3:
 				System.out.println("Please enter the listing ID: ");
@@ -148,4 +140,41 @@ public class HousingDriver {
 				
 		}
 	}
+	
+	private void searchInput() {
+		System.out.println("Listing Search:");
+		System.out.println("What is your maximum price ?");
+		Double price = kb.nextDouble();
+		System.out.println("What is your minimum number of Bedrooms ?");
+		int bed = kb.nextInt();
+		System.out.println("What is the minimum number of Bathrooms ?");
+		int bath = kb.nextInt();
+		System.out.println("What is your maximum distance from campus ? (In Miles)");
+		double distance = kb.nextDouble();
+		System.out.println("Do you want to search for Units with Free Wifi ? (Enter true or false)");
+		boolean wifi = kb.nextBoolean();
+		System.out.println("Do you want to search for Units with a Washer and Dryer ? (Enter true or false)");
+		boolean laundry = kb.nextBoolean();
+		System.out.println("Do you want to search for Units that are pet friendly ? (Enter true or false)");
+		boolean petFriendly = kb.nextBoolean();
+		System.out.println("Do you want to search for Units that have a pool ? (Enter true or false)");
+		boolean pool = kb.nextBoolean();
+		System.out.println("Do you want to search for Units that are furnished ? (Enter true or false)");
+		boolean furnished = kb.nextBoolean();	
+				
+		ListingManager listManager = new ListingManager();		
+		listManager.comprehensiveSearch(price,bed,bath,distance,wifi,laundry,petFriendly,pool,furnished);
+
+	
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 }

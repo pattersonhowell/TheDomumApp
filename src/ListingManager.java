@@ -9,6 +9,7 @@ public class ListingManager {
 		ArrayList<Review> blueHouseRev = new ArrayList<Review>();
 		Review myRev = new Review(5,"32342","10/11/20","The best");				
 		blueHouseRev.add(myRev);
+		//Listingid, agent id, price,address,#bed,#bath,Review<>(),numAval,yearbuilt,distance,wifi,laundry,pet,pool,furnished
 		Listing blueHouse = new Listing(001,"72892%String",50.5,"672 School Drive",5,3,blueHouseRev,1,1960,4,true,false,true,false,true);
 		listings.add(blueHouse);
 			
@@ -22,19 +23,12 @@ public class ListingManager {
 		Review myrev2 = new Review(5,"1738","6/10/20","Amazing Customer Service");				
 		greenHouseRev.add(myrev2);
 		Listing greenhouse = new Listing(001,"12323",1100,"1330 Glenhardie Rd",5,5,greenHouseRev,1,2020,15.3,true,false,true,false,true);
-		listings.add(greenhouse);	
-		
-		
-		
-			
+		listings.add(greenhouse);		
 	}
-	
 	public static ListingManager getInstance() {
 		if(listingManager == null) listingManager = new ListingManager();
 		return listingManager;
 	}
-	
-	
 	public void addListing(Listing listing) {		
 		Listing listed = listing;		
 		listings.add(listed);
@@ -99,56 +93,58 @@ public class ListingManager {
 		}				
 		return mathchingListings; 
 	}		
-	public ArrayList<Listing> laundrySearch() {
+	public ArrayList<Listing> laundrySearch(boolean value) {
 		ArrayList<Listing> mathchingListings = new ArrayList<Listing>();
 		for(Listing listing: listings) {
-			if(listing.isLaundry()==true) {
+			if(listing.isLaundry()==value) {
 				mathchingListings.add(listing);
 			}
 		}
 		return mathchingListings; 		
 	}
-	public ArrayList<Listing> petFriendlySearch() {
+	public ArrayList<Listing> petFriendlySearch(boolean value) {
 		ArrayList<Listing> mathchingListings = new ArrayList<Listing>();
 		for(Listing listing: listings) {
-			if(listing.isPetFriendly()==true) {
+			if(listing.isPetFriendly()==value) {
 				mathchingListings.add(listing);
 			}
 		}
 		return mathchingListings; 		
 	}
-	public ArrayList<Listing> hasPoolSearch() {
+	public ArrayList<Listing> hasPoolSearch(boolean value) {
 		ArrayList<Listing> mathchingListings = new ArrayList<Listing>();
 		for(Listing listing: listings) {
-			if(listing.isPool()==true) {
+			if(listing.isPool()==value) {
 				mathchingListings.add(listing);
 			}
 		}
 		return mathchingListings; 		
 	}
-	public ArrayList<Listing> hasFreeWifiSearch() {
+	public ArrayList<Listing> hasFreeWifiSearch(boolean value) {
 		ArrayList<Listing> mathchingListings = new ArrayList<Listing>();
 		for(Listing listing: listings) {
-			if(listing.isFreeWifi()==true) {
+			if(listing.isFreeWifi()==value) {
 				mathchingListings.add(listing);
 			}
 		}
 		return mathchingListings; 		
 	}
-	public ArrayList<Listing> isFurnishedSearch() {
+	public ArrayList<Listing> isFurnishedSearch(boolean value) {
 		ArrayList<Listing> mathchingListings = new ArrayList<Listing>();
 		for(Listing listing: listings) {
-			if(listing.isFurnished()==true) {
+			if(listing.isFurnished()==value) {
 				mathchingListings.add(listing);
 			}
 		}
 		return mathchingListings; 		
 	}
-	public void printListings() {
-		System.out.println("Printing Listings");
+	public void printListings() {		
 		for (Listing listing: listings) {
+			System.out.println("_____________________________________________________________________");
 			System.out.println(listing.toString());
 		}		
+		System.out.println("_____________________________________________________________________");
+
 	}
 	public void editAgentID(Listing listing, String ID) {
 		for(Listing x:listings) {
@@ -244,39 +240,29 @@ public class ListingManager {
 	}
 	
 	
+	public void comprehensiveSearch(Double price, int bed, int bath, double distance, boolean wifi, boolean laundry, boolean petFriendly, boolean pool, boolean furnished) 
+	{
+		ArrayList<Listing> searchResults = new ArrayList<>();
+		searchResults.addAll(priceSearch(price));
+		searchResults.addAll(numBedSearch(bed));
+		searchResults.addAll(numBathSearch(bath));
+		searchResults.addAll(distFromCampusSearch(distance));
+		searchResults.addAll(hasFreeWifiSearch(wifi));
+		searchResults.addAll(laundrySearch(laundry));
+		searchResults.addAll(petFriendlySearch(petFriendly));
+		searchResults.addAll(hasPoolSearch(pool));
+		searchResults.addAll(isFurnishedSearch(furnished));
+		
+		//printing search results 
+		for (Listing listing: searchResults) {
+			System.out.println("_____________________________________________________________________");
+			System.out.println(listing.toString());
+		}		
+		System.out.println("_____________________________________________________________________");
+		
+	}
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+
 	
 }			
 

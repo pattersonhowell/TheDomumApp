@@ -10,13 +10,11 @@ public class UserManager {
 	
 	public UserManager() {
 		users = new ArrayList<User>();
-	}
-	
+	}	
 	public static UserManager getInstance() {
 		if(userManager == null) userManager = new UserManager();
 		return userManager;
-	}
-	
+	}	
 	public int addUser(int id, String name, String password, String address, String phone, String email) {
 		User user = new User(i+1, name, password, address, phone, email);
 		users.add(user);
