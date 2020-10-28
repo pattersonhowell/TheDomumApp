@@ -17,7 +17,7 @@ public class HousingDriver {
 	
 	public static void main(String[] args) {
 		HousingDriver driver = new HousingDriver();
-		driver.run();
+		driver.run();		
 	}
 	
 	public void run() {		
@@ -109,7 +109,7 @@ public class HousingDriver {
 	}
 
 	private void homePage() {
-		ListingManager listingManager = new ListingManager();
+		ListingManager listingManager= new ListingManager();
 		double price;
 		double distance;
 		

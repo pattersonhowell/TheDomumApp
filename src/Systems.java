@@ -31,8 +31,7 @@ public class Systems {
 		ArrayList<Review> reviews = new ArrayList<Review>();//why is this here? 		
 		manager.addUser(id, name, password, address, phone, email);
 		System.out.println(manager.users.size());
-		System.out.println(manager.users);
-		
+		System.out.println(manager.users);		
 	}
 	
 	public ArrayList<Listing> browseAnonymously(){
