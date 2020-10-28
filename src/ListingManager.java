@@ -243,15 +243,15 @@ public class ListingManager {
 	public void comprehensiveSearch(Double price, int bed, int bath, double distance, boolean wifi, boolean laundry, boolean petFriendly, boolean pool, boolean furnished) 
 	{
 		ArrayList<Listing> searchResults = new ArrayList<>();
-		searchResults.addAll(priceSearch(price));
-		searchResults.addAll(numBedSearch(bed));
-		searchResults.addAll(numBathSearch(bath));
-		searchResults.addAll(distFromCampusSearch(distance));
-		searchResults.addAll(hasFreeWifiSearch(wifi));
-		searchResults.addAll(laundrySearch(laundry));
-		searchResults.addAll(petFriendlySearch(petFriendly));
-		searchResults.addAll(hasPoolSearch(pool));
-		searchResults.addAll(isFurnishedSearch(furnished));
+		searchResults = (priceSearch(price));//	starting off arrayList with all matching price results		
+		searchResults = checkDups(numBedSearch(bed),searchResults);//comparing the results so far with the new results and moving on the listings that are in common to next round
+		searchResults = checkDups(numBathSearch(bath),searchResults);
+		searchResults = checkDups(distFromCampusSearch(distance),searchResults);
+		searchResults = checkDups(hasFreeWifiSearch(wifi),searchResults);
+		searchResults = checkDups(laundrySearch(laundry),searchResults);
+		searchResults = checkDups(petFriendlySearch(petFriendly),searchResults);
+		searchResults = checkDups(hasPoolSearch(pool),searchResults);
+		searchResults = checkDups(isFurnishedSearch(furnished),searchResults);
 		
 		//printing search results 
 		for (Listing listing: searchResults) {
@@ -259,6 +259,23 @@ public class ListingManager {
 			System.out.println(listing.toString());
 		}		
 		System.out.println("_____________________________________________________________________");
+		
+	}
+	/**
+	 * This method takes in the results of the search result and 
+	 * Compares it to the list to return the listings that are in common
+	 * @param currentList
+	 * @param searchResults
+	 * @return
+	 */
+	private ArrayList<Listing> checkDups(ArrayList<Listing> currentList, ArrayList<Listing> searchResults) {
+		ArrayList<Listing> returnList = new ArrayList<>();		
+		for(Listing list:searchResults) {
+			if(currentList.contains(list)) {
+				returnList.add(list);
+			}
+		}		
+		return returnList;		
 		
 	}
 	

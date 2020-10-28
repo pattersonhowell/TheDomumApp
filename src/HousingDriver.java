@@ -128,7 +128,7 @@ public class HousingDriver {
 				listingManager.printListings();
 				break;
 			case 2: 
-				searchInput();				
+				searchInput(listingManager);				
 				break;
 			case 3:
 				System.out.println("Please enter the listing ID: ");
@@ -141,7 +141,7 @@ public class HousingDriver {
 		}
 	}
 	
-	private void searchInput() {
+	private void searchInput(ListingManager listingManager) {
 		System.out.println("Listing Search:");
 		System.out.println("What is your maximum price ?");
 		Double price = kb.nextDouble();
@@ -160,12 +160,9 @@ public class HousingDriver {
 		System.out.println("Do you want to search for Units that have a pool ? (Enter true or false)");
 		boolean pool = kb.nextBoolean();
 		System.out.println("Do you want to search for Units that are furnished ? (Enter true or false)");
-		boolean furnished = kb.nextBoolean();	
-				
-		ListingManager listManager = new ListingManager();		
-		listManager.comprehensiveSearch(price,bed,bath,distance,wifi,laundry,petFriendly,pool,furnished);
-
-	
+		boolean furnished = kb.nextBoolean();					
+		listingManager.comprehensiveSearch(price,bed,bath,distance,wifi,laundry,petFriendly,pool,furnished);
+		System.exit(0);
 	}
 	
 	
