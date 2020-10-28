@@ -16,10 +16,10 @@ public class Systems {
 			if (manager.users.get(i).getName().equals(name)) {
 				//System.out.println("found it");				
 			reqPassword = manager.users.get(i).getPassword();			
-			if (password.equals(reqPassword))
+			if (password.equalsIgnoreCase(reqPassword))
 				exists = true;
 				reqPassword = manager.users.get(i).getPassword();				
-				if (password.equals(reqPassword))
+				if (password.equalsIgnoreCase(reqPassword))//REMOVE IGNNORE CASE ON FINAL VERSION-- USED TO MAKE TESTING EASIER
 					exists = true;
 			}
 		}	
@@ -28,7 +28,6 @@ public class Systems {
 	
 	public void signUp(String name, String password, String address, String phone, String email) {				
 		int id = 0; //users.size()+1;
-		ArrayList<Review> reviews = new ArrayList<Review>();//why is this here? 		
 		manager.addUser(id, name, password, address, phone, email);
 		System.out.println(manager.users.size());
 		System.out.println(manager.users);		

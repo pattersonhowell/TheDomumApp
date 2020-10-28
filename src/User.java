@@ -6,9 +6,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class User {
-	
-	
+public class User {		
 	private int id;
 	private String name;
 	private String password;

@@ -17,9 +17,9 @@ public class HousingDriver {
 	
 	public static void main(String[] args) {
 		HousingDriver driver = new HousingDriver();
-		driver.run();		
-	}
-	
+		driver.run();	
+		
+	}	
 	public void run() {		
 		while (!welcome) {
 			welcomePage();
