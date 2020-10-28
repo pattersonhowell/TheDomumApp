@@ -274,11 +274,6 @@ public class ListingManager {
 	 * @param searchResults
 	 * @return
 	 */
-	
-	
-	
-	
-	
 	private ArrayList<Listing> checkDups(ArrayList<Listing> currentList, ArrayList<Listing> searchResults) {
 		ArrayList<Listing> returnList = new ArrayList<>();		
 		for(Listing list:searchResults) {

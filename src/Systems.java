@@ -11,40 +11,24 @@ public class Systems {
 	public boolean verifiedLogin(String name, String password) {
 		boolean exists = false;
 		int index;
-		String reqPassword;
-		
+		String reqPassword;		
 		for(int i = 0; i < manager.users.size(); i++) {
 			if (manager.users.get(i).getName().equals(name)) {
-				//System.out.println("found it");
-				
-
-
-			reqPassword = manager.users.get(i).getPassword();
-			
+				//System.out.println("found it");				
+			reqPassword = manager.users.get(i).getPassword();			
 			if (password.equals(reqPassword))
 				exists = true;
-
-				reqPassword = manager.users.get(i).getPassword();
-				
+				reqPassword = manager.users.get(i).getPassword();				
 				if (password.equals(reqPassword))
 					exists = true;
-
 			}
-
-		}
-	
+		}	
 		return exists;
 	}
 	
-	public void signUp(String name, String password, String address, String phone, String email) {
-		
-		
-		
+	public void signUp(String name, String password, String address, String phone, String email) {				
 		int id = 0; //users.size()+1;
-
-		ArrayList<Review> reviews = new ArrayList<Review>();
-
-		
+		ArrayList<Review> reviews = new ArrayList<Review>();//why is this here? 		
 		manager.addUser(id, name, password, address, phone, email);
 		System.out.println(manager.users.size());
 		System.out.println(manager.users);

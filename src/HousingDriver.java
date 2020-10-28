@@ -35,8 +35,7 @@ public class HousingDriver {
 	
 	private void welcomePage() {		
 		System.out.println("Welcome to Domum! Enter the number respective to the menu option you would like to choose:\n(1) Log in\n(2) Create account\n(3) Browse as guest\n");
-		int option = kb.nextInt();
-		
+		int option = kb.nextInt();		
 		switch(option) {
 			case 1:
 				kb.nextLine();
@@ -88,8 +87,7 @@ public class HousingDriver {
 	private void createAccountPage() {
 		System.out.println("--Create account--\nPlease enter your first and last name: ");
 		kb.nextLine();
-		String name = kb.nextLine(); 
-		
+		String name = kb.nextLine(); 		
 		
 		System.out.println("Please enter a password: ");
 		String password = kb.next();
@@ -104,9 +102,7 @@ public class HousingDriver {
 		
 		System.out.println("Please enter your email: ");
 		String email = kb.next();
-		kb.nextLine();
-		
-		
+		kb.nextLine();			
 		
 		systems.signUp(name, password, address, phone, email);
 		welcome = true;
@@ -116,6 +112,7 @@ public class HousingDriver {
 		ListingManager listingManager = new ListingManager();
 		double price;
 		double distance;
+		
 		int bath;
 		int bed;
 		int yearBuilt;
@@ -136,8 +133,7 @@ public class HousingDriver {
 				listingManager.findListing(id);
 				break;
 			default:
-				System.out.println("Invalid menu option, returning to home page");
-				
+				System.out.println("Invalid menu option, returning to home page");				
 		}
 	}
 	
@@ -161,17 +157,8 @@ public class HousingDriver {
 		boolean pool = kb.nextBoolean();
 		System.out.println("Do you want to search for Units that are furnished ? (Enter true or false)");
 		boolean furnished = kb.nextBoolean();					
-		listingManager.comprehensiveSearch(price,bed,bath,distance,wifi,laundry,petFriendly,pool,furnished);
-		
-	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
+		listingManager.comprehensiveSearch(price,bed,bath,distance,wifi,laundry,petFriendly,pool,furnished);		
+	}	
+
 	
 }

@@ -40,9 +40,7 @@ public class Listing {
 		this.petFriendly = petFriendly; 
 		this.pool = pool; 
 		this.furnished = furnished; 
-	}
-	
-
+	}	
 
 	public ArrayList<Review> getReview() {
 		return this.reviews;
