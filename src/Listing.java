@@ -40,9 +40,8 @@ public class Listing {
 		this.petFriendly = petFriendly; 
 		this.pool = pool; 
 		this.furnished = furnished; 
-	}
-	
-	
+	}	
+
 	public ArrayList<Review> getReview() {
 		return this.reviews;
 	}
@@ -164,12 +163,11 @@ public class Listing {
 
 	@Override
 	public String toString() {
-		return "Listing [listingID=" + listingID + ", agentID=" + agentID + ", price=" + price + ", address=" + address
-				+ ", numBathroom=" + numBathroom + ", numBedroom=" + numBedroom + ", numberAvalible=" + numberAvalible
-				+ ", yearBuilt=" + yearBuilt + ", distFromCampus=" + distFromCampus + ", freeWifi=" + freeWifi
-				+ ", laundry=" + laundry + ", petFriendly=" + petFriendly + ", pool=" + pool + ", furnished="
-				+ furnished + "]";
-	}
+		return address +"\n"+ "$: " +price +"\n"+ numBedroom+" Bedrooms, "+numBathroom+ " Bathrooms" +"\n"+
+				distFromCampus+" Miles from campus" +"\n" +"Built in: "+yearBuilt+ " ,"+numberAvalible+" Units Avalible" +"\n"
+						+"Listing ID: "+listingID+ " AgentID: "+agentID +"\n" +"Free Wifi: "+freeWifi 
+						+" --Laundry Included: "+laundry+"-- Pet Friendly: "+petFriendly+ "--Pool: "+pool+ "--Furnished: " +furnished;	
+	}	
 
 	public void generateLease(Student student) {
 		try {	

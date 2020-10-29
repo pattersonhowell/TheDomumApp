@@ -26,7 +26,6 @@ public class ListingManager {
 		if(listingManager == null) listingManager = new ListingManager();
 		return listingManager;
 	}
-
 	public void addListing(Listing listing) {
 		Listing listed = listing;
 		listings.add(listed);
@@ -91,56 +90,58 @@ public class ListingManager {
 		}
 		return mathchingListings;
 	}
-	public ArrayList<Listing> laundrySearch() {
+	public ArrayList<Listing> laundrySearch(boolean value) {
 		ArrayList<Listing> mathchingListings = new ArrayList<Listing>();
 		for(Listing listing: listings) {
-			if(listing.isLaundry()==true) {
+			if(listing.isLaundry()==value) {
 				mathchingListings.add(listing);
 			}
 		}
 		return mathchingListings;
 	}
-	public ArrayList<Listing> petFriendlySearch() {
+	public ArrayList<Listing> petFriendlySearch(boolean value) {
 		ArrayList<Listing> mathchingListings = new ArrayList<Listing>();
 		for(Listing listing: listings) {
-			if(listing.isPetFriendly()==true) {
+			if(listing.isPetFriendly()==value) {
 				mathchingListings.add(listing);
 			}
 		}
 		return mathchingListings;
 	}
-	public ArrayList<Listing> hasPoolSearch() {
+	public ArrayList<Listing> hasPoolSearch(boolean value) {
 		ArrayList<Listing> mathchingListings = new ArrayList<Listing>();
 		for(Listing listing: listings) {
-			if(listing.isPool()==true) {
+			if(listing.isPool()==value) {
 				mathchingListings.add(listing);
 			}
 		}
 		return mathchingListings;
 	}
-	public ArrayList<Listing> hasFreeWifiSearch() {
+	public ArrayList<Listing> hasFreeWifiSearch(boolean value) {
 		ArrayList<Listing> mathchingListings = new ArrayList<Listing>();
 		for(Listing listing: listings) {
-			if(listing.isFreeWifi()==true) {
+			if(listing.isFreeWifi()==value) {
 				mathchingListings.add(listing);
 			}
 		}
 		return mathchingListings;
 	}
-	public ArrayList<Listing> isFurnishedSearch() {
+	public ArrayList<Listing> isFurnishedSearch(boolean value) {
 		ArrayList<Listing> mathchingListings = new ArrayList<Listing>();
 		for(Listing listing: listings) {
-			if(listing.isFurnished()==true) {
+			if(listing.isFurnished()==value) {
 				mathchingListings.add(listing);
 			}
 		}
 		return mathchingListings;
 	}
-	public void printListings() {
-		System.out.println("Printing Listings");
-		for (Listing listing: listings) {
+	public void printListings(ArrayList<Listing> listOfListings) {
+		for (Listing listing: listOfListings) {
+			System.out.println("_____________________________________________________________________");
 			System.out.println(listing.toString());
 		}
+		System.out.println("_____________________________________________________________________");
+
 	}
 	public void editAgentID(Listing listing, String ID) {
 		for(Listing x:listings) {
@@ -234,6 +235,56 @@ public class ListingManager {
 			}
 		}
 	}
+	/**
+	 * This method generates all of the listings that fit a certain criteria
+	 * @param price
+	 * @param bed
+	 * @param bath
+	 * @param distance
+	 * @param wifi
+	 * @param laundry
+	 * @param petFriendly
+	 * @param pool
+	 * @param furnished
+	 */
+
+	public void comprehensiveSearch(Double price, int bed, int bath, double distance, boolean wifi, boolean laundry, boolean petFriendly, boolean pool, boolean furnished) {
+		ArrayList<Listing> searchResults = new ArrayList<>();
+		searchResults = (priceSearch(price));//	starting off arrayList with all matching price results
+		searchResults = checkDups(numBedSearch(bed),searchResults);//comparing the results so far with the new results and moving on the listings that are in common to next round
+		searchResults = checkDups(numBathSearch(bath),searchResults);
+		searchResults = checkDups(distFromCampusSearch(distance),searchResults);
+		searchResults = checkDups(hasFreeWifiSearch(wifi),searchResults);
+		searchResults = checkDups(laundrySearch(laundry),searchResults);
+		searchResults = checkDups(petFriendlySearch(petFriendly),searchResults);
+		searchResults = checkDups(hasPoolSearch(pool),searchResults);
+		searchResults = checkDups(isFurnishedSearch(furnished),searchResults);
+
+		//printing search results
+		this.printListings(searchResults);
+
+	}
+	/**
+	 * This method takes in the results of the search result and
+	 * Compares it to the list to return the listings that are in common
+	 * @param currentList
+	 * @param searchResults
+	 * @return
+	 */
+	private ArrayList<Listing> checkDups(ArrayList<Listing> currentList, ArrayList<Listing> searchResults) {
+		ArrayList<Listing> returnList = new ArrayList<>();
+		for(Listing list:searchResults) {
+			if(currentList.contains(list)) {
+				returnList.add(list);
+			}
+		}
+		return returnList;
+
+	}
+
+
+
+}
 
 
 
