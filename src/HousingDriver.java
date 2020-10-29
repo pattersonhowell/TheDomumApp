@@ -18,64 +18,8 @@ public class HousingDriver {
 		
 		public void run() {
 			System.out.println("Welcome to Domum!");
-		outer:
-			while(true) {
-			inner:
-				while(true) {
-					displayWelcomeMenu();
-					
-					int userCommand = getUserCommand(welcomeMenuOptions.length);
-					
-					if(userCommand == -1) {
-						System.out.println("Not a valid command");
-					}
-					
-					switch(userCommand) {
-							case(0):
-								
-									logIn();
-									if(logIn() == 0) 
-										break inner;
-									if(logIn() == 1)
-										break;
-							case(1):
-									createAccount();
-									break;
-							case(2):
-									break inner;
-					}
-				}
-			
-			displayMainMenu();
-				
-			int userCommand = getUserCommand(mainMenuOptions.length);
-				
-			if(userCommand == -1) {
-				System.out.println("Not a valid command");
-		}
-			if(userCommand == mainMenuOptions.length -1) break;
-				
-			switch(userCommand) {
-					case(0):
-							listingManager.printListings(listingManager.listings);
-							break;
-					case(1):
-							searchInput(listingManager);
-							break;
-					case(2):
-							searchByID();
-							break;
-					case(3):
-							generateApp();
-							break;
-					case(4):
-							System.exit(0);
-							
-			}
-			
-		}
-			
-			System.out.println("Goodbye! Thanks for using Domum");
+			welcomeMenu();
+			mainMenu();
 	}
 		
 		private void displayWelcomeMenu() {
@@ -97,28 +41,18 @@ public class HousingDriver {
 			return -1;
 		}
 		
-		private int logIn() {
+		private void logIn() {
 			
-			while(true) {
-				System.out.println("--Log in--\nEnter your first and last name separated by a space: ");
-				String name = kb.nextLine();
-				
+				System.out.println("--Log in--\nEnter your first and last name separated by an underscore: ");
+				String name = kb.next();
 				System.out.println("Please enter your password: ");
 				String password = kb.next();
-				kb.nextLine();
 				
 				
 				boolean verified = systems.verifiedLogin(name, password);
 				
-				if(verified == true) {
+				if(verified) {
 					loggedIn = true;
-					return 0;
-				}
-					
-				else {
-					System.out.println("Invalid login, returning to welcome page");
-					return 1;
-					}
 				}
 			}
 		
@@ -126,7 +60,7 @@ public class HousingDriver {
 			System.out.println("Would you like to register as a (1) student or (2) agent?");
 			int choice = kb.nextInt();
 			
-			System.out.println("--Create account--\nPlease enter your first and last name: ");
+			System.out.println("--Create account--\nPlease enter your first and last name separated by an underscore: ");
 			kb.nextLine();
 			String name = kb.nextLine(); 
 			
@@ -162,15 +96,44 @@ public class HousingDriver {
 			}
 		}
 		
-		private void displayMainMenu() {
-			System.out.println("\n--Main Menu--");
-			for(int i=0; i< mainMenuOptions.length; i++) {
-				System.out.println((i+1) + ". " + mainMenuOptions[i]);
+		private void mainMenu() {
+			
+			while(true) {
+				
+				System.out.println("\n--Main Menu--");
+				for(int i=0; i< mainMenuOptions.length; i++) {
+					System.out.println((i+1) + ". " + mainMenuOptions[i]);
+				}
+				System.out.println("\n");
+				
+				int userCommand = getUserCommand(mainMenuOptions.length);
+				
+				if(userCommand == -1) {
+					System.out.println("Not a valid command");
+				}
+				if(userCommand == mainMenuOptions.length -1) 
+					
+				switch(userCommand) {
+						case(0):
+								listingManager.printListings(listingManager.listings);
+								break;
+						case(1):
+								searchInput();
+								break;
+						case(2):
+								searchByID();
+								break;
+						case(3):
+								generateApp();
+								break;
+						case(4):
+								System.out.println("Goodbye! Thanks for using Domum");
+								System.exit(0);
+				}			
 			}
-			System.out.println("\n");
 		}
 		
-		private void searchInput(ListingManager listingManager) {
+		private void searchInput() {
 			System.out.println("Listing Search:");
 			System.out.println("What is your maximum price ?");
 			Double price = kb.nextDouble();
@@ -212,6 +175,35 @@ public class HousingDriver {
 				
 			}
 		}
+		
+		private void welcomeMenu() {
+			while(true) {
+				displayWelcomeMenu();
+				
+				int userCommand = getUserCommand(welcomeMenuOptions.length);
+				
+				if(userCommand == -1) {
+					System.out.println("Not a valid command");
+				}
+				
+				switch(userCommand) {
+						case(0):
+							
+								logIn();
+								if(loggedIn)
+									return;
+								else
+									System.out.println("Invalid login, returning to welcome page");
+									break;
+						case(1):
+								createAccount();
+								return;
+						case(2):
+								return;
+				}
+			}
+		}
+		
 		public static void main(String[] args) {
 			HousingDriver domumInterface = new HousingDriver();
 			domumInterface.run();
