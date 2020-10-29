@@ -7,7 +7,7 @@ import java.util.Scanner;
 
 public class Listing {
 	public int listingID;
-	public String agentID;
+	public int agentID;
 	protected double price;
 	protected String address; 
 	protected int numBathroom; 
@@ -22,7 +22,7 @@ public class Listing {
 	protected boolean pool;
 	protected boolean furnished; 
 
-	public Listing(int listingID, String agentID, double price, String address, int numBathroom, int numBedroom,
+	public Listing(int listingID, int agentID, double price, String address, int numBathroom, int numBedroom,
 			ArrayList<Review> reviews, int numberAvalible, int yearBuilt, double distFromCampus,
 			boolean freeWifi, boolean laundry, boolean petFriendly, boolean pool, boolean furnished) 	{
 		this.listingID = listingID;
@@ -58,11 +58,11 @@ public class Listing {
 		this.listingID = listingID;
 	}
 
-	public String getAgentID() {
+	public int getAgentID() {
 		return agentID;
 	}
 
-	public void setAgentID(String agentID) {
+	public void setAgentID(int agentID) {
 		this.agentID = agentID;
 	}
 

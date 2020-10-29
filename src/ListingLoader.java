@@ -3,41 +3,38 @@ import java.io.FileReader;
 import java.util.ArrayList;
 
 import com.google.gson.*;
-import com.google.gson.reflect.TypeToken;
-import com.google.gson.stream.JsonReader;
+//import com.google.gson.stream.JsonReader;
 
 public class ListingLoader extends DataConstants{
 
-	ListingManager manager = ListingManager.getInstance(); //don't know if singleton is needed
+//	ListingManager manager = ListingManager.getInstance();
 	
-	// TODO Still needs to interface with ListingManager
 	public static ArrayList<Listing> loadListings() {
-		Gson gson = new Gson();
-//		ArrayList<Listing> listings = new ArrayList<>();
+//		Gson gson = new Gson();
+		ArrayList<Listing> listings = new ArrayList<>();
 
 		try {
-			// TODO Trying something else on this: Instead, try making the Parser's output an object instead?
-//			private static final Type SOMETHING = new TypeToken<>();
-			JsonReader jsonReader = new JsonReader(new FileReader(LISTING_FILE_LOCATION));
-			jsonReader.beginArray();
-//			JsonArray jsonArray = (JsonArray);
-//			JsonArray jsonArray= (JsonArray)JsonParser.parseReader(new FileReader(LISTING_FILE_LOCATION));
-//			JsonArray jsonArray = new JsonArray();
-//			JsonObject jParserOut = (JsonObject)JsonParser.parseReader(new FileReader(LISTING_FILE_LOCATION));
-//			jsonArray.add(jParserOut);
-			System.out.println(jsonArray); // TODO Debug, remove after this is fixed
+			// Takes the parsed file and takes the array out of the object
+			JsonObject jParserOut = (JsonObject)JsonParser.parseReader(new FileReader(LISTING_FILE_LOCATION));
+			JsonArray jsonArray = jParserOut.getAsJsonArray("listings");
+//			System.out.println(jsonArray); // TODO Debug, remove after this is fixed
 			for (int i = 0; i < jsonArray.size(); i++) {
 				JsonObject listingJSON = (JsonObject)jsonArray.get(i);
 				// Gets each field and transforms them into their respective type
 				int listingID = listingJSON.get("listingID").getAsInt();
-				String agentID = listingJSON.get("agentID").getAsString();
+				int agentID = listingJSON.get("agentID").getAsInt();
 				double price = listingJSON.get("price").getAsDouble();
 				String address = listingJSON.get("address").getAsString();
 				int numBathroom = listingJSON.get("numBathroom").getAsInt();
 				int numBedroom = listingJSON.get("numBedroom").getAsInt();
-				int distFromCampus = listingJSON.get("distFromCampus").getAsInt();
 				int numAvailable = listingJSON.get("numberAvailable").getAsInt();
 				int yearBuilt = listingJSON.get("yearBuilt").getAsInt();
+				double distFromCampus = listingJSON.get("distFromCampus").getAsDouble();
+				boolean freeWifi = listingJSON.get("freeWifi").getAsBoolean();
+				boolean laundry = listingJSON.get("laundry").getAsBoolean();
+				boolean petFriendly = listingJSON.get("petFriendly").getAsBoolean();
+				boolean pool = listingJSON.get("pool").getAsBoolean();
+				boolean furnished = listingJSON.get("furnished").getAsBoolean();
 
 				// "reviews" is an object, so we need a special case
 				ArrayList<Review> reviews = new ArrayList<>();
@@ -53,11 +50,12 @@ public class ListingLoader extends DataConstants{
 				}
 
 				// Finally, add all these together
-//				Listing l = new Listing(listingID, agentID, price, address, numBathroom, numBedroom,
-//						reviews, numAvailable, yearBuilt, distFromCampus);
-				//ListingManager.listings.add(l); Comment out to make compile, 
+				Listing l = new Listing(listingID, agentID, price, address, numBathroom, numBedroom,
+						reviews, numAvailable, yearBuilt, distFromCampus, freeWifi, laundry,
+						petFriendly, pool, furnished);
+				listings.add(l);
 			}
-			return ListingManager.listings;
+			return listings;
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

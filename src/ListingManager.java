@@ -8,18 +8,6 @@ public class ListingManager {
 	public ListingManager() {
 		// TODO Remove hardcode
 		listings = ListingLoader.loadListings();
-//		ArrayList<Review> blueHouseRev = new ArrayList<Review>();
-//		Review myRev = new Review(5,"authorID","10/10/20","The best");
-//		blueHouseRev.add(myRev);
-//		Listing blueHouse = new Listing(001,"72892%String",500.50,"672 School Drive",5,3,blueHouseRev,1,1960,4.0);
-//		listings.add(blueHouse);
-//
-//		ArrayList<Review> redHouseRev = new ArrayList<Review>();
-//		Review myRev1 = new Review(5,"authorID","10/10/20","The best");
-//		redHouseRev.add(myRev1);
-//		Listing redHouse = new Listing(001,"12323",1100,"555 Timber Lane",1,1,redHouseRev,1,2020,15.3);
-//		listings.add(redHouse);
-
 	}
 
 	public static ListingManager getInstance() {
@@ -143,7 +131,7 @@ public class ListingManager {
 		System.out.println("_____________________________________________________________________");
 
 	}
-	public void editAgentID(Listing listing, String ID) {
+	public void editAgentID(Listing listing, int ID) {
 		for(Listing x:listings) {
 			if(x==listing) {
 				x.setAgentID(ID);
@@ -281,44 +269,4 @@ public class ListingManager {
 		return returnList;
 
 	}
-
-
-
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 }
