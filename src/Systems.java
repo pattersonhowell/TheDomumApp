@@ -14,24 +14,16 @@ public class Systems {
 			}			
 		}
 		return false;		
-	}
+	}	
 	
-	
-	public void signUpStudent(String name, String password, String address, String phone, String email) {
-		
-		
-		
-		
-		//manager.addUser();
+	public void signUpStudent(String name, String password, String address, String phone, String email, String studentID) {
+		Student newStudent = new Student(studentID,name,password,address,phone,email);	
+		manager.addUser(newStudent);
 	}
-	public void signUpAgent(String name, String password, String address, String phone, String email) {
+	public void signUpAgent(String name, String password, String address, String phone, String email, String group,String agentID) {
 		
-		
-		
-		
-		
-		
-		//manager.addUser();
+		Agent newAgent = new Agent(agentID,name,password,address,phone,email,group);		
+		manager.addUser(newAgent);
 	}
 	
 	

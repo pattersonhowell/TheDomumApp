@@ -4,9 +4,8 @@ public class Student extends User {
 
 	private ArrayList<Integer> favoriteListings;
 	
-	public Student(int id, String name, String password, String address, String phone, String email)  {
-		super(id, name, password, address, phone, email);
-		 
+	public Student(String id, String name, String password, String address, String phone, String email)  {
+		super(id, name, password, address, phone, email);		 
 	}
 	
 	public String toString() {

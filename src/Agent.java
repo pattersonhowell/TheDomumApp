@@ -5,7 +5,7 @@ public class Agent extends User {
 	private String realtyGroup;
 	private ArrayList<Listing> managedListings;
 	
-	public Agent(int id, String name, String password, String address, String phone, String email ,String realtyGroup) {
+	public Agent(String id, String name, String password, String address, String phone, String email ,String realtyGroup) {
 		super(id, name, password, address, phone, email);
 		this.realtyGroup = realtyGroup;
 		managedListings = new ArrayList<Listing>();

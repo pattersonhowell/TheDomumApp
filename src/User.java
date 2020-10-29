@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class User {		
-	private int id;
+	private String id;
 	private String name;
 	private String password;
 	private String address;
@@ -15,7 +15,7 @@ public class User {
 	private String email;
 	public ArrayList<Review> reviews;
 	
-	public User(int id, String name, String password, String address, String phone, String email)  {// ArrayList<Review> reviews) {
+	public User(String id, String name, String password, String address, String phone, String email)  {// ArrayList<Review> reviews) {
 		this.id = id;
 		this.name = name;
 		this.password = password;
@@ -25,11 +25,11 @@ public class User {
 		this.reviews = new ArrayList<Review>();//We should not take in Reviews when creating but we should initialize -KH
 	}
 
-	public int getId() {
+	public String getId() {
 		return id;
 	}
 	
-	public void setId(int id) {
+	public void setId(String id) {
 		this.id = id;
 	}
 

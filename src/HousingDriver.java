@@ -19,7 +19,8 @@ public class HousingDriver {
 		
 	private void welcomePage() {		
 		System.out.println("Welcome to Domum! Enter the number respective to the menu option you would like to choose:"
-				+ "\n(1) Log in\n(2) Create account\n(3) Browse as guest\n");
+				+ "\n(1) Log in\n(2) Create account\n(3) Browse as guest\n"
+				+ "(4) Quit Application");
 		int option = kb.nextInt();		
 		switch(option) {
 			case 1:
@@ -31,6 +32,9 @@ public class HousingDriver {
 			case 3:		
 				homePage();
 				break;
+			case 4: 
+				System.out.println("Thank You for using Domum");
+				System.exit(0);
 			default:
 				System.out.println("Invalid menu option, returning to welcome page\n");
 		}
@@ -89,14 +93,16 @@ public class HousingDriver {
 		String acctType = kb.nextLine();
 		
 		if(acctType.equalsIgnoreCase("Student")) {
-			
-									
+			System.out.println("Enter Your Student ID");
+			String studentID = kb.nextLine();					
+			systems.signUpStudent(name, password, address, phone, email,studentID);					
 		}
 		else if (acctType.equalsIgnoreCase("Agent")){
-			
-			
-			
-			
+			System.out.println("What Property Group are you with");
+			String group = kb.nextLine();	
+			System.out.println("Enter Your Agent ID");
+			String agentID = kb.nextLine();
+			systems.signUpAgent(name, password, address, phone, email,group,agentID);
 		}		
 
 	}
