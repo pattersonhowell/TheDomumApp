@@ -48,7 +48,18 @@ public class Systems {
 			}
 		}
 		
-		
+	}
+	
+	public void printListings() {
+		listingManager.printListings(listingManager.listings);
+	}
+	
+	public void comprehensiveSearch(double price,int bed,int bath,double distance,boolean wifi,boolean laundry,boolean petFriendly,boolean pool,boolean furnished) {
+		listingManager.comprehensiveSearch(price,bed,bath,distance,wifi,laundry,petFriendly,pool,furnished);
+	}
+	
+	public void listingID(int id) {
+		listingManager.findListing(id);
 	}
 	
 	
