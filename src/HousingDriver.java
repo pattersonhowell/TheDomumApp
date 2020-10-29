@@ -43,9 +43,8 @@ public class HousingDriver {
 		String name = kb.nextLine();		
 		 
 		System.out.println("Please enter your password: ");
-		String password = kb.nextLine();
+		String password = kb.nextLine();		
 		
-		//systems.printUserData();
 		if(systems.verifiedLogin(name, password)) {//if PW combo works 
 			homePage();
 			logIn = true; 
@@ -67,26 +66,39 @@ public class HousingDriver {
 		}
 	}
 	
-	private void createAccountPage() {
-		System.out.println("--Create account--\nPlease enter your first and last name: ");
+	private void createAccountPage() {	
+		kb = new Scanner(System.in);//java glitch
+		System.out.println("Please enter your first and last name: ");
 		kb.nextLine();
 		String name = kb.nextLine(); 		
 		
 		System.out.println("Please enter a password: ");
-		String password = kb.next();
-		kb.nextLine();
+		String password = kb.nextLine();		
 		
 		System.out.println("Please enter your address (Ex: 123 Love Street, Apt #2, Columbia, SC, 12345): ");
 		String address = kb.nextLine();
 		
 		System.out.println("Please enter your phone number (no special characters): ");
-		String phone = kb.next();
-		kb.nextLine();		
+		String phone = kb.nextLine();	
+			
 		
 		System.out.println("Please enter your email: ");
-		String email = kb.next();
-		kb.nextLine();					
-		systems.signUp(name, password, address, phone, email);
+		String email = kb.nextLine();				
+		
+		System.out.println("Are you a Student or an Agent");//branch depending on ans 
+		String acctType = kb.nextLine();
+		
+		if(acctType.equalsIgnoreCase("Student")) {
+			
+									
+		}
+		else if (acctType.equalsIgnoreCase("Agent")){
+			
+			
+			
+			
+		}		
+
 	}
 
 	private void homePage() {		

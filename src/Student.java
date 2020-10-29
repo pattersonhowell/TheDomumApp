@@ -4,8 +4,9 @@ public class Student extends User {
 
 	private ArrayList<Integer> favoriteListings;
 	
-	public Student(int id, String name, String password, String address, String phone, String email, ArrayList<Review> reviews) {
+	public Student(int id, String name, String password, String address, String phone, String email)  {
 		super(id, name, password, address, phone, email);
+		 
 	}
 	
 	public String toString() {
@@ -19,16 +20,13 @@ public class Student extends User {
 	
 	public ArrayList<Integer> getFavoriteListings() {
 		return favoriteListings;
-	}
+	}	
 	
-	
-	public void leaveReview(Review review) {
-		
+	public void leaveReview(Review review) {		
 		int rating = 0;
 		String author = "";
 		String date = "";
-		String reviewText = "";
-		
+		String reviewText = "";		
 		Review rev = new Review(rating, author, date, reviewText);
 	}
 	

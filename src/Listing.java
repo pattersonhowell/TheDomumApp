@@ -24,7 +24,7 @@ public class Listing {
 
 	public Listing(int listingID, String agentID, double price, String address, int numBathroom, int numBedroom,
 			ArrayList<Review> reviews, int numberAvalible, int yearBuilt, double distFromCampus,
-			boolean freeWifi, boolean laundry, boolean petFriendly, boolean pool, boolean furnished) 	{
+			boolean freeWifi, boolean laundry, boolean petFriendly, boolean pool, boolean furnished) {
 		this.listingID = listingID;
 		this.agentID = agentID;
 		this.price = price;

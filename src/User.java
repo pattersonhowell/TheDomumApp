@@ -22,7 +22,7 @@ public class User {
 		this.address = address;
 		this.phone = phone;
 		this.email = email;
-		//this.reviews = reviews;
+		this.reviews = new ArrayList<Review>();//We should not take in Reviews when creating but we should initialize -KH
 	}
 
 	public int getId() {

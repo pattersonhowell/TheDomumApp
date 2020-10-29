@@ -7,16 +7,11 @@ public class UserManager {
 	public static UserManager userManager;
 	
 	public UserManager() {//hardcoded these users in for now 1 student and 1 agent 
-		ArrayList<Review> revList = new ArrayList<Review>();
-		Review toddRev = new Review(5,"Idk","10/11/20","Todd is the best");
-		revList.add(toddRev);
-		Student todd = new Student(00405,"Todd","pass","505 Shoe Lane","6021112324","ToddSMith@gmail.com",revList);
-		users.add(todd);
-		
-		ArrayList<Review> revList2 = new ArrayList<Review>();
-		Review AgentMikeRev = new Review(1,"11111","6/1/4","Agent Mike is terrible");
-		revList2.add(AgentMikeRev);
-		Agent mike = new Agent(2211,"Agent Mike", "234%%#f", "address","3433234234", "ToddSMith@gmail.com",revList,"realityGroup");
+		ArrayList<Review> revList = new ArrayList<Review>();		
+		Student todd = new Student(00405,"Todd","pass","505 Shoe Lane","6021112324","ToddSMith@gmail.com");
+		users.add(todd);				
+	
+		Agent mike = new Agent(2211,"Agent Mike", "234%%#f", "address","3433234234", "ToddSMith@gmail.com","realityGroup");
 		users.add(mike);		
 	}	
 	public static UserManager getInstance() {

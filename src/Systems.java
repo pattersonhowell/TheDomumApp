@@ -16,12 +16,25 @@ public class Systems {
 		return false;		
 	}
 	
-	public void signUp(String name, String password, String address, String phone, String email) {				
-		int id = 0; //users.size()+1;
-		manager.addUser(id, name, password, address, phone, email);
-		System.out.println(manager.users.size());
-		System.out.println(manager.users);		
+	
+	public void signUpStudent(String name, String password, String address, String phone, String email) {
+		
+		
+		
+		
+		//manager.addUser();
 	}
+	public void signUpAgent(String name, String password, String address, String phone, String email) {
+		
+		
+		
+		
+		
+		
+		//manager.addUser();
+	}
+	
+	
 	
 	public ArrayList<Listing> browseAnonymously(){
 		ArrayList<Listing> ret = new ArrayList<>();
