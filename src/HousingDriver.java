@@ -5,7 +5,8 @@ public class HousingDriver {
 	
 	private Systems systems = new Systems();
 	public static Scanner kb = new Scanner(System.in);
-	private static boolean logIn = false;//Variable that keeps track of whether or not user is logged in 
+	private User currentUser = null;
+	private ListingManager listingManager= new ListingManager();
 	
 	public static void main(String[] args) {
 	HousingDriver hd = new HousingDriver();
@@ -13,7 +14,7 @@ public class HousingDriver {
 	}	
 	
 	private void run() {
-		welcomePage();				
+		welcomePage();		
 	}
 		
 	private void welcomePage() {		
@@ -49,8 +50,7 @@ public class HousingDriver {
 		String password = kb.nextLine();		
 		
 		if(systems.verifiedLogin(name, password)) {//if PW combo works 
-			homePage();
-			logIn = true; 
+			currentUser = systems.returnUserWithName(name);
 		}
 		else {
 			System.out.println("Invalid login (1) Enter a different login, or (2) Return to welcome page");
@@ -67,6 +67,7 @@ public class HousingDriver {
 				welcomePage();
 			}
 		}
+		homePage();
 	}
 	
 	private void createAccountPage() {	
@@ -103,16 +104,14 @@ public class HousingDriver {
 			String agentID = kb.nextLine();
 			systems.signUpAgent(name, password, address, phone, email,group,agentID);
 		}		
-		logIn=true;
-		homePage();
+		currentUser = systems.returnUserWithName(name);
 	}
 
 	private void homePage() {		
 		System.out.println("Welcome to the Domum home page!\nWould you like to \n(1) Browse all listings \n"
 				+ "(2) Enter search preferences \n(3) Search listings by ID?"
 				+"\n(4) Generate Application for a property"
-				+ "\n(5) Return to the Welcome Page");
-		ListingManager listingManager= new ListingManager();	
+				+ "\n(5) Return to the Welcome Page");			
 		int option = kb.nextInt();		
 		switch(option) {
 			case 1:
@@ -165,30 +164,21 @@ public class HousingDriver {
 		System.out.println("Please enter the listing ID: ");
 		int id = kb.nextInt();
 		listingManager.findListing(id);
-	}
-	
+	}	
 	private void generateApp() {
+		kb = new Scanner(System.in);//java glitch
 		systems.printUserData();
-		if(logIn==false) {
+		if(currentUser==null) {
 			System.out.println("Sorry you must Log In before generating this application");			
 		}
 		else {
 			System.out.println("What is the listingID of the property you wish to generate an application for?");
-			int listingID = kb.nextInt();
-			System.out.println("What is Your studentID");//maybe pass in an instance of user later, but use this for now -KH
-			String studentID = kb.next();
+			int listingID = kb.nextInt();		
 			
-					
-			
+			if(listingManager.verifyID(listingID)) {
+				listingManager.findListing(listingID).generateApplication(currentUser);			
+			}
+			System.out.println("Listing Generated, Please see TXT file");						
 		}
-	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
+	}	
 }
