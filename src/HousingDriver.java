@@ -3,15 +3,17 @@ import java.util.Scanner;
 
 public class HousingDriver {
 		private String[] welcomeMenuOptions = {"Log in", "Create Account","Browse as Guest"};
-		private String[] mainMenuOptions = {"Browse All Listings","Enter Search Preferences","Search by Listing ID","Logout"};
+		private String[] mainMenuOptions = {"Browse All Listings","Enter Search Preferences","Search by Listing ID", "Generate Application","Exit"};
 		private Scanner kb;
 		private Systems systems;
 		private boolean loggedIn;
+		private ListingManager listingManager;
 		
 		HousingDriver(){
 			kb = new Scanner(System.in);
 			systems = new Systems();
 			loggedIn = false;
+			listingManager = new ListingManager();
 		}
 		
 		public void run() {
@@ -55,14 +57,20 @@ public class HousingDriver {
 				
 			switch(userCommand) {
 					case(0):
-							listingManager.printListings();
+							listingManager.printListings(listingManager.listings);
 							break;
 					case(1):
-							fullSearch();
+							searchInput(listingManager);
 							break;
 					case(2):
 							searchByID();
 							break;
+					case(3):
+							generateApp();
+							break;
+					case(4):
+							System.exit(0);
+							
 			}
 			
 		}
@@ -81,8 +89,8 @@ public class HousingDriver {
 		private int getUserCommand(int numCommands) {
 			System.out.println("What would you like to do?: ");
 			
-			String input = kb.nextLine();
-			int command = Integer.parseInt(input) - 1;
+			int input = kb.nextInt();
+			int command = input - 1;
 			
 			if(command >= 0 && command <= numCommands -1) return command;
 			
@@ -115,10 +123,12 @@ public class HousingDriver {
 			}
 		
 		private void createAccount() {
+			System.out.println("Would you like to register as a (1) student or (2) agent?");
+			int choice = kb.nextInt();
+			
 			System.out.println("--Create account--\nPlease enter your first and last name: ");
 			kb.nextLine();
 			String name = kb.nextLine(); 
-			
 			
 			System.out.println("Please enter a password: ");
 			String password = kb.next();
@@ -135,7 +145,21 @@ public class HousingDriver {
 			String email = kb.next();
 			kb.nextLine();
 		
-			systems.signUp(name, password, address, phone, email);
+			if(choice == 1) {
+				System.out.println("Please enter your student ID");
+				String studentID = kb.next();
+				systems.signUpStudent(name, password, address, phone, email, studentID);
+				System.out.println("\nAccount created!");
+			}
+			
+			if(choice == 2) {
+				System.out.println("Please enter your agent ID");
+				String agentID = kb.next();
+				System.out.println("Please enter your real estate group");
+				String group = kb.nextLine();
+				systems.signUpAgent(name, password, address, phone, email, group, agentID);
+				System.out.println("\nAccount created!");
+			}
 		}
 		
 		private void displayMainMenu() {
@@ -146,9 +170,28 @@ public class HousingDriver {
 			System.out.println("\n");
 		}
 		
-		private void fullSearch() {
-			//todo
-		}
+		private void searchInput(ListingManager listingManager) {
+			System.out.println("Listing Search:");
+			System.out.println("What is your maximum price ?");
+			Double price = kb.nextDouble();
+			System.out.println("What is your minimum number of Bedrooms ?");
+			int bed = kb.nextInt();
+			System.out.println("What is the minimum number of Bathrooms ?");
+			int bath = kb.nextInt();
+			System.out.println("What is your maximum distance from campus ? (In Miles)");
+			double distance = kb.nextDouble();
+			System.out.println("Do you want to search for Units with Free Wifi ? (Enter true or false)");
+			boolean wifi = kb.nextBoolean();
+			System.out.println("Do you want to search for Units with a Washer and Dryer ? (Enter true or false)");
+			boolean laundry = kb.nextBoolean();
+			System.out.println("Do you want to search for Units that are pet friendly ? (Enter true or false)");
+			boolean petFriendly = kb.nextBoolean();
+			System.out.println("Do you want to search for Units that have a pool ? (Enter true or false)");
+			boolean pool = kb.nextBoolean();
+			System.out.println("Do you want to search for Units that are furnished ? (Enter true or false)");
+			boolean furnished = kb.nextBoolean();					
+			listingManager.comprehensiveSearch(price,bed,bath,distance,wifi,laundry,petFriendly,pool,furnished);		
+		}	
 		
 		private void searchByID() {
 			System.out.println("Please enter the listing ID: ");
@@ -156,6 +199,19 @@ public class HousingDriver {
 			listingManager.findListing(id);
 		}
 		
+		private void generateApp() {
+			systems.printUserData();
+			if(loggedIn==false) {
+				System.out.println("Sorry you must Log In before generating this application");			
+			}
+			else {
+				System.out.println("What is the listingID of the property you wish to generate an application for?");
+				int listingID = kb.nextInt();
+				System.out.println("What is Your studentID");//maybe pass in an instance of user later, but use this for now -KH
+				String studentID = kb.next();
+				
+			}
+		}
 		public static void main(String[] args) {
 			HousingDriver domumInterface = new HousingDriver();
 			domumInterface.run();
