@@ -3,7 +3,8 @@ import java.util.ArrayList;
 public class Systems {
 
 	
-	private ListingManager listingManager;
+	//private ListingManager listingManager;
+	ListingManager listingManager = ListingManager.getInstance();
 	//private UserManager userManager;
 	UserManager manager = UserManager.getInstance();	
 	public boolean verifiedLogin(String name, String password) {	
