@@ -6,24 +6,14 @@ public class Systems {
 	
 	private ListingManager listingManager;
 	//private UserManager userManager;
-	UserManager manager = UserManager.getInstance();
-	
-	public boolean verifiedLogin(String name, String password) {
-		boolean exists = false;
-		int index;
-		String reqPassword;		
-		for(int i = 0; i < manager.users.size(); i++) {
-			if (manager.users.get(i).getName().equals(name)) {
-				//System.out.println("found it");				
-			reqPassword = manager.users.get(i).getPassword();			
-			if (password.equalsIgnoreCase(reqPassword))
-				exists = true;
-				reqPassword = manager.users.get(i).getPassword();				
-				if (password.equalsIgnoreCase(reqPassword))//REMOVE IGNNORE CASE ON FINAL VERSION-- USED TO MAKE TESTING EASIER
-					exists = true;
-			}
-		}	
-		return exists;
+	UserManager manager = UserManager.getInstance();	
+	public boolean verifiedLogin(String name, String password) {	
+		for(User x: manager.users) {
+			if(x.getName().equalsIgnoreCase(name) && x.getPassword().equalsIgnoreCase(password)) {
+				return true;
+			}			
+		}
+		return false;		
 	}
 	
 	public void signUp(String name, String password, String address, String phone, String email) {				
@@ -42,4 +32,28 @@ public class Systems {
 		int index = manager.users.indexOf(name);
 		manager.users.remove(index);
 	}
+	
+	
+	public void printUserData() {//Only here for debug
+		System.out.println("We have "+manager.users.size()+" users");
+		
+		
+		for(int i = 0; i < manager.users.size(); i++) {
+			for(User x: manager.users) {
+				System.out.println(x.getName()+ " "+x.getPassword());
+			}
+		}
+		
+		
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 }
