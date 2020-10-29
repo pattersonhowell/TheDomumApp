@@ -41,7 +41,7 @@ public class ListingLoader extends DataConstants{
 				JsonArray reviewsJSON = listingJSON.getAsJsonArray("reviews");
 				for (int j = 0; j < reviewsJSON.size(); j++) {
 					JsonObject reviewJSON = (JsonObject)reviewsJSON.get(j);
-					String authorID = reviewJSON.get("authorID").getAsString();
+					int authorID = reviewJSON.get("authorID").getAsInt();
 					String date = reviewJSON.get("date").getAsString();
 					String reviewText = reviewJSON.get("reviewText").getAsString();
 					int rating = reviewJSON.get("rating").getAsInt();

@@ -1,6 +1,6 @@
 {"users":[
 	{
-		"id":"V47848585",
+		"id":47848585,
 		"name":"John Doe",
 		"password":"somepassword123",
 		"address":"123 Sesame St",
@@ -19,7 +19,7 @@
 			"rating":1
 		}]
 	},{
-		"id":"390393",
+		"id":390393,
 		"name":"Tom Burch",
 		"password":"reallybadpassword",
 		"address":"505 Woodland Ave",
