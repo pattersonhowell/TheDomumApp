@@ -43,7 +43,6 @@ public class UserManager {
 		for(User x:users) {
 			System.out.println(x.toString());
 			System.out.println("_________________________________________");
-		}
-		
+		}		
 	}
 }

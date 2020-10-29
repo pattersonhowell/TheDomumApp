@@ -105,9 +105,7 @@ public class HousingDriver {
 				homePage();
 				break;
 			case 3:
-				System.out.println("Please enter the listing ID: ");
-				int id = kb.nextInt();
-				listingManager.findListing(id);
+				searchByID(listingManager);
 				homePage();
 				break;
 			case 4: 
@@ -141,6 +139,11 @@ public class HousingDriver {
 		boolean furnished = kb.nextBoolean();					
 		listingManager.comprehensiveSearch(price,bed,bath,distance,wifi,laundry,petFriendly,pool,furnished);		
 	}	
-
+		
+	private void searchByID(ListingManager listingManager) {
+		System.out.println("Please enter the listing ID: ");
+		int id = kb.nextInt();
+		listingManager.findListing(id);
+	}
 	
 }

@@ -31,13 +31,10 @@ public class Systems {
 	public void deleteAccount(String name, String password) {
 		int index = manager.users.indexOf(name);
 		manager.users.remove(index);
-	}
-	
+	}	
 	
 	public void printUserData() {//Only here for debug
-		System.out.println("We have "+manager.users.size()+" users");
-		
-		
+		System.out.println("We have "+manager.users.size()+" users");		
 		for(int i = 0; i < manager.users.size(); i++) {
 			for(User x: manager.users) {
 				System.out.println(x.getName()+ " "+x.getPassword());
