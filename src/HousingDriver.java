@@ -13,8 +13,7 @@ public class HousingDriver {
 	}	
 	
 	private void run() {
-		welcomePage();		
-		
+		welcomePage();				
 	}
 		
 	private void welcomePage() {		
@@ -104,13 +103,15 @@ public class HousingDriver {
 			String agentID = kb.nextLine();
 			systems.signUpAgent(name, password, address, phone, email,group,agentID);
 		}		
-
+		logIn=true;
+		homePage();
 	}
 
 	private void homePage() {		
-		System.out.println("Welcome to the Domum home page!\nWould you like to (1) Browse all listings,"
-				+ " (2) Enter search preferences, (3) Search listings by ID?"
-				+ ",(4) return to the Welcome Page");
+		System.out.println("Welcome to the Domum home page!\nWould you like to \n(1) Browse all listings \n"
+				+ "(2) Enter search preferences \n(3) Search listings by ID?"
+				+"\n(4) Generate Application for a property"
+				+ "\n(5) Return to the Welcome Page");
 		ListingManager listingManager= new ListingManager();	
 		int option = kb.nextInt();		
 		switch(option) {
@@ -127,8 +128,10 @@ public class HousingDriver {
 				homePage();
 				break;
 			case 4: 
-				welcomePage();
+				generateApp();
 				break;
+			case 5:
+				welcomePage();
 			default:
 				System.out.println("Invalid menu option, returning to home page");		
 				homePage();
@@ -163,5 +166,31 @@ public class HousingDriver {
 		int id = kb.nextInt();
 		listingManager.findListing(id);
 	}
+	
+	private void generateApp() {
+		if(logIn==false) {
+			System.out.println("Sorry you must Log In before generating this application");			
+		}
+		else {
+			System.out.println("What is the listingID of the property you wish to generate an application for?");
+			int listingID = kb.nextInt();
+			System.out.println("What is Your studentID");//maybe pass in an instance of user later, but use this for now -KH
+			String studentID = kb.next();
+			
+			UserManager tempManager=UserManager.getInstance();
+			
+			
+			
+			
+		}
+	}
+	
+	
+	
+	
+	
+	
+	
+	
 	
 }
