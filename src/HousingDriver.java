@@ -5,7 +5,8 @@ public class HousingDriver {
 	
 	private Systems systems = new Systems();
 	public static Scanner kb = new Scanner(System.in);
-	private boolean logIn = false; //Variable that keeps track of whether or not user is logged in 
+	private User currentUser = null;
+	private ListingManager listingManager= new ListingManager();
 	
 	public static void main(String[] args) {
 	HousingDriver hd = new HousingDriver();
@@ -14,12 +15,12 @@ public class HousingDriver {
 	
 	private void run() {
 		welcomePage();		
-		
 	}
 		
 	private void welcomePage() {		
 		System.out.println("Welcome to Domum! Enter the number respective to the menu option you would like to choose:"
-				+ "\n(1) Log in\n(2) Create account\n(3) Browse as guest\n");
+				+ "\n(1) Log in\n(2) Create account\n(3) Browse as guest\n"
+				+ "(4) Quit Application");
 		int option = kb.nextInt();		
 		switch(option) {
 			case 1:
@@ -31,6 +32,9 @@ public class HousingDriver {
 			case 3:		
 				homePage();
 				break;
+			case 4: 
+				System.out.println("Thank You for using Domum");
+				System.exit(0);
 			default:
 				System.out.println("Invalid menu option, returning to welcome page\n");
 		}
@@ -43,12 +47,10 @@ public class HousingDriver {
 		String name = kb.nextLine();		
 		 
 		System.out.println("Please enter your password: ");
-		String password = kb.nextLine();
+		String password = kb.nextLine();		
 		
-		//systems.printUserData();
 		if(systems.verifiedLogin(name, password)) {//if PW combo works 
-			homePage();
-			logIn = true; 
+			currentUser = systems.returnUserWithName(name);
 		}
 		else {
 			System.out.println("Invalid login (1) Enter a different login, or (2) Return to welcome page");
@@ -65,35 +67,51 @@ public class HousingDriver {
 				welcomePage();
 			}
 		}
+		homePage();
 	}
 	
-	private void createAccountPage() {
-		System.out.println("--Create account--\nPlease enter your first and last name: ");
+	private void createAccountPage() {	
+		kb = new Scanner(System.in);//java glitch
+		System.out.println("Please enter your first and last name: ");
 		kb.nextLine();
 		String name = kb.nextLine(); 		
 		
 		System.out.println("Please enter a password: ");
-		String password = kb.next();
-		kb.nextLine();
+		String password = kb.nextLine();		
 		
 		System.out.println("Please enter your address (Ex: 123 Love Street, Apt #2, Columbia, SC, 12345): ");
 		String address = kb.nextLine();
 		
 		System.out.println("Please enter your phone number (no special characters): ");
-		String phone = kb.next();
-		kb.nextLine();		
+		String phone = kb.nextLine();	
+			
 		
 		System.out.println("Please enter your email: ");
-		String email = kb.next();
-		kb.nextLine();					
-		systems.signUp(name, password, address, phone, email);
+		String email = kb.nextLine();				
+		
+		System.out.println("Are you a Student or an Agent");//branch depending on ans 
+		String acctType = kb.nextLine();
+		
+		if(acctType.equalsIgnoreCase("Student")) {
+			System.out.println("Enter Your Student ID");
+			String studentID = kb.nextLine();					
+			systems.signUpStudent(name, password, address, phone, email,studentID);					
+		}
+		else if (acctType.equalsIgnoreCase("Agent")){
+			System.out.println("What Property Group are you with");
+			String group = kb.nextLine();	
+			System.out.println("Enter Your Agent ID");
+			String agentID = kb.nextLine();
+			systems.signUpAgent(name, password, address, phone, email,group,agentID);
+		}		
+		currentUser = systems.returnUserWithName(name);
 	}
 
 	private void homePage() {		
-		System.out.println("Welcome to the Domum home page!\nWould you like to (1) Browse all listings,"
-				+ " (2) Enter search preferences, (3) Search listings by ID?"
-				+ ",(4) return to the Welcome Page");
-		ListingManager listingManager= new ListingManager();	
+		System.out.println("Welcome to the Domum home page!\nWould you like to \n(1) Browse all listings \n"
+				+ "(2) Enter search preferences \n(3) Search listings by ID?"
+				+"\n(4) Generate Application for a property"
+				+ "\n(5) Return to the Welcome Page");			
 		int option = kb.nextInt();		
 		switch(option) {
 			case 1:
@@ -109,8 +127,10 @@ public class HousingDriver {
 				homePage();
 				break;
 			case 4: 
-				welcomePage();
+				generateApp();
 				break;
+			case 5:
+				welcomePage();
 			default:
 				System.out.println("Invalid menu option, returning to home page");		
 				homePage();
@@ -144,6 +164,21 @@ public class HousingDriver {
 		System.out.println("Please enter the listing ID: ");
 		int id = kb.nextInt();
 		listingManager.findListing(id);
-	}
-	
+	}	
+	private void generateApp() {
+		kb = new Scanner(System.in);//java glitch
+		systems.printUserData();
+		if(currentUser==null) {
+			System.out.println("Sorry you must Log In before generating this application");			
+		}
+		else {
+			System.out.println("What is the listingID of the property you wish to generate an application for?");
+			int listingID = kb.nextInt();		
+			
+			if(listingManager.verifyID(listingID)) {
+				listingManager.findListing(listingID).generateApplication(currentUser);			
+			}
+			System.out.println("Listing Generated, Please see TXT file");						
+		}
+	}	
 }
