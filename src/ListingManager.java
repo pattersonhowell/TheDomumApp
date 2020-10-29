@@ -10,17 +10,17 @@ public class ListingManager {
 		Review myRev = new Review(5,"32342","10/11/20","The best");				
 		blueHouseRev.add(myRev);
 		//Listingid, agent id, price,address,#bed,#bath,Review<>(),numAval,yearbuilt,distance,wifi,laundry,pet,pool,furnished
-		Listing blueHouse = new Listing(001,"72892%String",50.5,"672 School Drive",5,3,blueHouseRev,1,1960,4,true,false,true,false,true);
+		Listing blueHouse = new Listing(17,"72892%String",50.5,"672 School Drive",5,3,blueHouseRev,1,1960,4,true,false,true,false,true);
 		listings.add(blueHouse);
 			
 		ArrayList<Review> redHouseRev = new ArrayList<Review>();
 		Review myRev1 = new Review(5,"authorID","03/1/21","The best");				
 		redHouseRev.add(myRev1);
-		Listing redHouse = new Listing(001,"12323",1100,"555 Timber Lane",1,1,redHouseRev,1,2020,15.3,false,true,false,false,true);
+		Listing redHouse = new Listing(18,"12323",1100,"555 Timber Lane",1,1,redHouseRev,1,2020,15.3,false,true,false,false,true);
 		listings.add(redHouse);		
 				
 		ArrayList<Review> greenHouseRev = new ArrayList<Review>();
-		Review myrev2 = new Review(5,"1738","6/10/20","Amazing Customer Service");				
+		Review myrev2 = new Review(19,"1738","6/10/20","Amazing Customer Service");				
 		greenHouseRev.add(myrev2);
 		Listing greenhouse = new Listing(001,"12323",1100,"1330 Glenhardie Rd",5,5,greenHouseRev,1,2020,15.3,true,false,true,false,true);
 		listings.add(greenhouse);		
@@ -281,8 +281,15 @@ public class ListingManager {
 				returnList.add(list);
 			}
 		}		
-		return returnList;		
-		
+		return returnList;			
+	}	
+	public boolean verifyID(int listingID) {
+		for(Listing list:listings) {
+			if(list.getListingID()==listingID) {
+				return true;
+			}			
+		}
+		return false;
 	}
 	
 

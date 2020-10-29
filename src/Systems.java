@@ -31,6 +31,23 @@ public class Systems {
 		int index = manager.users.indexOf(name);
 		manager.users.remove(index);
 	}		
+	
+	public User returnUserWithName(String name) {
+		for(User x: manager.users) {
+			if(x.getName().equalsIgnoreCase(name)) {
+				return x;
+			}
+		}
+		return null;
+	}
+	
+	
+	
+	
+	
+	
+	
+	
 	public void printUserData() {//Only here for debug
 		System.out.println("We have "+manager.users.size()+" users");		
 		for(int i = 0; i < manager.users.size(); i++) {

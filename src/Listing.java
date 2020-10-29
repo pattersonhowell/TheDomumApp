@@ -169,10 +169,10 @@ public class Listing {
 						+" --Laundry Included: "+laundry+"-- Pet Friendly: "+petFriendly+ "--Pool: "+pool+ "--Furnished: " +furnished;	
 	}	
 
-	public void generateLease(Student student) {
+	public void generateLease(User user) {
 		try {	
-			File fileRead  = new File("/DomumApp/TextFiles/LeasingAgreement.txt");
-			File fileWrite  = new File("/DomumApp/TextFiles/LeasingAgreement"+student.getName());
+			File fileRead  = new File("./DomumApp/TextFiles/LeasingAgreement.txt");
+			File fileWrite  = new File("./DomumApp/TextFiles/LeasingAgreement"+user.getName());
 			Scanner scan = new Scanner(fileRead);		
 			if (!fileWrite.exists()) {//create new file for lease to be shown 
 				fileWrite.createNewFile();
@@ -183,7 +183,7 @@ public class Listing {
 		    while(scan.hasNextLine()) {
 		    	line = scan.nextLine(); 	   	
 		    	if(line.contains("Tenant:")) {
-		    		 output.write(line +student.getName() +"\n");
+		    		 output.write(line +user.getName() +"\n");
 		    	}		    	
 		    	else if(line.contains("Address:")) {
 		    		output.write(line+this.getAddress()+ "\n");
@@ -192,7 +192,7 @@ public class Listing {
 		    		output.write(line+this.getPrice()+"\n");
 		    	}	
 		    	else  if (line.contains("Tenant Signature:")){
-			    	output.write(line+student.getName()+"\n");
+			    	output.write(line+user.getName()+"\n");
 		    	}
 		    	else {		    	
 		    		output.write(line+"\n");
@@ -204,10 +204,15 @@ public class Listing {
 			e.printStackTrace();
 		}
 	}	
-	public void generateApplication(Student student)  {	
+	public void generateApplication(User user)  {	
 		try {	
-			File fileRead  = new File("/DomumApp/TextFiles/Application.txt");
-			File fileWrite  = new File("/DomumApp/TextFiles/Application"+student.getName());
+			
+			//File fileRead  = new File("DomumApp/TextFiles/Application.txt");			
+			//File fileWrite  = new File("/DommumApp/TextFiles/Application"+user.getName());
+			//File fileRead  = new File("C:/Users/Kevin Hagan/Desktop/DOMUM/DomumApp/TextFiles")
+			File fileRead  = new File("C:/Users/Kevin Hagan/Desktop/DOMUM/DomumApp/TextFiles/Application.txt");
+			File fileWrite  = new File("C:/Users/Kevin Hagan/Desktop/DOMUM/DomumApp/TextFiles/Application" +user.getName());	
+					
 			Scanner scan = new Scanner(fileRead);		
 			if (!fileWrite.exists()) {//create new file for lease to be shown 
 				fileWrite.createNewFile();
@@ -225,16 +230,16 @@ public class Listing {
 		    	output.write(line+this.getPrice()+ "\n");
 		    }
 		    else if (line.contains("Name:")) {
-		    	output.write(line + student.getName()+ "\n");
+		    	output.write(line + user.getName()+ "\n");
 		    }
 		    else if (line.contains("Phone:")) {
-		    	output.write(line+ student.getPhone() + "\n");
+		    	output.write(line+ user.getPhone() + "\n");
 		    }		    	
 		    else if (line.contains("Email:")) {
-		    	output.write(line+student.getEmail()+ "\n");
+		    	output.write(line+user.getEmail()+ "\n");
 		    }		    	
 		    else if (line.contains("Student ID:")) {
-		    	output.write(line+ student.getId()+ "\n");
+		    	output.write(line+ user.getId()+ "\n");
 		    }	   	
   		    		    	    	
 		   }
