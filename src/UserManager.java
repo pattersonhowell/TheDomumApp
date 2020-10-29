@@ -10,7 +10,7 @@ public class UserManager {
 		ArrayList<Review> revList = new ArrayList<Review>();
 		Review toddRev = new Review(5,"Idk","10/11/20","Todd is the best");
 		revList.add(toddRev);
-		Student todd = new Student(00405,"Todd Smith","iLoveBirds","505 Shoe Lane","6021112324","ToddSMith@gmail.com",revList);
+		Student todd = new Student(00405,"Todd","pass","505 Shoe Lane","6021112324","ToddSMith@gmail.com",revList);
 		users.add(todd);
 		
 		ArrayList<Review> revList2 = new ArrayList<Review>();
@@ -43,7 +43,6 @@ public class UserManager {
 		for(User x:users) {
 			System.out.println(x.toString());
 			System.out.println("_________________________________________");
-		}
-		
+		}		
 	}
 }
