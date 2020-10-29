@@ -5,7 +5,7 @@ public class HousingDriver {
 	
 	private Systems systems = new Systems();
 	public static Scanner kb = new Scanner(System.in);
-	private boolean logIn = false; //Variable that keeps track of whether or not user is logged in 
+	private static boolean logIn = false;//Variable that keeps track of whether or not user is logged in 
 	
 	public static void main(String[] args) {
 	HousingDriver hd = new HousingDriver();
@@ -168,6 +168,7 @@ public class HousingDriver {
 	}
 	
 	private void generateApp() {
+		systems.printUserData();
 		if(logIn==false) {
 			System.out.println("Sorry you must Log In before generating this application");			
 		}
@@ -177,10 +178,7 @@ public class HousingDriver {
 			System.out.println("What is Your studentID");//maybe pass in an instance of user later, but use this for now -KH
 			String studentID = kb.next();
 			
-			UserManager tempManager=UserManager.getInstance();
-			
-			
-			
+					
 			
 		}
 	}
