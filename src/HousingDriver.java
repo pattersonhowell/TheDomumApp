@@ -8,24 +8,21 @@ public class HousingDriver {
 		private Systems systems;
 		private boolean loggedIn;
 		
-		HousingDriver(){
+		HousingDriver() {
 			kb = new Scanner(System.in);
 			systems = new Systems();
 			loggedIn = false;
+		}
+		
+		public static void main(String[] args) {
+			HousingDriver domumInterface = new HousingDriver();
+			domumInterface.run();
 		}
 		
 		public void run() {
 			System.out.println("Welcome to Domum!");
 			welcomeMenu();
 			mainMenu();
-	}
-		
-		private void displayWelcomeMenu() {
-			System.out.println("\n--Welcome Menu--");
-			for(int i=0; i< welcomeMenuOptions.length; i++) {
-				System.out.println((i+1) + ". " + welcomeMenuOptions[i]);
-			}
-			System.out.println("\n");
 		}
 		
 		private int getUserCommand(int numCommands) {
@@ -41,24 +38,25 @@ public class HousingDriver {
 		
 		private void logIn() {
 			
-				System.out.println("--Log in--\nEnter your first and last name separated by an underscore: ");
-				String name = kb.next();
-				System.out.println("Please enter your password: ");
-				String password = kb.next();
+			System.out.println("--Log in--\nEnter your first and last name: ");
+			String name = kb.next();
+			kb.nextLine();
+			
+			System.out.println("Please enter your password: ");
+			String password = kb.next();
+			
+			boolean verified = systems.verifiedLogin(name, password);
 				
-				
-				boolean verified = systems.verifiedLogin(name, password);
-				
-				if(verified) {
-					loggedIn = true;
-				}
+			if(verified) {
+				loggedIn = true;
 			}
+		}
 		
 		private void createAccount() {
 			System.out.println("Would you like to register as a (1) student or (2) agent?");
 			int choice = kb.nextInt();
 			
-			System.out.println("--Create account--\nPlease enter your first and last name separated by an underscore: ");
+			System.out.println("--Create account--\nPlease enter your first and last name: ");
 			kb.nextLine();
 			String name = kb.nextLine(); 
 			
@@ -87,8 +85,11 @@ public class HousingDriver {
 			if(choice == 2) {
 				System.out.println("Please enter your agent ID");
 				String agentID = kb.next();
+				
 				System.out.println("Please enter your real estate group");
 				String group = kb.nextLine();
+				
+				
 				systems.signUpAgent(name, password, address, phone, email, group, agentID);
 				System.out.println("\nAccount created!");
 			}
@@ -109,24 +110,23 @@ public class HousingDriver {
 				if(userCommand == -1) {
 					System.out.println("Not a valid command");
 				}
-				if(userCommand == mainMenuOptions.length -1) 
-					
+				
 				switch(userCommand) {
-						case(0):
-								systems.printListings();
-								break;
-						case(1):
-								searchInput();
-								break;
-						case(2):
-								searchByID();
-								break;
-						case(3):
-								generateApp();
-								break;
-						case(4):
-								System.out.println("Goodbye! Thanks for using Domum");
-								System.exit(0);
+					case(0):
+						systems.printListings();
+						break;
+					case(1):
+						searchInput();
+						break;
+					case(2):
+						searchByID();
+						break;
+					case(3):
+						generateApp();
+						break;
+					case(4):
+						System.out.println("Goodbye! Thanks for using Domum");
+						System.exit(0);
 				}			
 			}
 		}
@@ -135,22 +135,31 @@ public class HousingDriver {
 			System.out.println("Listing Search:");
 			System.out.println("What is your maximum price ?");
 			Double price = kb.nextDouble();
+			
 			System.out.println("What is your minimum number of Bedrooms ?");
 			int bed = kb.nextInt();
+			
 			System.out.println("What is the minimum number of Bathrooms ?");
 			int bath = kb.nextInt();
+			
 			System.out.println("What is your maximum distance from campus ? (In Miles)");
 			double distance = kb.nextDouble();
+			
 			System.out.println("Do you want to search for Units with Free Wifi ? (Enter true or false)");
 			boolean wifi = kb.nextBoolean();
+			
 			System.out.println("Do you want to search for Units with a Washer and Dryer ? (Enter true or false)");
 			boolean laundry = kb.nextBoolean();
+			
 			System.out.println("Do you want to search for Units that are pet friendly ? (Enter true or false)");
 			boolean petFriendly = kb.nextBoolean();
+			
 			System.out.println("Do you want to search for Units that have a pool ? (Enter true or false)");
 			boolean pool = kb.nextBoolean();
+			
 			System.out.println("Do you want to search for Units that are furnished ? (Enter true or false)");
-			boolean furnished = kb.nextBoolean();					
+			boolean furnished = kb.nextBoolean();	
+			
 			systems.comprehensiveSearch(price,bed,bath,distance,wifi,laundry,petFriendly,pool,furnished);		
 		}	
 		
@@ -169,41 +178,38 @@ public class HousingDriver {
 				System.out.println("What is the listingID of the property you wish to generate an application for?");
 				int listingID = kb.nextInt();
 				System.out.println("What is Your studentID");//maybe pass in an instance of user later, but use this for now -KH
-				String studentID = kb.next();
-				
+				String studentID = kb.next();	
 			}
 		}
 		
 		private void welcomeMenu() {
 			while(true) {
-				displayWelcomeMenu();
-				
+				System.out.println("\n--Welcome Menu--");
+				for(int i=0; i< welcomeMenuOptions.length; i++) {
+				System.out.println((i+1) + ". " + welcomeMenuOptions[i]);
+				}
+				System.out.println("\n");
+
 				int userCommand = getUserCommand(welcomeMenuOptions.length);
-				
+
 				if(userCommand == -1) {
 					System.out.println("Not a valid command");
 				}
-				
+
 				switch(userCommand) {
-						case(0):
-							
-								logIn();
-								if(loggedIn)
-									return;
-								else
-									System.out.println("Invalid login, returning to welcome page");
-									break;
-						case(1):
-								createAccount();
-								return;
-						case(2):
-								return;
+					case(0):
+						logIn();
+						if(loggedIn)
+							return;
+						else
+							System.out.println("Invalid login, returning to welcome page");
+							break;
+					case(1):
+						createAccount();
+						return;
+					case(2):
+						return;
 				}
 			}
-		}
-		
-		public static void main(String[] args) {
-			HousingDriver domumInterface = new HousingDriver();
-			domumInterface.run();
 		}
 }
