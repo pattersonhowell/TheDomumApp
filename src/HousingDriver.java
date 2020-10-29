@@ -7,13 +7,11 @@ public class HousingDriver {
 		private Scanner kb;
 		private Systems systems;
 		private boolean loggedIn;
-		private ListingManager listingManager;
 		
 		HousingDriver(){
 			kb = new Scanner(System.in);
 			systems = new Systems();
 			loggedIn = false;
-			listingManager = new ListingManager();
 		}
 		
 		public void run() {
@@ -115,7 +113,7 @@ public class HousingDriver {
 					
 				switch(userCommand) {
 						case(0):
-								listingManager.printListings(listingManager.listings);
+								systems.printListings();
 								break;
 						case(1):
 								searchInput();
@@ -153,13 +151,13 @@ public class HousingDriver {
 			boolean pool = kb.nextBoolean();
 			System.out.println("Do you want to search for Units that are furnished ? (Enter true or false)");
 			boolean furnished = kb.nextBoolean();					
-			listingManager.comprehensiveSearch(price,bed,bath,distance,wifi,laundry,petFriendly,pool,furnished);		
+			systems.comprehensiveSearch(price,bed,bath,distance,wifi,laundry,petFriendly,pool,furnished);		
 		}	
 		
 		private void searchByID() {
 			System.out.println("Please enter the listing ID: ");
 			int id = kb.nextInt();
-			listingManager.findListing(id);
+			systems.listingID(id);
 		}
 		
 		private void generateApp() {
