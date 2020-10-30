@@ -196,7 +196,7 @@ public class HousingDriver {
 			}
 			else {
 				//ArrayList<Review> blueHouseRev = new ArrayList<Review>();
-				Review testRev = new Review(5, 5, "32342","10/11/20","The best");				
+				Review testRev = new Review(17, 5, "32342","10/11/20","The best");				
 				//blueHouseRev.add(testRev);
 				
 				System.out.println("What is Your ID?");
@@ -219,7 +219,7 @@ public class HousingDriver {
 				
 				systems.listingManager.findListing(listingID).reviews.add(testRev);
 				System.out.println("adding review");
-				systems.listingManager.findListing(listingID).getReview();
+				System.out.println(systems.listingManager.findListing(listingID).getReview());
 				
 				
 				

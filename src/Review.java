@@ -14,6 +14,10 @@ public class Review {
 		this.date = date;
 		this.reviewText = reviewText; 
 	}
+	
+	public String toString() {
+		return "Review by: " + "on " + date + ":\n" + reviewText;
+	}
 }
 
 
