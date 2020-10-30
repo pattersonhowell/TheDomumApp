@@ -3,7 +3,8 @@ import java.util.ArrayList;
 public class Systems {
 
 	
-	private ListingManager listingManager;
+	//private ListingManager listingManager;
+	ListingManager listingManager = ListingManager.getInstance();
 	//private UserManager userManager;
 	UserManager manager = UserManager.getInstance();	
 	public boolean verifiedLogin(String name, String password) {	
@@ -49,8 +50,21 @@ public class Systems {
 			}
 		}
 		
-		
 	}
+	
+	public void printListings() {
+		listingManager.printListings(listingManager.listings);
+	}
+	
+	public void comprehensiveSearch(double price,int bed,int bath,double distance,boolean wifi,boolean laundry,boolean petFriendly,boolean pool,boolean furnished) {
+		listingManager.comprehensiveSearch(price,bed,bath,distance,wifi,laundry,petFriendly,pool,furnished);
+	}
+	
+	public Listing listingID(int id) {
+		return listingManager.findListing(id);
+	}
+	
+	
 	
 	
 	

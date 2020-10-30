@@ -31,6 +31,11 @@ public class UserManager {
 		boolean found = users.contains(user);
 		return found;
 	}
+	
+
+
+	
+	
 	public void print() {
 		System.out.println("Printing Users");
 		for(User x:users) {

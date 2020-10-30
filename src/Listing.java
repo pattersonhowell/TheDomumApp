@@ -42,8 +42,10 @@ public class Listing {
 		this.furnished = furnished; 
 	}	
 
-	public ArrayList<Review> getReview() {
-		return this.reviews;
+	public void getReviews() {
+		for(Review r: reviews) {
+			System.out.println(r.toString());
+		}
 	}
 	
 	public void addReview(Review review) {
