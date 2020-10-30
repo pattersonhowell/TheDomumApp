@@ -180,7 +180,7 @@ public class HousingDriver {
 			int id = kb.nextInt();
 			System.out.println(systems.listingID(id).toString());
 		}
-		
+
 		private void generateApp() {
 			systems.printUserData();
 			if(loggedIn==false) {

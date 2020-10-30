@@ -19,12 +19,17 @@ public class ListingManager {
 	public void addListing(Listing listing) {
 		Listing listed = listing;
 		listings.add(listed);
+		writeListings();
 	}
 	public void removeListing(Listing listing) {
 		listings.remove(listing);
+		writeListings();
 	}
 	public ArrayList<Listing> showAllListings() {
 		return listings;
+	}
+	private void writeListings() {
+		ListingWriter.writeListings();
 	}
 	public Listing findListing(int listingId) {
 		for (Listing listing: listings) {
@@ -141,6 +146,7 @@ public class ListingManager {
 				x.setAgentID(ID);
 			}
 		}
+		writeListings();
 	}
 	public void editPrice(Listing listing, double price) {
 		for(Listing x:listings) {
@@ -148,6 +154,7 @@ public class ListingManager {
 				x.setPrice(price);
 			}
 		}
+		writeListings();
 	}
 	public void editAddress(Listing listing, String address) {
 		for(Listing x:listings) {
@@ -155,6 +162,7 @@ public class ListingManager {
 				x.setAddress(address);
 			}
 		}
+		writeListings();
 	}
 	public void editNumberBed(Listing listing, int numBed) {
 		for(Listing x:listings) {
@@ -162,6 +170,7 @@ public class ListingManager {
 				x.setNumBedroom(numBed);
 			}
 		}
+		writeListings();
 	}
 	public void editNumberBath(Listing listing, int numBath) {
 		for(Listing x:listings) {
@@ -169,6 +178,7 @@ public class ListingManager {
 				x.setNumBathroom(numBath);
 			}
 		}
+		writeListings();
 	}
 	public void editYearBuilt(Listing listing, int yearBuilt) {
 		for(Listing x:listings) {
@@ -176,6 +186,7 @@ public class ListingManager {
 				x.setYearBuilt(yearBuilt);
 			}
 		}
+		writeListings();
 	}
 	public void editDistanceFromCampus(Listing listing, double distance) {
 		for(Listing x:listings) {
@@ -183,6 +194,7 @@ public class ListingManager {
 				x.setDistFromCampus(distance);
 			}
 		}
+		writeListings();
 	}
 	public void editNumAvalible(Listing listing, int numAvalible) {
 		for(Listing x:listings) {
@@ -190,6 +202,7 @@ public class ListingManager {
 				x.setNumberAvalible(numAvalible);
 			}
 		}
+		writeListings();
 	}
 
 	public void editFreeWifiStatus(Listing listing,boolean value) {
@@ -198,6 +211,7 @@ public class ListingManager {
 				x.setFreeWifi(value);
 			}
 		}
+		writeListings();
 	}
 	public void editLaundryStatus(Listing listing,boolean value) {
 		for(Listing x:listings) {
@@ -205,6 +219,7 @@ public class ListingManager {
 				x.setLaundry(value);
 			}
 		}
+		writeListings();
 	}
 	public void editPetFriendlyStatus(Listing listing,boolean value) {
 		for(Listing x:listings) {
@@ -212,6 +227,7 @@ public class ListingManager {
 				x.setPetFriendly(value);
 			}
 		}
+		writeListings();
 	}
 	public void editPoolStatus(Listing listing,boolean value) {
 		for(Listing x:listings) {
@@ -219,6 +235,7 @@ public class ListingManager {
 				x.setPool(value);
 			}
 		}
+		writeListings();
 	}
 	public void editFurnishedStatus(Listing listing,boolean value) {
 		for(Listing x:listings) {
@@ -226,6 +243,7 @@ public class ListingManager {
 				x.setFurnished(value);
 			}
 		}
+		writeListings();
 	}
 	/**
 	 * This method generates all of the listings that fit a certain criteria
