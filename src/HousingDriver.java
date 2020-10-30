@@ -219,7 +219,8 @@ public class HousingDriver {
 
 				Review test2Rev = new Review(listingID, listRating, realID, date, reviewMessage);
 
-				systems.listingManager.findListing(listingID).reviews.add(test2Rev);
+				//systems.listingManager.findListing(listingID).reviews.add(test2Rev);
+				systems.listingManager.addListingReview(test2Rev, listingID);
 				System.out.println("adding review");
 				systems.listingManager.findListing(listingID).getReviews();
 

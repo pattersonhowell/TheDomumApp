@@ -42,6 +42,13 @@ public class ListingManager {
 		System.out.println("Could not find Listing with that ID");
 		return null;
 	}
+
+	public void addListingReview(Review review, int listingID) {
+		findListing(listingID).reviews.add(review);
+	}
+
+
+
 	public ArrayList<Listing> priceSearch(double price) {
 		ArrayList<Listing> mathchingListings = new ArrayList<Listing>();
 		for (Listing listing: listings) {
