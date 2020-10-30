@@ -9,6 +9,7 @@ public class HousingDriver {
 		private Scanner kb;
 		private Systems systems;
 		private boolean loggedIn;
+		private String realID; //using since we don't have a currentUser setup
 		
 		HousingDriver() {
 			kb = new Scanner(System.in);
@@ -80,20 +81,23 @@ public class HousingDriver {
 			if(choice == 1) {
 				System.out.println("Please enter your student ID");
 				String studentID = kb.next();
+				realID = studentID; //using since we don't have a currentUser setup
 				systems.signUpStudent(name, password, address, phone, email, studentID);
 				System.out.println("\nAccount created!");
+				loggedIn = true; //creating account should automatically log in
 			}
 			
 			if(choice == 2) {
 				System.out.println("Please enter your agent ID");
 				String agentID = kb.next();
-				
+				realID = agentID; //using since we don't have a currentUser setup
 				System.out.println("Please enter your real estate group");
 				String group = kb.nextLine();
 				
 				
 				systems.signUpAgent(name, password, address, phone, email, group, agentID);
 				System.out.println("\nAccount created!");
+				loggedIn = true; //creating account should automatically log in
 			}
 		}
 		
@@ -196,12 +200,9 @@ public class HousingDriver {
 			}
 			else {
 				//ArrayList<Review> blueHouseRev = new ArrayList<Review>();
-				Review testRev = new Review(17, 5, "32342","10/11/20","The best");				
+				//Review testRev = new Review(17, 5, "32342","10/11/20","The best");				
 				//blueHouseRev.add(testRev);
 				
-				System.out.println("What is Your ID?");
-				String studentID = kb.next();
-				kb.nextLine();
 				
 				System.out.println("What is the listingID of the property you wish to leave a review for?");
 				int listingID = kb.nextInt();
@@ -216,7 +217,7 @@ public class HousingDriver {
 				
 				String date = java.time.LocalDate.now().toString();
 				
-				Review test2Rev = new Review(listingID, listRating, studentID, date, reviewMessage);
+				Review test2Rev = new Review(listingID, listRating, realID, date, reviewMessage);
 				
 				systems.listingManager.findListing(listingID).reviews.add(test2Rev);
 				System.out.println("adding review");
