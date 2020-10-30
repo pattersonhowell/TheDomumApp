@@ -59,8 +59,8 @@ public class Systems {
 		listingManager.comprehensiveSearch(price,bed,bath,distance,wifi,laundry,petFriendly,pool,furnished);
 	}
 	
-	public void listingID(int id) {
-		listingManager.findListing(id);
+	public Listing listingID(int id) {
+		return listingManager.findListing(id);
 	}
 	
 	

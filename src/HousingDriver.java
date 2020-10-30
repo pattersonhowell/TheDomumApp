@@ -132,8 +132,8 @@ public class HousingDriver {
 						break;
 					case(4):
 						
-						System.out.println("we can leave review here");
-						System.out.println(java.time.LocalDate.now()); 
+						//System.out.println("we can leave review here");
+						//System.out.println(java.time.LocalDate.now()); 
 						leaveListingReview();
 						break;
 					case(5):
@@ -178,7 +178,7 @@ public class HousingDriver {
 		private void searchByID() {
 			System.out.println("Please enter the listing ID: ");
 			int id = kb.nextInt();
-			systems.listingID(id);
+			System.out.println(systems.listingID(id).toString());
 		}
 		
 		private void generateApp() {

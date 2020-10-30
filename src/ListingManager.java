@@ -41,8 +41,8 @@ public class ListingManager {
 	public Listing findListing(int listingId) {			
 		for (Listing listing: listings) {
 			if(listing.getListingID()==listingId) {
-				System.out.println("We found listing for ID: " + listingId);
-				System.out.println(listing.toString());
+				//System.out.println("We found listing for ID: " + listingId);
+				//System.out.println(listing.toString());
 				return listing;
 			}
 		}
