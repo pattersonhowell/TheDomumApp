@@ -5,7 +5,7 @@ import java.time.LocalDateTime;
 
 public class HousingDriver {
 		private String[] welcomeMenuOptions = {"Log in", "Create Account","Browse as Guest"};
-		private String[] mainMenuOptions = {"Browse All Listings","Enter Search Preferences","Search by Listing ID", "Generate Application", "Leave a Listing Review", "Exit"};
+		private String[] mainMenuOptions = {"Browse All Listings","Enter Search Preferences","Search by Listing ID", "Generate Application","Generate Lease", "Leave a Listing Review", "Exit"};
 		private Scanner kb;
 		private Systems systems;
 		private boolean loggedIn;
@@ -52,6 +52,7 @@ public class HousingDriver {
 
 			if(verified) {
 				loggedIn = true;
+				realID = systems.returnID(name, password);
 			}
 		}
 
@@ -94,14 +95,15 @@ public class HousingDriver {
 				System.out.println("Please enter your real estate group");
 				String group = kb.nextLine();
 
-
 				systems.signUpAgent(name, password, address, phone, email, group, agentID);
 				System.out.println("\nAccount created!");
 				loggedIn = true; //creating account should automatically log in
+
 			}
 		}
 
 		private void mainMenu() {
+
 
 			while(true) {
 
@@ -130,13 +132,16 @@ public class HousingDriver {
 					case(3):
 						generateApp();
 						break;
-					case(4):
 
+					case(4):
+						generateLease();
+						break;
+					case(5):
 						//System.out.println("we can leave review here");
 						//System.out.println(java.time.LocalDate.now());
 						leaveListingReview();
 						break;
-					case(5):
+					case(6):
 						System.out.println("Goodbye! Thanks for using Domum");
 						System.exit(0);
 				}
@@ -182,15 +187,27 @@ public class HousingDriver {
 		}
 
 		private void generateApp() {
-			systems.printUserData();
+			//systems.printUserData();
 			if(loggedIn==false) {
 				System.out.println("Sorry you must Log In before generating this application");
 			}
 			else {
 				System.out.println("What is the listingID of the property you wish to generate an application for?");
 				int listingID = kb.nextInt();
-				System.out.println("What is Your studentID");//maybe pass in an instance of user later, but use this for now -KH
-				String studentID = kb.next();
+				//System.out.println("What is Your studentID");//maybe pass in an instance of user later, but use this for now -KH
+				//String studentID = kb.next(); DONT NEED THIS
+				systems.generateApp(listingID,realID);
+			}
+		}
+
+		private void generateLease() {
+			if(loggedIn==false) {
+				System.out.println("Sorry you must Log In before generating this application");
+			}
+			else {
+				System.out.println("What is the listingID of the property you wish to generate an application for?");
+				int listingID = kb.nextInt();
+				systems.generateLease(listingID, realID);
 			}
 		}
 

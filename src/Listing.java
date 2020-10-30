@@ -173,8 +173,8 @@ public class Listing {
 
 	public void generateLease(User user) {
 		try {	
-			File fileRead  = new File("./DomumApp/TextFiles/LeasingAgreement.txt");
-			File fileWrite  = new File("./DomumApp/TextFiles/LeasingAgreement"+user.getName());
+			File fileRead  = new File("./TextFiles/LeasingAgreement.txt");
+			File fileWrite  = new File("./TextFiles/LeasingAgreement_"+user.getName());
 			Scanner scan = new Scanner(fileRead);		
 			if (!fileWrite.exists()) {//create new file for lease to be shown 
 				fileWrite.createNewFile();
