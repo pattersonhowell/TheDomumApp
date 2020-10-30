@@ -39,11 +39,12 @@ public class ListingLoader extends DataConstants{
 				JsonArray reviewsJSON = listingJSON.getAsJsonArray("reviews");
 				for (int j = 0; j < reviewsJSON.size(); j++) {
 					JsonObject reviewJSON = (JsonObject)reviewsJSON.get(j);
+					int listID = reviewJSON.get("listID").getAsInt();
 					String authorID = reviewJSON.get("authorID").getAsString();
 					String date = reviewJSON.get("date").getAsString();
 					String reviewText = reviewJSON.get("reviewText").getAsString();
 					int rating = reviewJSON.get("rating").getAsInt();
-					Review r = new Review(rating, authorID, date, reviewText);
+					Review r = new Review(listID, rating, authorID, date, reviewText);
 					reviews.add(r);
 				}
 

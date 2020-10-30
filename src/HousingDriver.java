@@ -32,6 +32,7 @@ public class HousingDriver {
 			System.out.println("What would you like to do?: ");
 
 			int input = kb.nextInt();
+			kb.nextLine(); // Causes kb to move on to next line after taking an int -BD
 			int command = input - 1;
 
 			if(command >= 0 && command <= numCommands -1) return command;
@@ -42,11 +43,10 @@ public class HousingDriver {
 		private void logIn() {
 
 			System.out.println("--Log in--\nEnter your first and last name: ");
-			String name = kb.next();
-			kb.nextLine();
+			String name = kb.nextLine();
 
 			System.out.println("Please enter your password: ");
-			String password = kb.next();
+			String password = kb.nextLine();
 
 			boolean verified = systems.verifiedLogin(name, password);
 

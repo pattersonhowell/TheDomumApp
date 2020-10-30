@@ -7,6 +7,7 @@
 		"numBathroom":3,
 		"numBedroom":3,
 		"reviews":[{
+			"listID":0,
 			"authorID":"G303029",
 			"date":"2/3/2020",
 			"reviewText":"Love this place!",
@@ -28,11 +29,13 @@
 		"numBathroom":1,
 		"numBedroom":2,
 		"reviews":[{
+			"listID":0,
 			"authorID":"D754765",
 			"date":"9/17/2020",
 			"reviewText":"Pretty good place",
 			"rating":3
 		},{
+			"listID":1,
 			"authorID":"F390908",
 			"date":"10/1/2020",
 			"reviewText":"Terrible place!",
@@ -54,11 +57,13 @@
 		"numBathroom":4,
 		"numBedroom":4,
 		"reviews":[{
+			"listID":0,
 			"authorID":"303029",
 			"date":"9/17/2020",
 			"reviewText":"Cool!",
 			"rating":5
 		},{
+			"listID":1,
 			"authorID":"390393",
 			"date":"10/1/2020",
 			"reviewText":"Amazing!",

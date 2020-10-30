@@ -53,7 +53,7 @@ public class Systems {
 	}
 	
 	public void printListings() {
-		listingManager.printListings(listingManager.listings);
+		listingManager.printListings(listingManager.getListings());
 	}
 	
 	public void comprehensiveSearch(double price,int bed,int bath,double distance,boolean wifi,boolean laundry,boolean petFriendly,boolean pool,boolean furnished) {

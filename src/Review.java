@@ -1,7 +1,7 @@
 
 public class Review {
 
-	UserManager manager = UserManager.getInstance();
+//	UserManager manager = UserManager.getInstance();
 	private Systems systems;
 
 	public int listID;

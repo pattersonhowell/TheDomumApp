@@ -22,11 +22,12 @@ public class Student extends User {
 	}	
 	
 	public void leaveReview(Review review) {		
+		int listID = 0;
 		int rating = 0;
 		String author = "";
 		String date = "";
 		String reviewText = "";		
-		Review rev = new Review(rating, author, date, reviewText);
+		Review rev = new Review(listID, rating, author, date, reviewText);
 	}
 	
 	

@@ -8,11 +8,13 @@
 		"email":"johndoe@gmail.com",
 		"favoriteListingIDs":[12,5],
 		"reviews":[{
+			"listID":0,
 			"authorID":"303029",
 			"date":"9/17/2020",
 			"reviewText":"Lorem Ipsum",
 			"rating":5
 		},{
+			"listID":1,
 			"authorID":"390393",
 			"date":"10/1/2020",
 			"reviewText":"Terrible person, would give zero stars if I could",
@@ -28,6 +30,7 @@
 		"realtyGroup":"Star Bean Agency",
 		"managedListingIDs":[12,13],
 		"reviews":[{
+			"listID":0,
 			"authorID":"47848585",
 			"date":"9/10/2020",
 			"reviewText":"Great realtor!",
