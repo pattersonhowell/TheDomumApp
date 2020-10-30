@@ -57,16 +57,35 @@ public class Systems {
 	
 	public void comprehensiveSearch(double price,int bed,int bath,double distance,boolean wifi,boolean laundry,boolean petFriendly,boolean pool,boolean furnished) {
 		listingManager.comprehensiveSearch(price,bed,bath,distance,wifi,laundry,petFriendly,pool,furnished);
-	}
-	
+	}	
 	public Listing listingID(int id) {
 		return listingManager.findListing(id);
 	}
+		
+	public void generateLease(int listingID, String studentID) {		
+		for(User x: manager.users) {
+			if(x.getId().equals(studentID))	{//serching for the user 
+				listingManager.findListing(listingID).generateLease(x);
+			}
+		}			
+		System.out.println("Please See Txt File");
+	}		
+	public String returnID(String userName, String password) {
+		for(User x: manager.users) {
+			if(x.getName().equalsIgnoreCase(userName) && x.getPassword().equals(password) ) {
+				return x.getId();
+			}
+		}
+		return null;			
+	}
 	
-	
-	
-	
-	
+	public void generateApp(int listingID,String studentID) {
+		for(User x: manager.users) { 
+			if(x.getId().equals(studentID))	{//serching for the user 
+				listingManager.findListing(listingID).generateApplication(x);
+			}
+		}
+	}
 	
 	
 	

@@ -52,6 +52,7 @@ public class HousingDriver {
 				
 			if(verified) {
 				loggedIn = true;
+				realID = systems.returnID(name, password);
 			}
 		}
 		
@@ -92,16 +93,17 @@ public class HousingDriver {
 				String agentID = kb.next();
 				realID = agentID; //using since we don't have a currentUser setup
 				System.out.println("Please enter your real estate group");
-				String group = kb.nextLine();
-				
+				String group = kb.nextLine();				
 				
 				systems.signUpAgent(name, password, address, phone, email, group, agentID);
 				System.out.println("\nAccount created!");
 				loggedIn = true; //creating account should automatically log in
+				
 			}
 		}
 		
 		private void mainMenu() {
+			
 			
 			while(true) {
 				
@@ -181,17 +183,29 @@ public class HousingDriver {
 			System.out.println(systems.listingID(id).toString());
 		}
 		
-		private void generateApp() {
-			systems.printUserData();
+		private void generateApp() {				
+			//systems.printUserData();
 			if(loggedIn==false) {
 				System.out.println("Sorry you must Log In before generating this application");			
 			}
 			else {
 				System.out.println("What is the listingID of the property you wish to generate an application for?");
 				int listingID = kb.nextInt();
-				System.out.println("What is Your studentID");//maybe pass in an instance of user later, but use this for now -KH
-				String studentID = kb.next();	
+				//System.out.println("What is Your studentID");//maybe pass in an instance of user later, but use this for now -KH
+				//String studentID = kb.next(); DONT NEED THIS 	
+				systems.generateApp(listingID,realID);				
 			}
+		}			
+		
+		private void generateLease() {
+			if(loggedIn==false) {
+				System.out.println("Sorry you must Log In before generating this application");
+			}
+			else {
+				System.out.println("What is the listingID of the property you wish to generate an application for?");
+				int listingID = kb.nextInt();
+				systems.generateLease(listingID, realID);
+			}		
 		}
 		
 		private void leaveListingReview() {
