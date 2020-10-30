@@ -1,3 +1,4 @@
+import com.google.gson.GsonBuilder;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import com.google.gson.Gson;
@@ -9,16 +10,20 @@ import java.util.ArrayList;
 
 public class UserWriter extends DataConstants {
     public static void writeUser() {
+        JsonObject jBase = new JsonObject();
         JsonArray jArray = new JsonArray();
+        Gson gson = new GsonBuilder().setPrettyPrinting().create();
         UserManager um =  UserManager.getInstance(); // Calling the singleton
         // Create Objects
-        ArrayList<User> users = um.users;
+        ArrayList<User> users = um.getUsers();
         for(User u:users)
             jArray.add(getUserJSON(u));
+        jBase.add("users", jArray);
         // Create file and write to it
+        System.out.println(gson.toJson(jBase));
         File f = new File(USERS_FILE_LOCATION);
         try (FileWriter file = new FileWriter(f)) {
-            file.write(jArray.toString());
+            file.write(gson.toJson(jBase));
             file.flush();
         } catch (IOException e) {
             e.printStackTrace();
@@ -26,7 +31,6 @@ public class UserWriter extends DataConstants {
     }
     public static JsonObject getUserJSON(User user) {
         JsonObject userDetails = new JsonObject();
-//        Gson gson = new Gson();
         userDetails.addProperty("id", user.getId());
         userDetails.addProperty("name", user.getName());
         userDetails.addProperty("password", user.getPassword());

@@ -1,6 +1,6 @@
 {"users":[
 	{
-		"id":47848585,
+		"id":"47848585",
 		"name":"John Doe",
 		"password":"somepassword123",
 		"address":"123 Sesame St",
@@ -19,7 +19,7 @@
 			"rating":1
 		}]
 	},{
-		"id":390393,
+		"id":"390393",
 		"name":"Tom Burch",
 		"password":"reallybadpassword",
 		"address":"505 Woodland Ave",
@@ -28,7 +28,7 @@
 		"realtyGroup":"Star Bean Agency",
 		"managedListingIDs":[12,13],
 		"reviews":[{
-			"authorID":"V47848585",
+			"authorID":"47848585",
 			"date":"9/10/2020",
 			"reviewText":"Great realtor!",
 			"rating":5

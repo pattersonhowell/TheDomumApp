@@ -7,8 +7,6 @@ import com.google.gson.*;
 
 public class ListingLoader extends DataConstants{
 
-//	ListingManager manager = ListingManager.getInstance();
-	
 	public static ArrayList<Listing> loadListings() {
 //		Gson gson = new Gson();
 		ArrayList<Listing> listings = new ArrayList<>();
@@ -22,7 +20,7 @@ public class ListingLoader extends DataConstants{
 				JsonObject listingJSON = (JsonObject)jsonArray.get(i);
 				// Gets each field and transforms them into their respective type
 				int listingID = listingJSON.get("listingID").getAsInt();
-				int agentID = listingJSON.get("agentID").getAsInt();
+				String agentID = listingJSON.get("agentID").getAsString();
 				double price = listingJSON.get("price").getAsDouble();
 				String address = listingJSON.get("address").getAsString();
 				int numBathroom = listingJSON.get("numBathroom").getAsInt();
@@ -41,7 +39,7 @@ public class ListingLoader extends DataConstants{
 				JsonArray reviewsJSON = listingJSON.getAsJsonArray("reviews");
 				for (int j = 0; j < reviewsJSON.size(); j++) {
 					JsonObject reviewJSON = (JsonObject)reviewsJSON.get(j);
-					int authorID = reviewJSON.get("authorID").getAsInt();
+					String authorID = reviewJSON.get("authorID").getAsString();
 					String date = reviewJSON.get("date").getAsString();
 					String reviewText = reviewJSON.get("reviewText").getAsString();
 					int rating = reviewJSON.get("rating").getAsInt();

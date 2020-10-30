@@ -3,12 +3,12 @@ import java.util.ArrayList;
 public class Agent extends User {
 
 	private String realtyGroup;
-	private ArrayList<Listing> managedListings;
+	private ArrayList<Integer> managedListings;
 	
 	public Agent(String id, String name, String password, String address, String phone, String email ,String realtyGroup) {
 		super(id, name, password, address, phone, email);
 		this.realtyGroup = realtyGroup;
-		managedListings = new ArrayList<Listing>();
+		managedListings = new ArrayList<Integer>();
 	}
 	public String getRealtyGroup() {
 		return this.realtyGroup;
@@ -16,10 +16,10 @@ public class Agent extends User {
 	public void setRealtyGroup(String realtyGroup) {
 		this.realtyGroup = realtyGroup;
 	}
-	public ArrayList<Listing> getManagedListings() {
+	public ArrayList<Integer> getManagedListings() {
 		return this.managedListings;
 	}
-	public void setManagedListings(ArrayList<Listing> managedListings) {
+	public void setManagedListings(ArrayList<Integer> managedListings) {
 		this.managedListings = managedListings;
 	}
 	public String toString() {

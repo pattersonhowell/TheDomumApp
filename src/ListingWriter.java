@@ -1,6 +1,6 @@
+import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonObject;
-import com.google.gson.Gson;
 import com.google.gson.JsonArray;
 import java.io.File;
 import java.io.FileWriter;
@@ -10,22 +10,28 @@ import java.util.ArrayList;
 public class ListingWriter extends DataConstants {
 
 	// TODO Still needs to interface with ListingManager
-	public void writeListings(ArrayList<Listing> listings) {
+	public static void writeListings() {
+		JsonObject jBase = new JsonObject();
 		JsonArray jArray = new JsonArray();
+		Gson gson = new GsonBuilder().setPrettyPrinting().create();
+		ListingManager lm = ListingManager.getInstance();
 		// Create objects
+		ArrayList<Listing> listings = lm.getListings();
 		for(Listing l:listings)
 			jArray.add(getListingJSON(l));
+		jBase.add("listings", jArray);
 		// Create a file and write to it
-		File f = new File(LISTING_FILE_LOCATION);
+		System.out.println(gson.toJson(jBase));
+		/*File f = new File(LISTING_FILE_LOCATION);
 		try (FileWriter file = new FileWriter(f)) {
-			file.write(jArray.toString());
+			file.write(jBase.toString());
 			file.flush();
 		} catch (IOException e) {
-			e.printStackTrace();
-		}
+			e.printStackTrace();*//*
+		}*/
 	}
 	
-	private JsonObject getListingJSON(Listing listing) {
+	private static JsonObject getListingJSON(Listing listing) {
 		JsonObject listingDetails = new JsonObject();
 		listingDetails.addProperty("listingID", listing.getListingID());
 		listingDetails.addProperty("agentID", listing.getAgentID());

@@ -1,18 +1,20 @@
 import java.util.ArrayList;
 
 public class ListingManager {
-	public static ArrayList<Listing> listings = new ArrayList<>();
+	private static ArrayList<Listing> listings;
 
-	public static ListingManager listingManager;
+	private static ListingManager listingManager;
 
 	public ListingManager() {
-		// TODO Remove hardcode
 		listings = ListingLoader.loadListings();
 	}
 
 	public static ListingManager getInstance() {
 		if(listingManager == null) listingManager = new ListingManager();
 		return listingManager;
+	}
+	public ArrayList<Listing> getListings() {
+		return listings;
 	}
 	public void addListing(Listing listing) {
 		Listing listed = listing;
@@ -131,7 +133,7 @@ public class ListingManager {
 		System.out.println("_____________________________________________________________________");
 
 	}
-	public void editAgentID(Listing listing, int ID) {
+	public void editAgentID(Listing listing, String ID) {
 		for(Listing x:listings) {
 			if(x==listing) {
 				x.setAgentID(ID);

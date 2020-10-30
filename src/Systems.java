@@ -7,7 +7,7 @@ public class Systems {
 	//private UserManager userManager;
 	UserManager manager = UserManager.getInstance();	
 	public boolean verifiedLogin(String name, String password) {	
-		for(User x: manager.users) {
+		for(User x: manager.getUsers()) {
 			if(x.getName().equalsIgnoreCase(name) && x.getPassword().equalsIgnoreCase(password)) {
 				return true;
 			}			
@@ -19,7 +19,7 @@ public class Systems {
 		manager.addUser(newStudent);
 	}
 	public void signUpAgent(String name, String password, String address, String phone, String email, String group,String agentID) {
-		Agent newAgent = new Agent(agentID,name,password,address,phone,email,group);		
+		Agent newAgent = new Agent(agentID, name, password, address, phone, email, group);
 		manager.addUser(newAgent);
 	}			
 	public ArrayList<Listing> browseAnonymously(){
@@ -27,12 +27,13 @@ public class Systems {
 		return ret;
 	}	
 	public void deleteAccount(String name, String password) {
-		int index = manager.users.indexOf(name);
-		manager.users.remove(index);
+		ArrayList<User> users = manager.getUsers();
+		int index = users.indexOf(name);
+		users.remove(index);
 	}		
 	
 	public User returnUserWithName(String name) {
-		for(User x: manager.users) {
+		for(User x: manager.getUsers()) {
 			if(x.getName().equalsIgnoreCase(name)) {
 				return x;
 			}
@@ -41,9 +42,9 @@ public class Systems {
 	}
 			
 	public void printUserData() {//Only here for debug
-		System.out.println("We have "+manager.users.size()+" users");		
-		for(int i = 0; i < manager.users.size(); i++) {
-			for(User x: manager.users) {
+		System.out.println("We have "+manager.getUsers().size()+" users");
+		for(int i = 0; i < manager.getUsers().size(); i++) {
+			for(User x: manager.getUsers()) {
 				System.out.println(x.getName()+ " "+x.getPassword());
 			}
 		}
