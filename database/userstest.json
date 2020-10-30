@@ -1,0 +1,51 @@
+{
+  "users": [
+    {
+      "id": "47848585",
+      "name": "John Doe",
+      "password": "somepassword123",
+      "address": "123 Sesame St",
+      "phone": "(123) 456-7890",
+      "email": "johndoe@gmail.com",
+      "reviews": [
+        {
+          "authorID": "303029",
+          "date": "9/17/2020",
+          "reviewText": "Lorem Ipsum",
+          "rating": 5
+        },
+        {
+          "authorID": "390393",
+          "date": "10/1/2020",
+          "reviewText": "Terrible person, would give zero stars if I could",
+          "rating": 1
+        }
+      ],
+      "favoriteListingIDs": [
+        12,
+        5
+      ]
+    },
+    {
+      "id": "390393",
+      "name": "Tom Burch",
+      "password": "reallybadpassword",
+      "address": "505 Woodland Ave",
+      "phone": "(803) 999-9999",
+      "email": "tburch@gmail.com",
+      "reviews": [
+        {
+          "authorID": "47848585",
+          "date": "9/10/2020",
+          "reviewText": "Great realtor!",
+          "rating": 5
+        }
+      ],
+      "realtyGroup": "Star Bean Agency",
+      "managedListingIDs": [
+        12,
+        13
+      ]
+    }
+  ]
+}

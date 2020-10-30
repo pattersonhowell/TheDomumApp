@@ -134,10 +134,11 @@ public class HousingDriver {
 			case 5:
 				welcomePage();
 			case 6:
-				System.out.println("Entering debug");
+				System.out.println("Entering debug"); // TODO Remove debug
 				System.out.println("Adding new User to the manager");
 //				Agent a = new Agent("39", "John Cena", "password", "1273 Rf St", "(864) 334-3949", "email@email.com", "Some Group LLC");
 				systems.signUpAgent("John Cena", "password", "1273 Rf St", "(864) 334-3949", "email@email.com", "Some Group LLC", "39");
+				System.out.println("Adding a new Listing");
 				System.out.println("Printing the existing users");
 				systems.printUserData();
 				System.out.println("Printing ");

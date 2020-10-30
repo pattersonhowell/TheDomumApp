@@ -46,6 +46,7 @@ public class UserWriter extends DataConstants {
             jReview.addProperty("rating", r.rating);
             jReviewArray.add(jReview);
         }
+        userDetails.add("reviews", jReviewArray);
         // Agent vs Student
         if (user instanceof Student) {
             JsonArray jListingArray = new JsonArray();
@@ -53,7 +54,11 @@ public class UserWriter extends DataConstants {
                 jListingArray.add(i);
             userDetails.add("favoriteListingIDs", jListingArray);
         } else if (user instanceof Agent) {
-
+            userDetails.addProperty("realtyGroup", ((Agent) user).getRealtyGroup());
+            JsonArray manageListJSON = new JsonArray();
+            for (int i:((Agent) user).getManagedListings())
+                manageListJSON.add(i);
+            userDetails.add("managedListingIDs", manageListJSON);
         } else
             return null; // User that's not an Agent or Student, for whatever reason
         return userDetails;

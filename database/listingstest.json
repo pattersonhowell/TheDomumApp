@@ -1,0 +1,76 @@
+{"listings":[
+	{
+		"listingID":12,
+		"agentID":"390393",
+		"price":698.2,
+		"address":"321 Avenue Dr",
+		"numBathroom":3,
+		"numBedroom":3,
+		"reviews":[{
+			"authorID":"G303029",
+			"date":"2/3/2020",
+			"reviewText":"Love this place!",
+			"rating":5
+		}],
+		"numberAvailable":2,
+		"yearBuilt":2001,
+		"distFromCampus":5.6,
+		"freeWifi":false,
+		"laundry":true,
+		"petFriendly":false,
+		"pool":true,
+		"furnished":true
+	},{
+		"listingID":34,		
+		"agentID":"567585",
+		"price":560.34,
+		"address":"300 Parklane St",
+		"numBathroom":1,
+		"numBedroom":2,
+		"reviews":[{
+			"authorID":"D754765",
+			"date":"9/17/2020",
+			"reviewText":"Pretty good place",
+			"rating":3
+		},{
+			"authorID":"F390908",
+			"date":"10/1/2020",
+			"reviewText":"Terrible place!",
+			"rating":1
+		}],
+		"numberAvailable":7,
+		"yearBuilt":2000,
+		"distFromCampus":2.7,
+		"freeWifi":true,
+		"laundry":true,
+		"petFriendly":true,
+		"pool":false,
+		"furnished":false
+	},{
+		"listingID":5,		
+		"agentID":"465769",
+		"price":690.42,
+		"address":"800 Twinpeak Rd",
+		"numBathroom":4,
+		"numBedroom":4,
+		"reviews":[{
+			"authorID":"303029",
+			"date":"9/17/2020",
+			"reviewText":"Cool!",
+			"rating":5
+		},{
+			"authorID":"390393",
+			"date":"10/1/2020",
+			"reviewText":"Amazing!",
+			"rating":5
+		}],
+		"numberAvailable":1,
+		"yearBuilt":2013,
+		"distFromCampus":7.1,
+		"freeWifi":true,
+		"laundry":true,
+		"petFriendly":true,
+		"pool":true,
+		"furnished":true
+	}
+]}
