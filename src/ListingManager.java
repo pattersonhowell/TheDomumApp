@@ -2,24 +2,24 @@ import java.util.ArrayList;
 
 public class ListingManager {
 	public static ArrayList<Listing> listings = new ArrayList<>(); //= ListingLoader.loadListings();
-	
+	public static ArrayList<Review> reviews = new ArrayList<>();
 	public static ListingManager listingManager;
 	
 	public ListingManager() {
 		ArrayList<Review> blueHouseRev = new ArrayList<Review>();
-		Review myRev = new Review(5,"32342","10/11/20","The best");				
+		Review myRev = new Review(5, 7, "32342","10/11/20","The best");				
 		blueHouseRev.add(myRev);
 		Listing blueHouse = new Listing(17,"72892%String",50.5,"672 School Drive",5,3,blueHouseRev,1,1960,4,true,false,true,false,true);
 		listings.add(blueHouse);
 			
 		ArrayList<Review> redHouseRev = new ArrayList<Review>();
-		Review myRev1 = new Review(5,"authorID","03/1/21","The best");				
+		Review myRev1 = new Review(5, 8, "authorID","03/1/21","The best");				
 		redHouseRev.add(myRev1);
 		Listing redHouse = new Listing(18,"12323",1100,"555 Timber Lane",1,1,redHouseRev,1,2020,15.3,false,true,false,false,true);
 		listings.add(redHouse);		
 				
 		ArrayList<Review> greenHouseRev = new ArrayList<Review>();
-		Review myrev2 = new Review(19,"1738","6/10/20","Amazing Customer Service");				
+		Review myrev2 = new Review(19, 9, "1738","6/10/20","Amazing Customer Service");				
 		greenHouseRev.add(myrev2);
 		Listing greenhouse = new Listing(001,"12323",1100,"1330 Glenhardie Rd",5,5,greenHouseRev,1,2020,15.3,true,false,true,false,true);
 		listings.add(greenhouse);		

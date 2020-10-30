@@ -1,9 +1,11 @@
+import java.util.ArrayList;
 import java.util.Scanner;
+import java.time.LocalDateTime; 
 
 
 public class HousingDriver {
 		private String[] welcomeMenuOptions = {"Log in", "Create Account","Browse as Guest"};
-		private String[] mainMenuOptions = {"Browse All Listings","Enter Search Preferences","Search by Listing ID", "Generate Application","Exit"};
+		private String[] mainMenuOptions = {"Browse All Listings","Enter Search Preferences","Search by Listing ID", "Generate Application", "Leave a Listing Review", "Exit"};
 		private Scanner kb;
 		private Systems systems;
 		private boolean loggedIn;
@@ -125,6 +127,12 @@ public class HousingDriver {
 						generateApp();
 						break;
 					case(4):
+						
+						System.out.println("we can leave review here");
+						System.out.println(java.time.LocalDate.now()); 
+						leaveListingReview();
+						break;
+					case(5):
 						System.out.println("Goodbye! Thanks for using Domum");
 						System.exit(0);
 				}			
@@ -179,6 +187,43 @@ public class HousingDriver {
 				int listingID = kb.nextInt();
 				System.out.println("What is Your studentID");//maybe pass in an instance of user later, but use this for now -KH
 				String studentID = kb.next();	
+			}
+		}
+		
+		private void leaveListingReview() {
+			if(loggedIn == false) {
+				System.out.println("Sorry you must Log In before leaving a listing review");
+			}
+			else {
+				//ArrayList<Review> blueHouseRev = new ArrayList<Review>();
+				Review testRev = new Review(5, 5, "32342","10/11/20","The best");				
+				//blueHouseRev.add(testRev);
+				
+				System.out.println("What is Your ID?");
+				String studentID = kb.next();
+				kb.nextLine();
+				
+				System.out.println("What is the listingID of the property you wish to leave a review for?");
+				int listingID = kb.nextInt();
+				kb.nextLine();
+				
+				System.out.println("Enter a Rating (0-10)");
+				int listRating = kb.nextInt();
+				kb.nextLine();
+				
+				System.out.println("Type your Review Message here: ");
+				String reviewMessage = kb.nextLine();
+				
+				
+				
+				
+				systems.listingManager.findListing(listingID).reviews.add(testRev);
+				System.out.println("adding review");
+				systems.listingManager.findListing(listingID).getReview();
+				
+				
+				
+				
 			}
 		}
 		
