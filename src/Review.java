@@ -1,6 +1,9 @@
 
 public class Review {
 	
+	UserManager manager = UserManager.getInstance();
+	private Systems systems;
+	
 	public int listID;
 	public String authorID;
 	public String date;
@@ -16,7 +19,7 @@ public class Review {
 	}
 	
 	public String toString() {
-		return "Review by: " + "on " + date + ":\n" + reviewText;
+		return "Review by: " + authorID + " on " + date + ":\n" + "Rating: " + rating + "\n" + "Message: " + reviewText;
 	}
 }
 

@@ -214,12 +214,13 @@ public class HousingDriver {
 				System.out.println("Type your Review Message here: ");
 				String reviewMessage = kb.nextLine();
 				
+				String date = java.time.LocalDate.now().toString();
 				
+				Review test2Rev = new Review(listingID, listRating, studentID, date, reviewMessage);
 				
-				
-				systems.listingManager.findListing(listingID).reviews.add(testRev);
+				systems.listingManager.findListing(listingID).reviews.add(test2Rev);
 				System.out.println("adding review");
-				System.out.println(systems.listingManager.findListing(listingID).getReview());
+				systems.listingManager.findListing(listingID).getReviews();
 				
 				
 				
