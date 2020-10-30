@@ -21,8 +21,12 @@ public class ListingManager {
 		listings.add(listed);
 		writeListings();
 	}
-	public void removeListing(Listing listing) {
-		listings.remove(listing);
+	public void removeListing(int listingID) {//KH changed this method to take in listing ID rather than listing
+		for(Listing list:listings) {
+			if(list.getListingID()==listingID) {
+				listings.remove(list);
+			}
+		}				
 		writeListings();
 	}
 	public ArrayList<Listing> showAllListings() {
@@ -42,7 +46,14 @@ public class ListingManager {
 		System.out.println("Could not find Listing with that ID");
 		return null;
 	}
-
+	public boolean listingExists(int listingID) {
+		for (Listing listing: listings) {
+			if(listing.getListingID()==listingID) {
+				return true;
+			}
+		}
+		return false;
+	}	
 	public void addListingReview(Review review, int listingID) {
 		findListing(listingID).reviews.add(review);
 		writeListings();

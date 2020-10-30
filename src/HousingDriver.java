@@ -277,4 +277,11 @@ public class HousingDriver {
 				}
 			}
 		}
+		public void removeListing() {
+			System.out.println("Enter the listingID to remove the listing");
+			int listingID = kb.nextInt();
+			systems.removeListing(listingID);	
+		}				
+		
+		
 }

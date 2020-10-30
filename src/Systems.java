@@ -12,6 +12,7 @@ public class Systems {
 			if(x.getName().equalsIgnoreCase(name) && x.getPassword().equalsIgnoreCase(password)) {
 				return true;
 			}			
+			
 		}
 		return false;		
 	}		
@@ -78,8 +79,7 @@ public class Systems {
 			}
 		}
 		return null;			
-	}
-	
+	}	
 	public void generateApp(int listingID,String studentID) {
 		for(User x: manager.getUsers()) {
 			if(x.getId().equals(studentID))	{//serching for the user 
@@ -87,6 +87,16 @@ public class Systems {
 			}
 		}
 	}
+	
+	public void removeListing(int listingID) {
+		if(listingManager.listingExists(listingID)) {//check if listing exists 
+			listingManager.removeListing(listingID);
+		}	
+		else {
+			System.out.println("Listing not found");
+		}
+	}
+	
 	
 	
 	
