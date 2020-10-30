@@ -64,8 +64,8 @@ public class HousingDriver {
 			String name = kb.nextLine(); 
 			
 			System.out.println("Please enter a password: ");
-			String password = kb.next();
-			kb.nextLine();
+			String password = kb.nextLine();
+			
 			
 			System.out.println("Please enter your address (Ex: 123 Love Street, Apt #2, Columbia, SC, 12345): ");
 			String address = kb.nextLine();
