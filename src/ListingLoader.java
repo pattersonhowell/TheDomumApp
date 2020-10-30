@@ -15,7 +15,6 @@ public class ListingLoader extends DataConstants{
 			// Takes the parsed file and takes the array out of the object
 			JsonObject jParserOut = (JsonObject)JsonParser.parseReader(new FileReader(LISTING_FILE_LOCATION));
 			JsonArray jsonArray = jParserOut.getAsJsonArray("listings");
-//			System.out.println(jsonArray); // TODO Debug, remove after this is fixed
 			for (int i = 0; i < jsonArray.size(); i++) {
 				JsonObject listingJSON = (JsonObject)jsonArray.get(i);
 				// Gets each field and transforms them into their respective type

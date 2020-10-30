@@ -45,6 +45,7 @@ public class ListingManager {
 
 	public void addListingReview(Review review, int listingID) {
 		findListing(listingID).reviews.add(review);
+		writeListings();
 	}
 
 

@@ -21,19 +21,17 @@ public class UserLoader extends DataConstants{
 				String email = userJSON.get("email").getAsString();
 
 				ArrayList<Review> reviews = new ArrayList<>();
-				if (userJSON.has("reviews")) {
-					JsonArray reviewsJSON = userJSON.getAsJsonArray("reviews");
-					// Check if reviews exist
-					for (JsonElement reviewElement:reviewsJSON) { // TODO Fix reviews and such
-						JsonObject reviewJSON = (JsonObject)reviewElement;
-						int listID = reviewJSON.get("listID").getAsInt();
-						String authorID = reviewJSON.get("authorID").getAsString();
-						String date = reviewJSON.get("date").getAsString();
-						String reviewText = reviewJSON.get("reviewText").getAsString();
-						int rating = reviewJSON.get("rating").getAsInt();
-						Review r = new Review(listID, rating, authorID, date, reviewText);
-						reviews.add(r);
-					}
+				JsonArray reviewsJSON = userJSON.getAsJsonArray("reviews");
+				// Check if reviews exist
+				for (JsonElement reviewElement:reviewsJSON) {
+					JsonObject reviewJSON = (JsonObject) reviewElement;
+					int listID = reviewJSON.get("listID").getAsInt();
+					String authorID = reviewJSON.get("authorID").getAsString();
+					String date = reviewJSON.get("date").getAsString();
+					String reviewText = reviewJSON.get("reviewText").getAsString();
+					int rating = reviewJSON.get("rating").getAsInt();
+					Review r = new Review(listID, rating, authorID, date, reviewText);
+					reviews.add(r);
 				}
 				if (userJSON.has("favoriteListingIDs")) { // User is a Student
 					JsonArray faveListJSON = userJSON.get("favoriteListingIDs").getAsJsonArray();

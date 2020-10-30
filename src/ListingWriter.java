@@ -9,7 +9,6 @@ import java.util.ArrayList;
 
 public class ListingWriter extends DataConstants {
 
-	// TODO Still needs to interface with ListingManager
 	public static void writeListings() {
 		JsonObject jBase = new JsonObject();
 		JsonArray jArray = new JsonArray();
@@ -21,14 +20,13 @@ public class ListingWriter extends DataConstants {
 			jArray.add(getListingJSON(l));
 		jBase.add("listings", jArray);
 		// Create a file and write to it
-		System.out.println(gson.toJson(jBase));
-		/*File f = new File(LISTING_FILE_LOCATION);
+		File f = new File(LISTING_FILE_LOCATION);
 		try (FileWriter file = new FileWriter(f)) {
-			file.write(jBase.toString());
+			file.write(gson.toJson(jBase));
 			file.flush();
 		} catch (IOException e) {
-			e.printStackTrace();*//*
-		}*/
+			e.printStackTrace();
+		}
 	}
 	
 	private static JsonObject getListingJSON(Listing listing) {
@@ -43,6 +41,7 @@ public class ListingWriter extends DataConstants {
 		JsonArray jReviewArray = new JsonArray();
 		for (Review r:listing.reviews) {
 			JsonObject jReview = new JsonObject();
+			jReview.addProperty("listID", r.listID);
 			jReview.addProperty("authorID", r.authorID);
 			jReview.addProperty("date", r.date);
 			jReview.addProperty("reviewText", r.reviewText);
@@ -52,6 +51,11 @@ public class ListingWriter extends DataConstants {
 		listingDetails.add("reviews", jReviewArray);
 		listingDetails.addProperty("numberAvailable", listing.getNumberAvalible());
 		listingDetails.addProperty("yearBuilt", listing.getYearBuilt());
+		listingDetails.addProperty("freeWifi", listing.isFreeWifi());
+		listingDetails.addProperty("laundry", listing.isLaundry());
+		listingDetails.addProperty("petFriendly", listing.isPetFriendly());
+		listingDetails.addProperty("pool", listing.isPool());
+		listingDetails.addProperty("furnished", listing.isFurnished());
 		return listingDetails;
 	}
 }

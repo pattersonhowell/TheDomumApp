@@ -20,7 +20,6 @@ public class UserWriter extends DataConstants {
             jArray.add(getUserJSON(u));
         jBase.add("users", jArray);
         // Create file and write to it
-        System.out.println(gson.toJson(jBase));
         File f = new File(USERS_FILE_LOCATION);
         try (FileWriter file = new FileWriter(f)) {
             file.write(gson.toJson(jBase));
@@ -40,6 +39,7 @@ public class UserWriter extends DataConstants {
         JsonArray jReviewArray = new JsonArray();
         for(Review r:user.getReviews()) {
             JsonObject jReview = new JsonObject();
+            jReview.addProperty("listID", r.listID);
             jReview.addProperty("authorID", r.authorID);
             jReview.addProperty("date", r.date);
             jReview.addProperty("reviewText", r.reviewText);
