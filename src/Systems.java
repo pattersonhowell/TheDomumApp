@@ -64,7 +64,7 @@ public class Systems {
 	}
 		
 	public void generateLease(int listingID, String studentID) {		
-		for(User x: manager.users) {
+		for(User x: manager.getUsers()) {
 			if(x.getId().equals(studentID))	{//serching for the user 
 				listingManager.findListing(listingID).generateLease(x);
 			}
@@ -72,7 +72,7 @@ public class Systems {
 		System.out.println("Please See Txt File");
 	}		
 	public String returnID(String userName, String password) {
-		for(User x: manager.users) {
+		for(User x: manager.getUsers()) {
 			if(x.getName().equalsIgnoreCase(userName) && x.getPassword().equals(password) ) {
 				return x.getId();
 			}
@@ -81,7 +81,7 @@ public class Systems {
 	}
 	
 	public void generateApp(int listingID,String studentID) {
-		for(User x: manager.users) { 
+		for(User x: manager.getUsers()) {
 			if(x.getId().equals(studentID))	{//serching for the user 
 				listingManager.findListing(listingID).generateApplication(x);
 			}
