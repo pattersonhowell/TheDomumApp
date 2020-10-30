@@ -5,7 +5,7 @@ import java.time.LocalDateTime;
 
 public class HousingDriver {
 		private String[] welcomeMenuOptions = {"Log in", "Create Account","Browse as Guest"};
-		private String[] mainMenuOptions = {"Browse All Listings","Enter Search Preferences","Search by Listing ID", "Generate Application", "Leave a Listing Review", "Exit"};
+		private String[] mainMenuOptions = {"Browse All Listings","Enter Search Preferences","Search by Listing ID", "Generate Application","Generate Lease", "Leave a Listing Review", "Exit"};
 		private Scanner kb;
 		private Systems systems;
 		private boolean loggedIn;
@@ -132,13 +132,16 @@ public class HousingDriver {
 					case(3):
 						generateApp();
 						break;
-					case(4):
 						
+					case(4):
+						generateLease();
+						break;						
+					case(5):						
 						//System.out.println("we can leave review here");
 						//System.out.println(java.time.LocalDate.now()); 
 						leaveListingReview();
 						break;
-					case(5):
+					case(6):
 						System.out.println("Goodbye! Thanks for using Domum");
 						System.exit(0);
 				}			
