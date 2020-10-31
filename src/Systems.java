@@ -13,6 +13,15 @@ public class Systems {
 		}
 		return false;		
 	}		
+	
+	public boolean verifiedUser(String name) {
+		for(User x: manager.getUsers()) {
+			if(x.getName().equalsIgnoreCase(name))
+				return true;
+		}
+		return false;
+	}
+	
 	public void signUpStudent(String name, String password, String address, String phone, String email, String studentID) {
 		Student newStudent = new Student(studentID,name,password,address,phone,email);	
 		manager.addUser(newStudent);

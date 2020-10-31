@@ -361,12 +361,15 @@ public class HousingDriver {
 				boolean furnished = kb.nextBoolean();
 				kb.nextLine();
 			
-				Listing agentListing = new Listing(listingID, realID, price, address, numBedrooms, numBathrooms, 
-					numAvailibilities, yearBuilt, distance, wifi, laundry, petFriendly, pool, furnished);			
+				Listing agentListing = new Listing(listingID, realID, price, address, numBedrooms, numBathrooms, 					
+				numAvailibilities, yearBuilt, distance, wifi, laundry, petFriendly, pool, furnished);			
 				systems.listingManager.agentUploadListing(agentListing);			
-				System.out.println(systems.listingManager.findListing(listingID).toString());			
+				System.out.println(systems.listingManager.findListing(listingID).toString());
+			
 			}			
-		}	
+		}
+		
+
 		public void removeListing() {
 			if(loggedIn == false || isAgent != true) {
 				System.out.println("Sorry you must Log In before removing a listing");
@@ -377,6 +380,12 @@ public class HousingDriver {
 				systems.removeListing(listingID);
 			}
 		}				
-		
-		
+			
+		public void addRoommate() {
+			System.out.println("Enter the username of your roommate:");
+			String roommateName = kb.nextLine();
+			boolean exists = systems.verifiedUser(roommateName);
+			if(exists)
+				System.out.println(roommateName+" is now set as your roommate!");
+		}
 }
