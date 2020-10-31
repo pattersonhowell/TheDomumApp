@@ -367,8 +367,7 @@ public class HousingDriver {
 				System.out.println(systems.listingManager.findListing(listingID).toString());
 			
 			}			
-		}
-		
+		}		
 
 		public void removeListing() {
 			if(loggedIn == false || isAgent != true) {
