@@ -5,7 +5,7 @@ import java.time.LocalDateTime;
 
 public class HousingDriver {
 		private String[] welcomeMenuOptions = {"Log in", "Create Account","Browse as Guest"};
-		private String[] mainMenuOptions = {"Browse All Listings","Enter Search Preferences","Search by Listing ID", "Generate Application","Generate Lease", "Leave a Listing Review", "Exit"};
+		private String[] mainMenuOptions = {"Browse All Listings","Enter Search Preferences","Search by Listing ID", "Generate Application","Generate Lease", "Leave a Listing Review", "(AGENTS ONLY) Upload a Listing", "", "Exit"};
 		private Scanner kb;
 		private Systems systems;
 		private boolean loggedIn;
@@ -142,6 +142,12 @@ public class HousingDriver {
 						leaveListingReview();
 						break;
 					case(6):
+						uploadListing();
+						break;
+					case(7):
+						//remove listing i think...
+						break;
+					case(8):
 						System.out.println("Goodbye! Thanks for using Domum");
 						System.exit(0);
 				}
@@ -246,6 +252,81 @@ public class HousingDriver {
 
 			}
 		}
+		
+		private void uploadListing() {
+			
+			System.out.println("Upload Listing\nPLEASE ENTER THE FOLLOWING INFORMATION: ");
+			System.out.println("Enter Listing ID: ");
+			
+			int listingID = kb.nextInt();
+			kb.nextLine();
+			
+			System.out.println("Enter your ID: ");
+			String yourID = kb.nextLine();
+			
+			System.out.println("Enter Listing Price: ");
+			double price = kb.nextDouble();
+			kb.nextLine();
+			
+			System.out.println("Enter Listing Address: ");
+			String address = kb.nextLine();
+			
+			System.out.println("Enter the Number of Bedrooms: ");
+			int numBedrooms = kb.nextInt();
+			kb.nextLine();
+			
+			
+			System.out.println("Enter the Number of Bathrooms: ");
+			int numBathrooms = kb.nextInt();
+			kb.nextLine();
+			
+			
+			System.out.println("Enter number of availabilities: ");
+			int numAvailibilities = kb.nextInt();
+			kb.nextLine();
+			
+			
+			System.out.println("Enter Year Built: ");
+			int yearBuilt = kb.nextInt();
+			kb.nextLine();
+			
+			
+			System.out.println("Enter Distance from Campus (in miles)");
+			double distance = kb.nextDouble();
+			kb.nextLine();
+			
+			
+			System.out.println("Free Wifi? (true or false");
+			boolean wifi = kb.nextBoolean();
+			kb.nextLine();
+			
+			
+			System.out.println("Washer and Dryer in Room? (true or false");
+			boolean laundry = kb.nextBoolean();
+			kb.nextLine();
+			
+			
+			System.out.println("Pet Friendly? (true or false");
+			boolean petFriendly = kb.nextBoolean();
+			kb.nextLine();
+			
+			
+			System.out.println("Has Pool? (true or false");
+			boolean pool = kb.nextBoolean();
+			kb.nextLine();
+			
+			
+			System.out.println("Pre-furnished? (true or false");
+			boolean furnished = kb.nextBoolean();
+			kb.nextLine();
+			
+			Listing agentListing = new Listing(listingID, yourID, price, address, numBedrooms, numBathrooms, 
+					numAvailibilities, yearBuilt, distance, wifi, laundry, petFriendly, pool, furnished);
+			
+			systems.listingManager.agentUploadListing(agentListing);
+			
+		}
+		
 
 		private void welcomeMenu() {
 			while(true) {

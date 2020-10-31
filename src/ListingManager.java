@@ -58,6 +58,11 @@ public class ListingManager {
 		findListing(listingID).reviews.add(review);
 		writeListings();
 	}
+	
+	public void agentUploadListing(Listing listing) {
+		listings.add(listing);
+		//writeListings();
+	}
 
 
 

@@ -23,7 +23,7 @@ public class Listing {
 	protected boolean furnished; 
 
 	public Listing(int listingID, String agentID, double price, String address, int numBathroom, int numBedroom,
-			ArrayList<Review> reviews, int numberAvalible, int yearBuilt, double distFromCampus,
+			/*ArrayList<Review> reviews, */ int numberAvalible, int yearBuilt, double distFromCampus,
 			boolean freeWifi, boolean laundry, boolean petFriendly, boolean pool, boolean furnished) {
 		this.listingID = listingID;
 		this.agentID = agentID;
@@ -31,7 +31,7 @@ public class Listing {
 		this.address = address;
 		this.numBathroom = numBathroom;
 		this.numBedroom = numBedroom;
-		this.reviews = reviews;
+		//this.reviews = reviews;
 		this.numberAvalible = numberAvalible;		
 		this.yearBuilt = yearBuilt;
 		this.distFromCampus = distFromCampus;
