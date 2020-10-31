@@ -369,6 +369,7 @@ public class HousingDriver {
 				}
 			}
 		}
+		
 		public void removeListing() {
 			if(loggedIn == false || isAgent != true) {
 				System.out.println("Sorry you must Log In before removing a listing");
@@ -381,4 +382,17 @@ public class HousingDriver {
 		}				
 		
 		
+		/*in student menu, say option 0 is add a roommate
+		 * switch(option)
+		 * 		case(0):
+		 * 				addRoommate();
+		 * 				break;
+		*/
+		public void addRoommate() {
+			System.out.println("Enter the username of your roommate:");
+			String roommateName = kb.nextLine();
+			boolean exists = systems.verifiedUser(roommateName);
+			if(exists)
+				System.out.println(roommateName+" is now set as your roommate!");
+		}
 }
