@@ -101,6 +101,40 @@
       "petFriendly": false,
       "pool": true,
       "furnished": true
+    },
+    {
+      "listingID": 90,
+      "agentID": "lockheadEstate",
+      "price": 999.0,
+      "address": "River Ridge Way",
+      "numBathroom": 2,
+      "numBedroom": 2,
+      "distFromCampus": 3.5,
+      "reviews": [],
+      "numberAvailable": 1,
+      "yearBuilt": 2018,
+      "freeWifi": false,
+      "laundry": true,
+      "petFriendly": false,
+      "pool": true,
+      "furnished": false
+    },
+    {
+      "listingID": 91,
+      "agentID": "johnsonEstates",
+      "price": 555.0,
+      "address": "Colony Dr.",
+      "numBathroom": 1,
+      "numBedroom": 1,
+      "distFromCampus": 8.0,
+      "reviews": [],
+      "numberAvailable": 9,
+      "yearBuilt": 1978,
+      "freeWifi": true,
+      "laundry": false,
+      "petFriendly": true,
+      "pool": false,
+      "furnished": true
     }
   ]
 }

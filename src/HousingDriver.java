@@ -92,6 +92,7 @@ public class HousingDriver {
 			if(choice == 2) {
 				System.out.println("Please enter your agent ID");
 				String agentID = kb.next();
+				kb.nextLine();
 				realID = agentID; //using since we don't have a currentUser setup
 				System.out.println("Please enter your real estate group");
 				String group = kb.nextLine();
@@ -267,8 +268,8 @@ public class HousingDriver {
 				int listingID = kb.nextInt();
 				kb.nextLine();
 			
-				System.out.println("Enter your ID: ");
-				String yourID = kb.nextLine();
+				//System.out.println("Enter your ID: ");
+				//String yourID = kb.nextLine();
 			
 				System.out.println("Enter Listing Price: ");
 				double price = kb.nextDouble();
@@ -326,7 +327,7 @@ public class HousingDriver {
 				boolean furnished = kb.nextBoolean();
 				kb.nextLine();
 			
-				Listing agentListing = new Listing(listingID, yourID, price, address, numBedrooms, numBathrooms, 
+				Listing agentListing = new Listing(listingID, realID, price, address, numBedrooms, numBathrooms, 
 					numAvailibilities, yearBuilt, distance, wifi, laundry, petFriendly, pool, furnished);
 			
 				systems.listingManager.agentUploadListing(agentListing);

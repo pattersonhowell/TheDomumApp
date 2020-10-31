@@ -102,6 +102,39 @@
       "reviews": [],
       "realtyGroup": "",
       "managedListingIDs": []
+    },
+    {
+      "id": "lockheadEstate",
+      "name": "Ag. John Lockhead",
+      "password": "realEstate4all",
+      "address": "14 Wallaby Way Sydney",
+      "phone": "975318642",
+      "email": "realEstate@gmail.com",
+      "reviews": [],
+      "realtyGroup": "",
+      "managedListingIDs": []
+    },
+    {
+      "id": "smithProperty",
+      "name": "Ag. Smith",
+      "password": "noneyabusiness",
+      "address": "101 Creek Rd",
+      "phone": "192837465",
+      "email": "smith@email.com",
+      "reviews": [],
+      "realtyGroup": "",
+      "managedListingIDs": []
+    },
+    {
+      "id": "johnsonEstates",
+      "name": "Ag. Johnson",
+      "password": "donotenter",
+      "address": "209 WoodFarm Ln",
+      "phone": "918273645",
+      "email": "johnson@email.com",
+      "reviews": [],
+      "realtyGroup": "Coldwell Banker",
+      "managedListingIDs": []
     }
   ]
 }
