@@ -61,7 +61,7 @@ public class ListingManager {
 	
 	public void agentUploadListing(Listing listing) {
 		listings.add(listing);
-		//writeListings();
+		writeListings();
 	}
 
 

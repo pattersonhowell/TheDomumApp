@@ -325,6 +325,8 @@ public class HousingDriver {
 			
 			systems.listingManager.agentUploadListing(agentListing);
 			
+			System.out.println(systems.listingManager.findListing(listingID).toString());
+			
 		}
 		
 

@@ -31,7 +31,7 @@ public class Listing {
 		this.address = address;
 		this.numBathroom = numBathroom;
 		this.numBedroom = numBedroom;
-		//this.reviews = reviews;
+		this.reviews = new ArrayList<>();
 		this.numberAvalible = numberAvalible;		
 		this.yearBuilt = yearBuilt;
 		this.distFromCampus = distFromCampus;

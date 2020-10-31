@@ -60,6 +60,26 @@
       "reviews": [],
       "realtyGroup": "",
       "managedListingIDs": []
+    },
+    {
+      "id": "howellpatterson",
+      "name": "pat howell ",
+      "password": "pass",
+      "address": "beaver duck",
+      "phone": "123456789",
+      "email": "me@gmail.com",
+      "reviews": [],
+      "favoriteListingIDs": []
+    },
+    {
+      "id": "marcusjwhite",
+      "name": "marcus white",
+      "password": "pass",
+      "address": "lake carolina",
+      "phone": "123456789",
+      "email": "mjwhite@email.com",
+      "reviews": [],
+      "favoriteListingIDs": []
     }
   ]
 }
