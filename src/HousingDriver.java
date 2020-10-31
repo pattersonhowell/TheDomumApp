@@ -200,7 +200,7 @@ public class HousingDriver {
 			}
 		}	
 		private void searchInput() {
-			System.out.println("Listing Search:");
+			System.out.println("Listing Search: Enter \"pass\" to ignore option");
 			System.out.println("What is your maximum price ?");
 			Double price = kb.nextDouble();
 

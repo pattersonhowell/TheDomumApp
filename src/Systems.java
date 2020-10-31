@@ -1,8 +1,6 @@
 import java.util.ArrayList;
 
-public class Systems {
-
-	
+public class Systems {	
 	//private ListingManager listingManager;
 	ListingManager listingManager = ListingManager.getInstance();
 	//private UserManager userManager;
@@ -11,8 +9,7 @@ public class Systems {
 		for(User x: manager.getUsers()) {
 			if(x.getName().equalsIgnoreCase(name) && x.getPassword().equalsIgnoreCase(password)) {
 				return true;
-			}			
-			
+			}					
 		}
 		return false;		
 	}		
@@ -41,16 +38,14 @@ public class Systems {
 			}
 		}
 		return null;
-	}
-			
+	}			
 	public void printUserData() {//Only here for debug
 		System.out.println("We have "+manager.getUsers().size()+" users");
 		for(int i = 0; i < manager.getUsers().size(); i++) {
 			for(User x: manager.getUsers()) {
 				System.out.println(x.getName()+ " "+x.getPassword());
 			}
-		}
-		
+		}		
 	}
 	
 	public void printListings() {
@@ -96,9 +91,7 @@ public class Systems {
 		else {
 			System.out.println("Listing not found");
 		}
-	}
-	
-	
+	}	
 	public boolean isStudent(String id) {		
 		for(User x: manager.getUsers()) {
 			if(x.getId().equals(id)) {
