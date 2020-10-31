@@ -80,6 +80,28 @@
       "email": "mjwhite@email.com",
       "reviews": [],
       "favoriteListingIDs": []
+    },
+    {
+      "id": "MrUndercover",
+      "name": "Agent undercover",
+      "password": "donotpass",
+      "address": "Dark Alley Dr.",
+      "phone": "246813579",
+      "email": "undercover@email.com",
+      "reviews": [],
+      "realtyGroup": "",
+      "managedListingIDs": []
+    },
+    {
+      "id": "MrRemover",
+      "name": "Agent Remover",
+      "password": "delete",
+      "address": "Shady Creek Ln",
+      "phone": "987654321",
+      "email": "remove@email.com",
+      "reviews": [],
+      "realtyGroup": "",
+      "managedListingIDs": []
     }
   ]
 }

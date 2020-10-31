@@ -5,7 +5,7 @@ import java.time.LocalDateTime;
 
 public class HousingDriver {
 		private String[] welcomeMenuOptions = {"Log in", "Create Account","Browse as Guest"};
-		private String[] mainMenuOptions = {"Browse All Listings","Enter Search Preferences","Search by Listing ID", "Generate Application","Generate Lease", "Leave a Listing Review", "(AGENTS ONLY) Upload a Listing", "", "Exit"};
+		private String[] mainMenuOptions = {"Browse All Listings","Enter Search Preferences","Search by Listing ID", "Generate Application","Generate Lease", "Leave a Listing Review", "(AGENTS ONLY) Upload a Listing", "(AGENTS ONLY) Remove a Listing", "Exit"};
 		private Scanner kb;
 		private Systems systems;
 		private boolean loggedIn;
@@ -147,7 +147,7 @@ public class HousingDriver {
 						uploadListing();
 						break;
 					case(7):
-						//remove listing i think...
+						removeListing();
 						break;
 					case(8):
 						System.out.println("Goodbye! Thanks for using Domum");
@@ -257,7 +257,7 @@ public class HousingDriver {
 		
 		private void uploadListing() {
 			if(loggedIn == false || isAgent != true) {
-				System.out.println("Sorry you must Log In before leaving a listing review");
+				System.out.println("Sorry you must Log In before uploading a listing");
 			}
 			
 			else {
@@ -369,9 +369,14 @@ public class HousingDriver {
 			}
 		}
 		public void removeListing() {
-			System.out.println("Enter the listingID to remove the listing");
-			int listingID = kb.nextInt();
-			systems.removeListing(listingID);	
+			if(loggedIn == false || isAgent != true) {
+				System.out.println("Sorry you must Log In before removing a listing");
+			}
+			else {
+				System.out.println("Enter the listingID to remove the listing");
+				int listingID = kb.nextInt();
+				systems.removeListing(listingID);
+			}
 		}				
 		
 		

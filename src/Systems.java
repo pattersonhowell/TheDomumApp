@@ -91,6 +91,7 @@ public class Systems {
 	public void removeListing(int listingID) {
 		if(listingManager.listingExists(listingID)) {//check if listing exists 
 			listingManager.removeListing(listingID);
+			System.out.println("Listing was Removed");
 		}	
 		else {
 			System.out.println("Listing not found");
