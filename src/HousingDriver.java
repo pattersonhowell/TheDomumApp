@@ -1,6 +1,4 @@
-import java.util.ArrayList;
 import java.util.Scanner;
-import java.time.LocalDateTime;
 
 
 public class HousingDriver {
@@ -248,7 +246,7 @@ public class HousingDriver {
 				//systems.listingManager.findListing(listingID).reviews.add(test2Rev);
 				systems.listingManager.addListingReview(test2Rev, listingID);
 				System.out.println("adding review");
-				systems.listingManager.findListing(listingID).getReviews();
+				systems.listingManager.findListing(listingID).printReviews();
 
 
 

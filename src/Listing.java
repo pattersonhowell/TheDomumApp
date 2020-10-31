@@ -44,7 +44,7 @@ public class Listing {
 		this.furnished = furnished; 
 	}	
 
-	public void getReviews() {
+	public void printReviews() {
 		for(Review r: reviews) {
 			System.out.println(r.toString());
 		}
