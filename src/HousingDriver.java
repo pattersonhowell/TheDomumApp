@@ -271,27 +271,10 @@ public class HousingDriver {
 				//System.out.println("Enter your ID: ");
 				//String yourID = kb.nextLine();
 			
-				System.out.println("Enter Listing Price: ");
-				double price = kb.nextDouble();
-				kb.nextLine();
 			
 				System.out.println("Enter Listing Address: ");
 				String address = kb.nextLine();
 				
-				System.out.println("Enter the Number of Bedrooms: ");
-				int numBedrooms = kb.nextInt();
-				kb.nextLine();
-			
-			
-				System.out.println("Enter the Number of Bathrooms: ");
-				int numBathrooms = kb.nextInt();
-				kb.nextLine();
-			
-			
-				System.out.println("Enter number of availabilities: ");
-				int numAvailibilities = kb.nextInt();
-				kb.nextLine();
-			
 			
 				System.out.println("Enter Year Built: ");
 				int yearBuilt = kb.nextInt();
@@ -326,13 +309,57 @@ public class HousingDriver {
 				System.out.println("Pre-furnished? (true or false");
 				boolean furnished = kb.nextBoolean();
 				kb.nextLine();
+				
+				
+				
+				System.out.println("How many Suite Types are there?");
+				int suiteTypes = kb.nextInt();
+				kb.nextLine();
+				
+				for(int i = 0; i < suiteTypes; i++) {
+					
+					System.out.println("Enter Listing Price: ");
+					double price = kb.nextDouble();
+					kb.nextLine();
+					
+					System.out.println("Enter the Number of Bedrooms: ");
+					int numBedrooms = kb.nextInt();
+					kb.nextLine();
+				
+				
+					System.out.println("Enter the Number of Bathrooms: ");
+					int numBathrooms = kb.nextInt();
+					kb.nextLine();
+				
+				
+					System.out.println("Enter number of availabilities: ");
+					int numAvailibilities = kb.nextInt();
+					kb.nextLine();
+					
+					Suite addedSuite = new Suite(listingID, numBedrooms, numBathrooms, numAvailibilities, price);
+					
+					systems.listingManager.findListing(listingID).addSuite(addedSuite);
+					
+					Listing agentListing = new Listing(listingID, realID, price, address, numBedrooms, numBathrooms, systems.listingManager.findListing(listingID).getSuites(),
+							numAvailibilities, yearBuilt, distance, wifi, laundry, petFriendly, pool, furnished);
+					
+					
+					systems.listingManager.agentUploadListing(agentListing);
+					
+					System.out.println(systems.listingManager.findListing(listingID).toString());
+					
+				}
 			
-				Listing agentListing = new Listing(listingID, realID, price, address, numBedrooms, numBathrooms, 
-					numAvailibilities, yearBuilt, distance, wifi, laundry, petFriendly, pool, furnished);
+				//Listing agentListing = new Listing(listingID, realID, price, address, numBedrooms, numBathrooms, addSuite,
+						//numAvailibilities, yearBuilt, distance, wifi, laundry, petFriendly, pool, furnished);
+				
+				
 			
-				systems.listingManager.agentUploadListing(agentListing);
+				
 			
-				System.out.println(systems.listingManager.findListing(listingID).toString());
+				//systems.listingManager.agentUploadListing(agentListing);
+			
+				//System.out.println(systems.listingManager.findListing(listingID).toString());
 			
 			}
 			

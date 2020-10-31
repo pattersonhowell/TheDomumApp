@@ -13,6 +13,7 @@ public class Listing {
 	protected int numBathroom; 
 	protected int numBedroom;
 	protected ArrayList<Review> reviews; 
+	protected ArrayList<Suite> suites;
 	protected int numberAvalible; 
 	protected int yearBuilt;
 	protected double distFromCampus; 
@@ -23,7 +24,7 @@ public class Listing {
 	protected boolean furnished; 
 
 	public Listing(int listingID, String agentID, double price, String address, int numBathroom, int numBedroom,
-			/*ArrayList<Review> reviews, */ int numberAvalible, int yearBuilt, double distFromCampus,
+			ArrayList<Suite> suites, int numberAvalible, int yearBuilt, double distFromCampus,
 			boolean freeWifi, boolean laundry, boolean petFriendly, boolean pool, boolean furnished) {
 		this.listingID = listingID;
 		this.agentID = agentID;
@@ -32,6 +33,7 @@ public class Listing {
 		this.numBathroom = numBathroom;
 		this.numBedroom = numBedroom;
 		this.reviews = new ArrayList<>();
+		this.suites = suites;
 		this.numberAvalible = numberAvalible;		
 		this.yearBuilt = yearBuilt;
 		this.distFromCampus = distFromCampus;
@@ -48,8 +50,25 @@ public class Listing {
 		}
 	}
 	
+	
+	
 	public void addReview(Review review) {
 		reviews.add(review);
+	}
+	
+	public void addSuite(Suite suite) {
+		suites.add(suite);
+	}
+	
+	
+	public void printSuites() {
+		for(Suite s: suites) {
+			System.out.println(s.toString());
+		}
+	}
+	
+	public ArrayList<Suite> getSuites() {
+		return suites;
 	}
 
 	public int getListingID() {
