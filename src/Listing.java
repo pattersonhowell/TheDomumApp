@@ -22,20 +22,21 @@ public class Listing {
 	protected boolean petFriendly;
 	protected boolean pool;
 	protected boolean furnished; 
+	protected String suiteBuilder = "";
 
-	public Listing(int listingID, String agentID, double price, String address, int numBathroom, int numBedroom,
-			ArrayList<Suite> suites, int numberAvalible, int yearBuilt, double distFromCampus,
+	public Listing(int listingID, String agentID, String address, 
+			ArrayList<Suite> suites, int yearBuilt, double distFromCampus,
 			boolean freeWifi, boolean laundry, boolean petFriendly, boolean pool, boolean furnished) {
 		this.listingID = listingID;
 		this.agentID = agentID;
-		this.price = price;
+		//this.price = price;
 		this.address = address;
-		this.numBathroom = numBathroom;
-		this.numBedroom = numBedroom;
+		//this.numBathroom = numBathroom;
+		//this.numBedroom = numBedroom;
 		this.reviews = new ArrayList<>();
 		//this.suites = new ArrayList<>();
 		this.suites = suites;
-		this.numberAvalible = numberAvalible;		
+		//this.numberAvalible = numberAvalible;		
 		this.yearBuilt = yearBuilt;
 		this.distFromCampus = distFromCampus;
 		this.freeWifi = freeWifi;
@@ -181,14 +182,22 @@ public class Listing {
 
 	public void setFurnished(boolean furnished) {
 		this.furnished = furnished;
-	}		
+	}	
+	public void suiteBuilder() {
+		for(int i = 0; i < suites.size(); i++) {
+			suiteBuilder += suites.get(i).toString() +"\n\n";
+		}
+		
+	}
+	
 
 	@Override
 	public String toString() {
-		return address +"\n"+ "$: " +price +"\n"+ numBedroom+" Bedrooms, "+numBathroom+ " Bathrooms" +"\n"+
-				distFromCampus+" Miles from campus" +"\n" +"Built in: "+yearBuilt+ " ,"+numberAvalible+" Units Avalible" +"\n"
+		return address +"\n"+ 
+				distFromCampus+" Miles from campus" +"\n" +"Built in: "+yearBuilt+ "\n"
 						+"Listing ID: "+listingID+ " AgentID: "+agentID +"\n" +"Free Wifi: "+freeWifi 
-						+" --Laundry Included: "+laundry+"-- Pet Friendly: "+petFriendly+ "--Pool: "+pool+ "--Furnished: " +furnished;	
+						+" --Laundry Included: "+laundry+"-- Pet Friendly: "+petFriendly+ "--Pool: "+pool+ "--Furnished: " +furnished
+						+ suiteBuilder;	
 	}	
 
 	public void generateLease(User user) {

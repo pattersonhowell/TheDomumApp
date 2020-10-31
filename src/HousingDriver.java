@@ -140,8 +140,6 @@ public class HousingDriver {
 						generateLease();
 						break;
 					case(5):
-						//System.out.println("we can leave review here");
-						//System.out.println(java.time.LocalDate.now());
 						leaveListingReview();
 						break;
 					case(6):
@@ -192,7 +190,7 @@ public class HousingDriver {
 		private void searchByID() {
 			System.out.println("Please enter the listing ID: ");
 			int id = kb.nextInt();
-			System.out.println(systems.listingID(id).toString());
+			System.out.println(systems.listingID(id));
 		}
 
 		private void generateApp() {
@@ -225,9 +223,7 @@ public class HousingDriver {
 				System.out.println("Sorry you must Log In before leaving a listing review");
 			}
 			else {
-				//ArrayList<Review> blueHouseRev = new ArrayList<Review>();
-				//Review testRev = new Review(17, 5, "32342","10/11/20","The best");
-				//blueHouseRev.add(testRev);
+				
 
 
 				System.out.println("What is the listingID of the property you wish to leave a review for?");
@@ -245,7 +241,7 @@ public class HousingDriver {
 
 				Review test2Rev = new Review(listingID, listRating, realID, date, reviewMessage);
 
-				//systems.listingManager.findListing(listingID).reviews.add(test2Rev);
+				
 				systems.listingManager.addListingReview(test2Rev, listingID);
 				System.out.println("adding review");
 				systems.listingManager.findListing(listingID).printReviews();
@@ -342,28 +338,18 @@ public class HousingDriver {
 					
 					suiteList.add(addedSuite);
 					
-					//systems.listingManager.findListing(listingID).addSuite(addedSuite);
-					
-					Listing agentListing = new Listing(listingID, realID, price, address, numBedrooms, numBathrooms, suiteList,
-							numAvailibilities, yearBuilt, distance, wifi, laundry, petFriendly, pool, furnished);
-					
-					
-					systems.listingManager.agentUploadListing(agentListing);
-					
-					System.out.println(systems.listingManager.findListing(listingID).toString());
 					
 				}
 			
-				//Listing agentListing = new Listing(listingID, realID, price, address, numBedrooms, numBathrooms, addSuite,
-						//numAvailibilities, yearBuilt, distance, wifi, laundry, petFriendly, pool, furnished);
-				
-				
+				Listing agentListing = new Listing(listingID, realID, address, suiteList,
+						 yearBuilt, distance, wifi, laundry, petFriendly, pool, furnished);
 			
+			
+				systems.listingManager.agentUploadListing(agentListing);
 				
+				systems.listingManager.findListing(listingID).suiteBuilder();
 			
-				//systems.listingManager.agentUploadListing(agentListing);
-			
-				//System.out.println(systems.listingManager.findListing(listingID).toString());
+				System.out.println(systems.listingManager.findListing(listingID).toString());
 			
 			}
 			

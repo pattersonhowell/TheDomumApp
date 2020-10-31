@@ -64,8 +64,8 @@ public class ListingLoader extends DataConstants{
 				}
 
 				// Finally, add all these together
-				Listing l = new Listing(listingID, agentID, price, address, numBathroom, numBedroom,
-						/*reviews,*/ suites, numAvailable, yearBuilt, distFromCampus, freeWifi, laundry,
+				Listing l = new Listing(listingID, agentID, address, 
+						/*reviews,*/ suites, yearBuilt, distFromCampus, freeWifi, laundry,
 						petFriendly, pool, furnished);
 				listings.add(l);
 			}

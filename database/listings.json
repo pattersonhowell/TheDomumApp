@@ -3,10 +3,10 @@
     {
       "listingID": 12,
       "agentID": "390393",
-      "price": 698.2,
+      "price": 0.0,
       "address": "321 Avenue Dr",
-      "numBathroom": 3,
-      "numBedroom": 3,
+      "numBathroom": 0,
+      "numBedroom": 0,
       "distFromCampus": 5.6,
       "reviews": [],
       "suites": [{"listID": 12,
@@ -26,10 +26,10 @@
     {
       "listingID": 34,
       "agentID": "567585",
-      "price": 560.34,
+      "price": 0.0,
       "address": "300 Parklane St",
-      "numBathroom": 1,
-      "numBedroom": 2,
+      "numBathroom": 0,
+      "numBedroom": 0,
       "distFromCampus": 2.7,
       "reviews": [],
       "suites": [{"listID": 34,
@@ -48,10 +48,10 @@
     {
       "listingID": 5,
       "agentID": "465769",
-      "price": 690.42,
+      "price": 0.0,
       "address": "800 Twinpeak Rd",
-      "numBathroom": 4,
-      "numBedroom": 4,
+      "numBathroom": 0,
+      "numBedroom": 0,
       "distFromCampus": 7.1,
       "reviews": [],
       "suites": [{"listID": 5,
@@ -70,10 +70,10 @@
     {
       "listingID": 98,
       "agentID": "randomAgenttest",
-      "price": 920.0,
+      "price": 0.0,
       "address": "Vista Lake Way",
-      "numBathroom": 3,
-      "numBedroom": 3,
+      "numBathroom": 0,
+      "numBedroom": 0,
       "distFromCampus": 4.0,
       "reviews": [],
       "suites": [{"listID": 98,
@@ -89,5 +89,6 @@
       "pool": true,
       "furnished": true
     }
+    
   ]
 }

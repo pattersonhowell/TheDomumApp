@@ -16,7 +16,7 @@ public class Suite {
 	}
 
 	public String toString() {
-		return "Name: (fill in soon) \nListID: " + listID + "\nPrice: " + price + "\nBedrooms: " + numBedrooms + "\nBathrooms: " + numBathrooms + "\nAvailable Units: " + numAvailable;
+		return "\nListID: " + listID + "\nPrice: " + price + "$\nBedrooms: " + numBedrooms + "\nBathrooms: " + numBathrooms + "\nAvailable Units: " + numAvailable;
 	}
 	
 }
