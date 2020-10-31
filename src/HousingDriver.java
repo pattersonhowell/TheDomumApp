@@ -10,6 +10,7 @@ public class HousingDriver {
 		private Systems systems;
 		private boolean loggedIn;
 		private String realID; //using since we don't have a currentUser setup
+		private boolean isAgent;
 
 		HousingDriver() {
 			kb = new Scanner(System.in);
@@ -98,6 +99,7 @@ public class HousingDriver {
 				systems.signUpAgent(name, password, address, phone, email, group, agentID);
 				System.out.println("\nAccount created!");
 				loggedIn = true; //creating account should automatically log in
+				isAgent = true;
 
 			}
 		}
@@ -254,78 +256,84 @@ public class HousingDriver {
 		}
 		
 		private void uploadListing() {
+			if(loggedIn == false || isAgent != true) {
+				System.out.println("Sorry you must Log In before leaving a listing review");
+			}
 			
-			System.out.println("Upload Listing\nPLEASE ENTER THE FOLLOWING INFORMATION: ");
-			System.out.println("Enter Listing ID: ");
+			else {
+				System.out.println("Upload Listing\nPLEASE ENTER THE FOLLOWING INFORMATION: ");
+				System.out.println("Enter Listing ID: ");
+				
+				int listingID = kb.nextInt();
+				kb.nextLine();
 			
-			int listingID = kb.nextInt();
-			kb.nextLine();
+				System.out.println("Enter your ID: ");
+				String yourID = kb.nextLine();
 			
-			System.out.println("Enter your ID: ");
-			String yourID = kb.nextLine();
+				System.out.println("Enter Listing Price: ");
+				double price = kb.nextDouble();
+				kb.nextLine();
 			
-			System.out.println("Enter Listing Price: ");
-			double price = kb.nextDouble();
-			kb.nextLine();
-			
-			System.out.println("Enter Listing Address: ");
-			String address = kb.nextLine();
-			
-			System.out.println("Enter the Number of Bedrooms: ");
-			int numBedrooms = kb.nextInt();
-			kb.nextLine();
-			
-			
-			System.out.println("Enter the Number of Bathrooms: ");
-			int numBathrooms = kb.nextInt();
-			kb.nextLine();
-			
-			
-			System.out.println("Enter number of availabilities: ");
-			int numAvailibilities = kb.nextInt();
-			kb.nextLine();
+				System.out.println("Enter Listing Address: ");
+				String address = kb.nextLine();
+				
+				System.out.println("Enter the Number of Bedrooms: ");
+				int numBedrooms = kb.nextInt();
+				kb.nextLine();
 			
 			
-			System.out.println("Enter Year Built: ");
-			int yearBuilt = kb.nextInt();
-			kb.nextLine();
+				System.out.println("Enter the Number of Bathrooms: ");
+				int numBathrooms = kb.nextInt();
+				kb.nextLine();
 			
 			
-			System.out.println("Enter Distance from Campus (in miles)");
-			double distance = kb.nextDouble();
-			kb.nextLine();
+				System.out.println("Enter number of availabilities: ");
+				int numAvailibilities = kb.nextInt();
+				kb.nextLine();
 			
 			
-			System.out.println("Free Wifi? (true or false");
-			boolean wifi = kb.nextBoolean();
-			kb.nextLine();
+				System.out.println("Enter Year Built: ");
+				int yearBuilt = kb.nextInt();
+				kb.nextLine();
 			
 			
-			System.out.println("Washer and Dryer in Room? (true or false");
-			boolean laundry = kb.nextBoolean();
-			kb.nextLine();
+				System.out.println("Enter Distance from Campus (in miles)");
+				double distance = kb.nextDouble();
+				kb.nextLine();
 			
 			
-			System.out.println("Pet Friendly? (true or false");
-			boolean petFriendly = kb.nextBoolean();
-			kb.nextLine();
+				System.out.println("Free Wifi? (true or false");
+				boolean wifi = kb.nextBoolean();
+				kb.nextLine();
 			
 			
-			System.out.println("Has Pool? (true or false");
-			boolean pool = kb.nextBoolean();
-			kb.nextLine();
+				System.out.println("Washer and Dryer in Room? (true or false");
+				boolean laundry = kb.nextBoolean();
+				kb.nextLine();
 			
 			
-			System.out.println("Pre-furnished? (true or false");
-			boolean furnished = kb.nextBoolean();
-			kb.nextLine();
+				System.out.println("Pet Friendly? (true or false");
+				boolean petFriendly = kb.nextBoolean();
+				kb.nextLine();
 			
-			Listing agentListing = new Listing(listingID, yourID, price, address, numBedrooms, numBathrooms, 
+			
+				System.out.println("Has Pool? (true or false");
+				boolean pool = kb.nextBoolean();
+				kb.nextLine();
+				
+			
+				System.out.println("Pre-furnished? (true or false");
+				boolean furnished = kb.nextBoolean();
+				kb.nextLine();
+			
+				Listing agentListing = new Listing(listingID, yourID, price, address, numBedrooms, numBathrooms, 
 					numAvailibilities, yearBuilt, distance, wifi, laundry, petFriendly, pool, furnished);
 			
-			systems.listingManager.agentUploadListing(agentListing);
+				systems.listingManager.agentUploadListing(agentListing);
 			
-			System.out.println(systems.listingManager.findListing(listingID).toString());
+				System.out.println(systems.listingManager.findListing(listingID).toString());
+			
+			}
 			
 		}
 		
