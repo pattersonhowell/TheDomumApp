@@ -49,6 +49,19 @@ public class ListingWriter extends DataConstants {
 			jReviewArray.add(jReview);
 		}
 		listingDetails.add("reviews", jReviewArray);
+		
+		JsonArray jSuiteArray = new JsonArray();
+		for (Suite s: listing.suites) {
+			JsonObject jSuite = new JsonObject();
+			jSuite.addProperty("listID", s.listID);
+			jSuite.addProperty("numBedrooms", s.numBedrooms);
+			jSuite.addProperty("numBathrooms", s.numBathrooms);
+			jSuite.addProperty("availableUnits", s.numAvailable);
+			jSuite.addProperty("price", s.price);
+			
+		}
+		listingDetails.add("suites", jSuiteArray);
+		
 		listingDetails.addProperty("numberAvailable", listing.getNumberAvalible());
 		listingDetails.addProperty("yearBuilt", listing.getYearBuilt());
 		listingDetails.addProperty("freeWifi", listing.isFreeWifi());

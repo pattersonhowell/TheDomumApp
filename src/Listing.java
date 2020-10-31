@@ -33,6 +33,7 @@ public class Listing {
 		this.numBathroom = numBathroom;
 		this.numBedroom = numBedroom;
 		this.reviews = new ArrayList<>();
+		//this.suites = new ArrayList<>();
 		this.suites = suites;
 		this.numberAvalible = numberAvalible;		
 		this.yearBuilt = yearBuilt;

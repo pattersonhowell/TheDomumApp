@@ -135,6 +135,61 @@
       "reviews": [],
       "realtyGroup": "Coldwell Banker",
       "managedListingIDs": []
+    },
+    {
+      "id": "markisme",
+      "name": "mark smith",
+      "password": "password",
+      "address": "beaver dr",
+      "phone": "987654321",
+      "email": "mark@email.com",
+      "reviews": [],
+      "realtyGroup": "Coldwell Banker",
+      "managedListingIDs": []
+    },
+    {
+      "id": "whiteAgent",
+      "name": "AG white",
+      "password": "pass",
+      "address": "12 Deer Rd",
+      "phone": "123456789",
+      "email": "white@email.com",
+      "reviews": [],
+      "realtyGroup": "Coldwell Banker",
+      "managedListingIDs": []
+    },
+    {
+      "id": "brownAgent",
+      "name": "Ag. Brown",
+      "password": "pass",
+      "address": "13 Lake Dr",
+      "phone": "123456789",
+      "email": "brown@email.com",
+      "reviews": [],
+      "realtyGroup": "Coldwell Bandker",
+      "managedListingIDs": []
+    },
+    {
+      "id": "butlerAgent",
+      "name": "agent butler",
+      "password": "pass",
+      "address": "14 hugard st",
+      "phone": "987654321",
+      "email": "butler@email.com",
+      "reviews": [],
+      "realtyGroup": "Coldwell Banker",
+      "managedListingIDs": []
+    },
+    {
+      "id": "butlertheagent",
+      "name": "Agent butler",
+      "password": "pass",
+      "address": "my address",
+      "phone": "123456789",
+      "email": "myemail.com",
+      "reviews": [],
+      "realtyGroup": "Coldwell Banker",
+      "managedListingIDs": []
     }
   ]
 }
