@@ -99,8 +99,16 @@ public class Systems {
 	}
 	
 	
-	
-	
+	public boolean isStudent(String id) {		
+		for(User x: manager.getUsers()) {
+			if(x.getId().equals(id)) {
+				if(x instanceof Student) {
+					return true;
+				}				
+			}
+		}
+		return false;
+	}
 	
 	
 	

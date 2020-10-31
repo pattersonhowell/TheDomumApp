@@ -4,12 +4,13 @@ import java.time.LocalDateTime;
 
 
 public class HousingDriver {
-		private String[] welcomeMenuOptions = {"Log in", "Create Account","Browse as Guest"};
-		private String[] mainMenuOptions = {"Browse All Listings","Enter Search Preferences","Search by Listing ID", "Generate Application","Generate Lease", "Leave a Listing Review", "(AGENTS ONLY) Upload a Listing", "(AGENTS ONLY) Remove a Listing", "Exit"};
+		private String[] welcomeMenuOptions = {"Log in", "Create Account","Browse as Guest"};		
+		private String [] agentMenu = { "Upload a Listing", "Remove a Listing", "View your listings (Not implemented yet)","Exit"};
+		private String [] studentMenu = {"Browse All Listings","Enter Search Preferences","Search by Listing ID", "Generate Application","Generate Lease", "Leave a Listing Review","Exit"};
 		private Scanner kb;
 		private Systems systems;
 		private boolean loggedIn;
-		private String realID; //using since we don't have a currentUser setup
+		private String realID = null; //using since we don't have a currentUser setup
 		private boolean isAgent;
 
 		HousingDriver() {
@@ -17,32 +18,56 @@ public class HousingDriver {
 			systems = new Systems();
 			loggedIn = false;
 		}
-
 		public static void main(String[] args) {
 			HousingDriver domumInterface = new HousingDriver();
-			domumInterface.run();
+			domumInterface.run();			
 		}
-
 		public void run() {
 			System.out.println("Welcome to Domum!");
-			welcomeMenu();
-			mainMenu();
+			welcomeMenu();	
+			branchMenu();
+		}				
+		private void welcomeMenu() {
+			while(true) {
+				System.out.println("\n--Welcome Menu--");
+				for(int i=0; i< welcomeMenuOptions.length; i++) {
+				System.out.println((i+1) + ". " + welcomeMenuOptions[i]);
+				}
+				System.out.println("\n");
+				int userCommand = getUserCommand(welcomeMenuOptions.length);
+				if(userCommand == -1) {
+					System.out.println("Not a valid command");
+				}
+				switch(userCommand) {
+					case(0):
+						logIn();
+						if(loggedIn)
+							return;
+						else
+							System.out.println("Invalid login, returning to welcome page");
+							break;
+					case(1):
+						createAccount();
+						return;
+					case(2):
+						studentMenu();				
+						return;
+				}
+			}
 		}
-
-		private int getUserCommand(int numCommands) {
-			System.out.println("What would you like to do?: ");
-
-			int input = kb.nextInt();
-			kb.nextLine(); // Causes kb to move on to next line after taking an int -BD
-			int command = input - 1;
-
-			if(command >= 0 && command <= numCommands -1) return command;
-
-			return -1;
+		private void branchMenu() {//this method automatically branches the program depending on if a student or agent is using it 
+			if(realID==null) {
+				System.out.println("Please Sign Up or log in");
+				return;
+			}			
+			if(systems.isStudent(realID)) {
+				studentMenu();
+			}
+			else {
+				agentMenu();
+			}		
 		}
-
 		private void logIn() {
-
 			System.out.println("--Log in--\nEnter your first and last name: ");
 			String name = kb.nextLine();
 
@@ -50,7 +75,6 @@ public class HousingDriver {
 			String password = kb.nextLine();
 
 			boolean verified = systems.verifiedLogin(name, password);
-
 			if(verified) {
 				loggedIn = true;
 				realID = systems.returnID(name, password);
@@ -101,62 +125,80 @@ public class HousingDriver {
 				System.out.println("\nAccount created!");
 				loggedIn = true; //creating account should automatically log in
 				isAgent = true;
-
 			}
 		}
+		
+		private int getUserCommand(int numCommands) {
+			System.out.println("What would you like to do?: ");
 
-		private void mainMenu() {
+			int input = kb.nextInt();
+			kb.nextLine(); // Causes kb to move on to next line after taking an int -BD
+			int command = input - 1;
 
+			if(command >= 0 && command <= numCommands -1) return command;
 
+			return -1;
+		}
+		
+		private void agentMenu() {
 			while(true) {
-
-				System.out.println("\n--Main Menu--");
-				for(int i=0; i< mainMenuOptions.length; i++) {
-					System.out.println((i+1) + ". " + mainMenuOptions[i]);
-				}
-				System.out.println("\n");
-
-				int userCommand = getUserCommand(mainMenuOptions.length);
-
-				if(userCommand == -1) {
-					System.out.println("Not a valid command");
-				}
-
+				System.out.println("Agent Menu");
+				for(int i=0; i< agentMenu.length; i++) {
+					System.out.println((i+1) + ". " + agentMenu[i]);
+					}		
+				int userCommand = getUserCommand(welcomeMenuOptions.length);
+				
 				switch(userCommand) {
-					case(0):
-						systems.printListings();
-						break;
-					case(1):
-						searchInput();
-						break;
-					case(2):
-						searchByID();
-						break;
-					case(3):
-						generateApp();
-						break;
-
-					case(4):
-						generateLease();
-						break;
-					case(5):
-						//System.out.println("we can leave review here");
-						//System.out.println(java.time.LocalDate.now());
-						leaveListingReview();
-						break;
-					case(6):
-						uploadListing();
-						break;
-					case(7):
-						removeListing();
-						break;
-					case(8):
-						System.out.println("Goodbye! Thanks for using Domum");
-						System.exit(0);
-				}
+				case(0):
+					uploadListing();
+					break;					
+				case(1):
+					removeListing();
+					break;
+				case(2):
+					//implement later
+					break;
+				case (3):
+					System.out.println("Thank you for using domum: Goodbye");
+					System.exit(0);
+					return;
+				}	
+			}							
+		}					
+		private void studentMenu() {
+			while(true) {
+				System.out.println("Student Menu");
+				for(int i=0; i< studentMenu.length; i++) {
+					System.out.println((i+1) + ". " + studentMenu[i]);
+					}		
+				int userCommand = getUserCommand(studentMenu.length);				
+				switch(userCommand) {
+				case(0):
+					systems.printListings();
+					break;					
+				case(1):
+					searchInput();
+					break;
+				case(2):
+					searchByID();
+					break;
+				case (3):
+					generateApp();
+					break;
+					
+				case(4):
+					generateLease();				
+					break;
+				case(5):
+					leaveListingReview();
+					break;
+				
+				case (6):
+					System.out.println("Thank you for using Domum: Goodbye!");
+					System.exit(0);										
+				}	
 			}
-		}
-
+		}	
 		private void searchInput() {
 			System.out.println("Listing Search:");
 			System.out.println("What is your maximum price ?");
@@ -249,10 +291,6 @@ public class HousingDriver {
 				systems.listingManager.addListingReview(test2Rev, listingID);
 				System.out.println("adding review");
 				systems.listingManager.findListing(listingID).getReviews();
-
-
-
-
 			}
 		}
 		
@@ -306,69 +344,29 @@ public class HousingDriver {
 				System.out.println("Free Wifi? (true or false");
 				boolean wifi = kb.nextBoolean();
 				kb.nextLine();
-			
-			
+						
 				System.out.println("Washer and Dryer in Room? (true or false");
 				boolean laundry = kb.nextBoolean();
 				kb.nextLine();
-			
-			
+						
 				System.out.println("Pet Friendly? (true or false");
 				boolean petFriendly = kb.nextBoolean();
-				kb.nextLine();
-			
+				kb.nextLine();			
 			
 				System.out.println("Has Pool? (true or false");
 				boolean pool = kb.nextBoolean();
-				kb.nextLine();
+				kb.nextLine();							
 				
-			
 				System.out.println("Pre-furnished? (true or false");
 				boolean furnished = kb.nextBoolean();
 				kb.nextLine();
 			
 				Listing agentListing = new Listing(listingID, realID, price, address, numBedrooms, numBathrooms, 
-					numAvailibilities, yearBuilt, distance, wifi, laundry, petFriendly, pool, furnished);
-			
-				systems.listingManager.agentUploadListing(agentListing);
-			
-				System.out.println(systems.listingManager.findListing(listingID).toString());
-			
-			}
-			
-		}
-		
-
-		private void welcomeMenu() {
-			while(true) {
-				System.out.println("\n--Welcome Menu--");
-				for(int i=0; i< welcomeMenuOptions.length; i++) {
-				System.out.println((i+1) + ". " + welcomeMenuOptions[i]);
-				}
-				System.out.println("\n");
-
-				int userCommand = getUserCommand(welcomeMenuOptions.length);
-
-				if(userCommand == -1) {
-					System.out.println("Not a valid command");
-				}
-
-				switch(userCommand) {
-					case(0):
-						logIn();
-						if(loggedIn)
-							return;
-						else
-							System.out.println("Invalid login, returning to welcome page");
-							break;
-					case(1):
-						createAccount();
-						return;
-					case(2):
-						return;
-				}
-			}
-		}
+					numAvailibilities, yearBuilt, distance, wifi, laundry, petFriendly, pool, furnished);			
+				systems.listingManager.agentUploadListing(agentListing);			
+				System.out.println(systems.listingManager.findListing(listingID).toString());			
+			}			
+		}	
 		public void removeListing() {
 			if(loggedIn == false || isAgent != true) {
 				System.out.println("Sorry you must Log In before removing a listing");
