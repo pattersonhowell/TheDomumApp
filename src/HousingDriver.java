@@ -190,6 +190,8 @@ public class HousingDriver {
 		private void searchByID() {
 			System.out.println("Please enter the listing ID: ");
 			int id = kb.nextInt();
+			//System.out.println(systems.listingID(id));
+			systems.listingManager.findListing(id).suiteBuilder();
 			System.out.println(systems.listingID(id));
 		}
 

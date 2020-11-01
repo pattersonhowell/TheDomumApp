@@ -33,10 +33,10 @@ public class ListingWriter extends DataConstants {
 		JsonObject listingDetails = new JsonObject();
 		listingDetails.addProperty("listingID", listing.getListingID());
 		listingDetails.addProperty("agentID", listing.getAgentID());
-		listingDetails.addProperty("price", listing.getPrice());
+		//listingDetails.addProperty("price", listing.getPrice());
 		listingDetails.addProperty("address", listing.getAddress());
-		listingDetails.addProperty("numBathroom", listing.getNumBathroom());
-		listingDetails.addProperty("numBedroom", listing.getNumBedroom());
+		//listingDetails.addProperty("numBathroom", listing.getNumBathroom());
+		//listingDetails.addProperty("numBedroom", listing.getNumBedroom());
 		listingDetails.addProperty("distFromCampus", listing.getDistFromCampus());
 		JsonArray jReviewArray = new JsonArray();
 		for (Review r:listing.reviews) {
@@ -56,13 +56,13 @@ public class ListingWriter extends DataConstants {
 			jSuite.addProperty("listID", s.listID);
 			jSuite.addProperty("numBedrooms", s.numBedrooms);
 			jSuite.addProperty("numBathrooms", s.numBathrooms);
-			jSuite.addProperty("availableUnits", s.numAvailable);
+			jSuite.addProperty("numAvailable", s.numAvailable);
 			jSuite.addProperty("price", s.price);
-			
+			jSuiteArray.add(jSuite);
 		}
 		listingDetails.add("suites", jSuiteArray);
 		
-		listingDetails.addProperty("numberAvailable", listing.getNumberAvalible());
+		//listingDetails.addProperty("numberAvailable", listing.getNumberAvalible());
 		listingDetails.addProperty("yearBuilt", listing.getYearBuilt());
 		listingDetails.addProperty("freeWifi", listing.isFreeWifi());
 		listingDetails.addProperty("laundry", listing.isLaundry());
