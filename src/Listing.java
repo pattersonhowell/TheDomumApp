@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Listing {
+	protected String name;
 	public int listingID;
 	public String agentID;
 	protected double price;
@@ -27,9 +28,10 @@ public class Listing {
 	
 	protected ArrayList<Suite> presentSuites;
 
-	public Listing(int listingID, String agentID, String address, 
+	public Listing(String name, int listingID, String agentID, String address, 
 			ArrayList<Suite> suites, int yearBuilt, double distFromCampus,
 			boolean freeWifi, boolean laundry, boolean petFriendly, boolean pool, boolean gym, boolean furnished) {
+		this.name = name;
 		this.listingID = listingID;
 		this.agentID = agentID;
 		//this.price = price;
@@ -116,6 +118,15 @@ public class Listing {
 	public void setAddress(String address) {
 		this.address = address;
 	}
+	
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+	
 
 	public int getNumBathroom() {
 		return numBathroom;
@@ -213,15 +224,16 @@ public class Listing {
 
 	@Override
 	public String toString() {
-		return address +"\n"+ 
+		return name + "\n" + address +"\n"+ 
 				distFromCampus+" Miles from campus" +"\n" +"Built in: "+yearBuilt+ "\n"
 						+"Listing ID: "+listingID+ " AgentID: "+agentID +"\n" +"Free Wifi: "+freeWifi 
 						+" --Laundry Included: "+laundry+"-- Pet Friendly: "+petFriendly+ "--Pool: "+pool+ "--Gym: "+gym+ "--Furnished: " +furnished
+						+ "\n_________________________________________________________\n" 
 						+ suiteBuilder;	
 	}	
 	
 	public String searchToString() {
-		return address +"\n"+ 
+		return name + "\n" + address +"\n"+ 
 				distFromCampus+" Miles from campus" +"\n" +"Built in: "+yearBuilt+ "\n"
 						+"Listing ID: "+listingID+ " AgentID: "+agentID +"\n" +"Free Wifi: "+freeWifi 
 						+" --Laundry Included: "+laundry+"-- Pet Friendly: "+petFriendly+ "--Pool: "+pool+ "--Furnished: " +furnished

@@ -1,6 +1,7 @@
 {
   "listings": [
     {
+      "name": "LiveA",
       "listingID": 12,
       "agentID": "390393",
       "address": "321 Avenue Dr",
@@ -24,6 +25,7 @@
       "furnished": true
     },
     {
+      "name": "LiveB",
       "listingID": 34,
       "agentID": "567585",
       "address": "300 Parklane St",
@@ -47,6 +49,7 @@
       "furnished": false
     },
     {
+      "name": "LiveC",
       "listingID": 5,
       "agentID": "465769",
       "address": "800 Twinpeak Rd",
@@ -70,6 +73,7 @@
       "furnished": true
     },
     {
+      "name": "LiveD",
       "listingID": 98,
       "agentID": "randomAgenttest",
       "address": "Vista Lake Way",
@@ -93,6 +97,7 @@
       "furnished": true
     },
     {
+      "name": "LiveE",
       "listingID": 344,
       "agentID": "test",
       "address": "North Main St",
@@ -130,6 +135,7 @@
       "furnished": true
     },
     {
+      "name": "LiveF",
       "listingID": 23,
       "agentID": "test",
       "address": "14 Wallaby Way St",
@@ -167,6 +173,7 @@
       "furnished": true
     },
     {
+      "name": "LiveG",
       "listingID": 111,
       "agentID": "test",
       "address": "Beaver Duck Way",
@@ -197,6 +204,7 @@
       "furnished": true
     },
     {
+      "name": "LiveH",
       "listingID": 15,
       "agentID": "test",
       "address": "Dirt Rd",
@@ -224,6 +232,37 @@
       "petFriendly": false,
       "pool": true,
       "gym": false,
+      "furnished": true
+    },
+    {
+      "name": "LiveI",
+      "listingID": 115,
+      "agentID": "test",
+      "address": "428 Gamecock Ln",
+      "distFromCampus": 7.0,
+      "reviews": [],
+      "suites": [
+        {
+          "listID": 115,
+          "numBedrooms": 5,
+          "numBathrooms": 5,
+          "numAvailable": 5,
+          "price": 500.0
+        },
+        {
+          "listID": 115,
+          "numBedrooms": 6,
+          "numBathrooms": 6,
+          "numAvailable": 6,
+          "price": 600.0
+        }
+      ],
+      "yearBuilt": 2008,
+      "freeWifi": true,
+      "laundry": true,
+      "petFriendly": false,
+      "pool": true,
+      "gym": true,
       "furnished": true
     }
   ]

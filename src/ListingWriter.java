@@ -31,6 +31,7 @@ public class ListingWriter extends DataConstants {
 	
 	private static JsonObject getListingJSON(Listing listing) {
 		JsonObject listingDetails = new JsonObject();
+		listingDetails.addProperty("name", listing.getName());
 		listingDetails.addProperty("listingID", listing.getListingID());
 		listingDetails.addProperty("agentID", listing.getAgentID());
 		//listingDetails.addProperty("price", listing.getPrice());

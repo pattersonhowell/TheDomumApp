@@ -197,6 +197,8 @@ public class ListingManager {
 	public void printListings(ArrayList<Listing> listOfListings) {
 		for (Listing listing: listOfListings) {
 			System.out.println("_____________________________________________________________________");
+			System.out.println("_____________________________________________________________________");
+			
 			System.out.println(listing.toString());
 			listing.printSuites();
 		}

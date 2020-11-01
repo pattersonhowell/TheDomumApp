@@ -318,6 +318,12 @@ public class HousingDriver {
 			
 			else {
 				System.out.println("Upload Listing\nPLEASE ENTER THE FOLLOWING INFORMATION: ");
+				
+				System.out.println("___________________________________________________________");
+				
+				System.out.println("Enter Name of Complex: ");
+				String name = kb.nextLine();
+				
 				System.out.println("Enter Listing ID: ");
 				
 				int listingID = kb.nextInt();
@@ -398,7 +404,7 @@ public class HousingDriver {
 					
 				}
 			
-				Listing agentListing = new Listing(listingID, realID, address, suiteList,
+				Listing agentListing = new Listing(name, listingID, realID, address, suiteList,
 						 yearBuilt, distance, wifi, laundry, petFriendly, pool, gym, furnished);
 			
 
@@ -408,8 +414,11 @@ public class HousingDriver {
 				systems.listingManager.agentUploadListing(agentListing);
 				
 				systems.listingManager.findListing(listingID).suiteBuilder();
-			
-
+				
+				System.out.println("____________________________________________________");
+				System.out.println("ADDED NEW COMPLEX AND SUITES WERE ADDED");
+				System.out.println("____________________________________________________");
+		
 				System.out.println(systems.listingManager.findListing(listingID).toString());
 			
 			}			

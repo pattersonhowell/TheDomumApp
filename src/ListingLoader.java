@@ -18,6 +18,7 @@ public class ListingLoader extends DataConstants{
 			for (int i = 0; i < jsonArray.size(); i++) {
 				JsonObject listingJSON = (JsonObject)jsonArray.get(i);
 				// Gets each field and transforms them into their respective type
+				String name = listingJSON.get("name").getAsString();
 				int listingID = listingJSON.get("listingID").getAsInt();
 				String agentID = listingJSON.get("agentID").getAsString();
 				//double price = listingJSON.get("price").getAsDouble();
@@ -65,7 +66,7 @@ public class ListingLoader extends DataConstants{
 				}
 
 				// Finally, add all these together
-				Listing l = new Listing(listingID, agentID, address,
+				Listing l = new Listing(name, listingID, agentID, address,
 						/*reviews,*/ suites, yearBuilt, distFromCampus, freeWifi, laundry,
 						petFriendly, pool, gym, furnished);
 				listings.add(l);
