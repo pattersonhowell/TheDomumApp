@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class HousingDriver {
 		private String[] welcomeMenuOptions = {"Log in", "Create Account","Browse as Guest"};		
 		private String [] agentMenu = { "Upload a Listing", "Remove a Listing", "View your listings (Not implemented yet)","Exit"};
-		private String [] studentMenu = {"Browse All Listings","Enter Search Preferences","Search by Listing ID", "Generate Application","Generate Lease", "Leave a Listing Review","Exit"};
+		private String [] studentMenu = {"Browse All Listings","Enter Search Preferences","Search by Listing ID", "Generate Application","Generate Lease", "Leave a Listing Review","Add a roomate","Exit"};
 		private Scanner kb;
 		private Systems systems;
 		private boolean loggedIn;
@@ -193,8 +193,10 @@ public class HousingDriver {
 				case(5):
 					leaveListingReview();
 					break;
-				
-				case (6):
+				case(6):
+					addRoommate();
+					break;				
+				case (7):
 					System.out.println("Thank you for using Domum: Goodbye!");
 					System.exit(0);										
 				}
@@ -425,10 +427,16 @@ public class HousingDriver {
 		}				
 			
 		public void addRoommate() {
-			System.out.println("Enter the username of your roommate:");
-			String roommateName = kb.nextLine();
-			boolean exists = systems.verifiedUser(roommateName);
-			if(exists)
-				System.out.println(roommateName+" is now set as your roommate!");
+			if(loggedIn) {
+				System.out.println("Enter the username of your roommate:");
+				String roommateName = kb.nextLine();
+				boolean exists = systems.verifiedUser(roommateName);
+				if(exists)
+					System.out.println(roommateName+" is now set as your roommate!");
+			} 
+			else {
+				System.out.println("Please Log In first");
+			}
+			
 		}
 }

@@ -310,6 +310,10 @@ public class Listing {
 		    	output.write(line+ user.getId()+ "\n");
 		    	System.out.println(line+user.getEmail()+ "\n");
 		    }	   	
+		    else {		    	
+	    		output.write(line+"\n");
+	    		System.out.println(line+"\n");
+	    	}		
   		    		    	    	
 		   }
 		    output.close();//close IO devices
