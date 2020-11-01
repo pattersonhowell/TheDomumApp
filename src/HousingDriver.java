@@ -208,7 +208,7 @@ public class HousingDriver {
 			System.out.println("What is your maximum price ?");
 			Double price = kb.nextDouble();
 
-			System.out.println("What is your minimum number of Bedrooms ?");
+			System.out.println("What is your number of Bedrooms ?");
 			int bed = kb.nextInt();
 
 			System.out.println("What is the minimum number of Bathrooms ?");
@@ -345,23 +345,23 @@ public class HousingDriver {
 				boolean wifi = kb.nextBoolean();
 				kb.nextLine();
 						
-				System.out.println("Washer and Dryer in Room? (true or false");
+				System.out.println("Washer and Dryer in Room? (true or false)");
 				boolean laundry = kb.nextBoolean();
 				kb.nextLine();
 						
-				System.out.println("Pet Friendly? (true or false");
+				System.out.println("Pet Friendly? (true or false)");
 				boolean petFriendly = kb.nextBoolean();
 				kb.nextLine();			
 			
-				System.out.println("Has Pool? (true or false");
+				System.out.println("Has Pool? (true or false)");
 				boolean pool = kb.nextBoolean();
 				kb.nextLine();
 				
-				System.out.println("Has Gym? (true or false");
+				System.out.println("Has Gym? (true or false)");
 				boolean gym = kb.nextBoolean();
 				kb.nextLine();
 				
-				System.out.println("Pre-furnished? (true or false");
+				System.out.println("Pre-furnished? (true or false)");
 				boolean furnished = kb.nextBoolean();
 				kb.nextLine();
 				
