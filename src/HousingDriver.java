@@ -318,7 +318,7 @@ public class HousingDriver {
 				
 				for(int i = 0; i < suiteTypes; i++) {
 					
-					System.out.println("Enter Listing Price: ");
+					System.out.println("Enter Listing Suite " + (i+1) + " Price: ");
 					double price = kb.nextDouble();
 					kb.nextLine();
 					
