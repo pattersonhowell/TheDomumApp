@@ -1,6 +1,5 @@
 import java.util.ArrayList;
 import java.util.Scanner;
-import java.time.LocalDateTime;
 
 
 public class HousingDriver {
@@ -12,6 +11,7 @@ public class HousingDriver {
 		private boolean loggedIn;
 		private String realID = null; //using since we don't have a currentUser setup
 		private boolean isAgent;
+		private ArrayList<Suite> suiteList;
 
 		HousingDriver() {
 			kb = new Scanner(System.in);
@@ -149,6 +149,7 @@ public class HousingDriver {
 				int userCommand = getUserCommand(welcomeMenuOptions.length);
 				
 				switch(userCommand) {
+
 				case(0):
 					uploadListing();
 					break;					
@@ -196,7 +197,8 @@ public class HousingDriver {
 				case (6):
 					System.out.println("Thank you for using Domum: Goodbye!");
 					System.exit(0);										
-				}	
+				}
+
 			}
 		}	
 		private void searchInput() {
@@ -234,7 +236,9 @@ public class HousingDriver {
 		private void searchByID() {
 			System.out.println("Please enter the listing ID: ");
 			int id = kb.nextInt();
-			System.out.println(systems.listingID(id).toString());
+			//System.out.println(systems.listingID(id));
+			systems.listingManager.findListing(id).suiteBuilder();
+			System.out.println(systems.listingID(id));
 		}
 
 		private void generateApp() {
@@ -267,9 +271,7 @@ public class HousingDriver {
 				System.out.println("Sorry you must Log In before leaving a listing review");
 			}
 			else {
-				//ArrayList<Review> blueHouseRev = new ArrayList<Review>();
-				//Review testRev = new Review(17, 5, "32342","10/11/20","The best");
-				//blueHouseRev.add(testRev);
+				
 
 
 				System.out.println("What is the listingID of the property you wish to leave a review for?");
@@ -287,15 +289,25 @@ public class HousingDriver {
 
 				Review test2Rev = new Review(listingID, listRating, realID, date, reviewMessage);
 
-				//systems.listingManager.findListing(listingID).reviews.add(test2Rev);
+				
 				systems.listingManager.addListingReview(test2Rev, listingID);
 				System.out.println("adding review");
-				systems.listingManager.findListing(listingID).getReviews();
+
+				
+
+				systems.listingManager.findListing(listingID).printReviews();
+
+
+
+
+
 			}
 		}
 		
 		private void uploadListing() {
-			if(loggedIn == false || isAgent != true) {
+			suiteList = new ArrayList<Suite>();
+			
+			if(loggedIn == false ) {//||isAgent != true) {
 				System.out.println("Sorry you must Log In before uploading a listing");
 			}
 			
@@ -309,27 +321,10 @@ public class HousingDriver {
 				//System.out.println("Enter your ID: ");
 				//String yourID = kb.nextLine();
 			
-				System.out.println("Enter Listing Price: ");
-				double price = kb.nextDouble();
-				kb.nextLine();
 			
 				System.out.println("Enter Listing Address: ");
 				String address = kb.nextLine();
 				
-				System.out.println("Enter the Number of Bedrooms: ");
-				int numBedrooms = kb.nextInt();
-				kb.nextLine();
-			
-			
-				System.out.println("Enter the Number of Bathrooms: ");
-				int numBathrooms = kb.nextInt();
-				kb.nextLine();
-			
-			
-				System.out.println("Enter number of availabilities: ");
-				int numAvailibilities = kb.nextInt();
-				kb.nextLine();
-			
 			
 				System.out.println("Enter Year Built: ");
 				int yearBuilt = kb.nextInt();
@@ -360,10 +355,52 @@ public class HousingDriver {
 				System.out.println("Pre-furnished? (true or false");
 				boolean furnished = kb.nextBoolean();
 				kb.nextLine();
+				
+				
+				
+				System.out.println("How many Suite Types are there?");
+				int suiteTypes = kb.nextInt();
+				kb.nextLine();
+				
+				for(int i = 0; i < suiteTypes; i++) {
+					
+					System.out.println("Enter Listing Suite " + (i+1) + " Price: ");
+					double price = kb.nextDouble();
+					kb.nextLine();
+					
+					System.out.println("Enter the Number of Bedrooms: ");
+					int numBedrooms = kb.nextInt();
+					kb.nextLine();
+				
+				
+					System.out.println("Enter the Number of Bathrooms: ");
+					int numBathrooms = kb.nextInt();
+					kb.nextLine();
+				
+				
+					System.out.println("Enter number of availabilities: ");
+					int numAvailibilities = kb.nextInt();
+					kb.nextLine();
+					
+					Suite addedSuite = new Suite(listingID, numBedrooms, numBathrooms, numAvailibilities, price);
+					
+					suiteList.add(addedSuite);
+					
+					
+				}
 			
-				Listing agentListing = new Listing(listingID, realID, price, address, numBedrooms, numBathrooms, 					
-				numAvailibilities, yearBuilt, distance, wifi, laundry, petFriendly, pool, furnished);			
-				systems.listingManager.agentUploadListing(agentListing);			
+				Listing agentListing = new Listing(listingID, realID, address, suiteList,
+						 yearBuilt, distance, wifi, laundry, petFriendly, pool, furnished);
+			
+
+						
+
+			
+				systems.listingManager.agentUploadListing(agentListing);
+				
+				systems.listingManager.findListing(listingID).suiteBuilder();
+			
+
 				System.out.println(systems.listingManager.findListing(listingID).toString());
 			
 			}			

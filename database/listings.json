@@ -3,13 +3,18 @@
     {
       "listingID": 12,
       "agentID": "390393",
-      "price": 698.2,
       "address": "321 Avenue Dr",
-      "numBathroom": 3,
-      "numBedroom": 3,
       "distFromCampus": 5.6,
       "reviews": [],
-      "numberAvailable": 2,
+      "suites": [
+        {
+          "listID": 12,
+          "numBedrooms": 3,
+          "numBathrooms": 3,
+          "numAvailable": 2,
+          "price": 698.2
+        }
+      ],
       "yearBuilt": 2001,
       "freeWifi": false,
       "laundry": true,
@@ -20,13 +25,18 @@
     {
       "listingID": 34,
       "agentID": "567585",
-      "price": 560.34,
       "address": "300 Parklane St",
-      "numBathroom": 1,
-      "numBedroom": 2,
       "distFromCampus": 2.7,
       "reviews": [],
-      "numberAvailable": 7,
+      "suites": [
+        {
+          "listID": 34,
+          "numBedrooms": 1,
+          "numBathrooms": 2,
+          "numAvailable": 7,
+          "price": 560.34
+        }
+      ],
       "yearBuilt": 2000,
       "freeWifi": true,
       "laundry": true,
@@ -37,13 +47,18 @@
     {
       "listingID": 5,
       "agentID": "465769",
-      "price": 690.42,
       "address": "800 Twinpeak Rd",
-      "numBathroom": 4,
-      "numBedroom": 4,
       "distFromCampus": 7.1,
       "reviews": [],
-      "numberAvailable": 1,
+      "suites": [
+        {
+          "listID": 5,
+          "numBedrooms": 4,
+          "numBathrooms": 4,
+          "numAvailable": 1,
+          "price": 690.42
+        }
+      ],
       "yearBuilt": 2013,
       "freeWifi": true,
       "laundry": true,
@@ -54,13 +69,18 @@
     {
       "listingID": 98,
       "agentID": "randomAgenttest",
-      "price": 920.0,
       "address": "Vista Lake Way",
-      "numBathroom": 3,
-      "numBedroom": 3,
       "distFromCampus": 4.0,
       "reviews": [],
-      "numberAvailable": 2,
+      "suites": [
+        {
+          "listID": 98,
+          "numBedrooms": 3,
+          "numBathrooms": 3,
+          "numAvailable": 2,
+          "price": 920.0
+        }
+      ],
       "yearBuilt": 2016,
       "freeWifi": true,
       "laundry": true,
@@ -69,71 +89,75 @@
       "furnished": true
     },
     {
-      "listingID": 97,
-      "agentID": "randomAgentTestter",
-      "price": 850.0,
-      "address": "Vista Park Ln",
-      "numBathroom": 4,
-      "numBedroom": 2,
-      "distFromCampus": 5.0,
-      "reviews": [],
-      "numberAvailable": 7,
-      "yearBuilt": 2012,
-      "freeWifi": true,
-      "laundry": true,
-      "petFriendly": false,
-      "pool": true,
-      "furnished": true
-    },
-    {
-      "listingID": 95,
-      "agentID": "MrUndercover",
-      "price": 899.0,
-      "address": "River Dr.",
-      "numBathroom": 5,
-      "numBedroom": 5,
-      "distFromCampus": 6.0,
-      "reviews": [],
-      "numberAvailable": 5,
-      "yearBuilt": 2002,
-      "freeWifi": true,
-      "laundry": false,
-      "petFriendly": false,
-      "pool": true,
-      "furnished": true
-    },
-    {
-      "listingID": 90,
-      "agentID": "lockheadEstate",
-      "price": 999.0,
-      "address": "River Ridge Way",
-      "numBathroom": 2,
-      "numBedroom": 2,
-      "distFromCampus": 3.5,
-      "reviews": [],
-      "numberAvailable": 1,
-      "yearBuilt": 2018,
-      "freeWifi": false,
-      "laundry": true,
-      "petFriendly": false,
-      "pool": true,
-      "furnished": false
-    },
-    {
-      "listingID": 91,
-      "agentID": "johnsonEstates",
-      "price": 555.0,
-      "address": "Colony Dr.",
-      "numBathroom": 1,
-      "numBedroom": 1,
+      "listingID": 344,
+      "agentID": "test",
+      "address": "North Main St",
       "distFromCampus": 8.0,
       "reviews": [],
-      "numberAvailable": 9,
-      "yearBuilt": 1978,
+      "suites": [
+        {
+          "listID": 344,
+          "numBedrooms": 1,
+          "numBathrooms": 1,
+          "numAvailable": 1,
+          "price": 100.0
+        },
+        {
+          "listID": 344,
+          "numBedrooms": 2,
+          "numBathrooms": 2,
+          "numAvailable": 2,
+          "price": 200.0
+        },
+        {
+          "listID": 344,
+          "numBedrooms": 3,
+          "numBathrooms": 3,
+          "numAvailable": 3,
+          "price": 300.0
+        }
+      ],
+      "yearBuilt": 1990,
       "freeWifi": true,
-      "laundry": false,
+      "laundry": true,
       "petFriendly": true,
-      "pool": false,
+      "pool": true,
+      "furnished": true
+    },
+    {
+      "listingID": 23,
+      "agentID": "test",
+      "address": "14 Wallaby Way St",
+      "distFromCampus": 5.0,
+      "reviews": [],
+      "suites": [
+        {
+          "listID": 23,
+          "numBedrooms": 5,
+          "numBathrooms": 5,
+          "numAvailable": 5,
+          "price": 500.0
+        },
+        {
+          "listID": 23,
+          "numBedrooms": 6,
+          "numBathrooms": 6,
+          "numAvailable": 6,
+          "price": 600.0
+        },
+        {
+          "listID": 23,
+          "numBedrooms": 7,
+          "numBathrooms": 7,
+          "numAvailable": 7,
+          "price": 700.0
+        }
+      ],
+      "yearBuilt": 2003,
+      "freeWifi": true,
+      "laundry": true,
+      "petFriendly": true,
+      "pool": true,
       "furnished": true
     }
   ]

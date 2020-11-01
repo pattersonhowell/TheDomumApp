@@ -20,11 +20,11 @@ public class ListingLoader extends DataConstants{
 				// Gets each field and transforms them into their respective type
 				int listingID = listingJSON.get("listingID").getAsInt();
 				String agentID = listingJSON.get("agentID").getAsString();
-				double price = listingJSON.get("price").getAsDouble();
+				//double price = listingJSON.get("price").getAsDouble();
 				String address = listingJSON.get("address").getAsString();
-				int numBathroom = listingJSON.get("numBathroom").getAsInt();
-				int numBedroom = listingJSON.get("numBedroom").getAsInt();
-				int numAvailable = listingJSON.get("numberAvailable").getAsInt();
+				//int numBathroom = listingJSON.get("numBathroom").getAsInt();
+				//int numBedroom = listingJSON.get("numBedroom").getAsInt();
+				//int numAvailable = listingJSON.get("numberAvailable").getAsInt();
 				int yearBuilt = listingJSON.get("yearBuilt").getAsInt();
 				double distFromCampus = listingJSON.get("distFromCampus").getAsDouble();
 				boolean freeWifi = listingJSON.get("freeWifi").getAsBoolean();
@@ -46,10 +46,26 @@ public class ListingLoader extends DataConstants{
 					Review r = new Review(listID, rating, authorID, date, reviewText);
 					reviews.add(r);
 				}
+				
+				// "suites" is an object, so we also need a special case
+				ArrayList<Suite> suites = new ArrayList<>();
+				JsonArray suitesJSON = listingJSON.getAsJsonArray("suites");
+				for (int j = 0; j < suitesJSON.size(); j++) {
+					JsonObject suiteJSON = (JsonObject)suitesJSON.get(j);
+					int listID = suiteJSON.get("listID").getAsInt();
+					int numBedrooms = suiteJSON.get("numBedrooms").getAsInt();
+					int numBathrooms = suiteJSON.get("numBathrooms").getAsInt();
+					int numberAvailable = suiteJSON.get("numAvailable").getAsInt();
+					double prices = suiteJSON.get("price").getAsDouble();
+					
+					Suite s = new Suite(listID, numBedrooms, numBathrooms, numberAvailable, prices);
+					suites.add(s);
+					
+				}
 
 				// Finally, add all these together
-				Listing l = new Listing(listingID, agentID, price, address, numBathroom, numBedroom,
-						/* reviews,*/ numAvailable, yearBuilt, distFromCampus, freeWifi, laundry,
+				Listing l = new Listing(listingID, agentID, address,
+						/*reviews,*/ suites, yearBuilt, distFromCampus, freeWifi, laundry,
 						petFriendly, pool, furnished);
 				listings.add(l);
 			}
