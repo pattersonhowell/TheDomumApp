@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class HousingDriver {
 		private String[] welcomeMenuOptions = {"Log in", "Create Account","Browse as Guest"};		
 		private String [] agentMenu = { "Upload a Listing", "Remove a Listing", "View your listings (Not implemented yet)","Exit"};
-		private String [] studentMenu = {"Browse All Listings","Enter Search Preferences","Search by Listing ID", "Generate Application","Generate Lease", "Leave a Listing Review","Add a roomate","Exit"};
+		private String [] studentMenu = {"Browse All Listings","Enter Search Preferences","Search by Listing ID", "Generate Application","Generate Lease", "Leave a Listing Review","Browse Reviews By ID", "Add a roomate","Exit"};
 		private Scanner kb;
 		private Systems systems;
 		private boolean loggedIn;
@@ -108,6 +108,7 @@ public class HousingDriver {
 			if(choice == 1) {
 				System.out.println("Please enter your student ID");
 				String studentID = kb.next();
+				kb.nextLine();
 				realID = studentID; //using since we don't have a currentUser setup
 				systems.signUpStudent(name, password, address, phone, email, studentID);
 				System.out.println("\nAccount created!");
@@ -195,9 +196,12 @@ public class HousingDriver {
 					leaveListingReview();
 					break;
 				case(6):
+					browseReviewsByID();
+					break;
+				case(7):
 					addRoommate();
 					break;				
-				case (7):
+				case (8):
 					System.out.println("Thank you for using Domum: Goodbye!");
 					System.exit(0);										
 				}
@@ -277,9 +281,7 @@ public class HousingDriver {
 				System.out.println("Sorry you must Log In before leaving a listing review");
 			}
 			else {
-				
-
-
+	
 				System.out.println("What is the listingID of the property you wish to leave a review for?");
 				int listingID = kb.nextInt();
 				kb.nextLine();
@@ -295,24 +297,27 @@ public class HousingDriver {
 
 				Review test2Rev = new Review(listingID, listRating, realID, date, reviewMessage);
 
-				
-				systems.listingManager.addListingReview(test2Rev, listingID);
 				System.out.println("adding review");
-
+				systems.listingManager.addListingReview(test2Rev, listingID);
 				
-
 				systems.listingManager.findListing(listingID).printReviews();
-
-
-
-
-
+				
 			}
 		}
+		
+		private void browseReviewsByID() {
+			
+			System.out.println("Please enter the listing ID: ");
+			int id = kb.nextInt();
+			//System.out.println(systems.listingID(id));
+			systems.listingManager.findListing(id).printReviews();
+		}
+		
 		
 		private void uploadListing() {
 			suiteList = new ArrayList<Suite>();
 			reviews = new ArrayList<Review>();
+			
 			
 			if(loggedIn == false ) {//||isAgent != true) {
 				System.out.println("Sorry you must Log In before uploading a listing");

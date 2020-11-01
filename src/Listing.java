@@ -55,6 +55,7 @@ public class Listing {
 
 	public void printReviews() {
 		for(Review r: reviews) {
+			System.out.println("_______________________________________________________");
 			System.out.println(r.toString());
 		}
 	}
