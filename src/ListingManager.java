@@ -119,7 +119,7 @@ public class ListingManager {
 			
 			for(Suite suite: listing.suites) {
 				
-				if(suite.getNumBedrooms() >= numBed) {
+				if(suite.getNumBedrooms() == numBed) {
 					mathchingListings.add(listing);
 					returnSuites.add(suite);
 					
@@ -372,7 +372,7 @@ public class ListingManager {
 		for(Listing list: searchResults) {
 			for(int i = 0; i < list.suites.size(); i++) {
 				if(list.suites.get(i).getPrice() <= price  && 
-						list.suites.get(i).getNumBedrooms() >= bed  &&
+						list.suites.get(i).getNumBedrooms() == bed  &&
 								list.suites.get(i).getNumBathrooms() >= bath) { 
 					searchSuites.add(list.suites.get(i));
 					System.out.println("a top Suite made it to the end");
