@@ -200,6 +200,16 @@
       "email": "kmhagan@email.sc.edu",
       "reviews": [],
       "favoriteListingIDs": []
+    },
+    {
+      "id": "braxtonbh1",
+      "name": "braxton howell",
+      "password": "pass",
+      "address": "200 Beaver Dam",
+      "phone": "123456789",
+      "email": "braxton@email.com",
+      "reviews": [],
+      "favoriteListingIDs": []
     }
   ]
 }

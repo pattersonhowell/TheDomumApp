@@ -12,6 +12,7 @@ public class HousingDriver {
 		private String realID = null; //using since we don't have a currentUser setup
 		private boolean isAgent;
 		private ArrayList<Suite> suiteList;
+		private ArrayList<Review> reviews;
 
 		HousingDriver() {
 			kb = new Scanner(System.in);
@@ -311,6 +312,7 @@ public class HousingDriver {
 		
 		private void uploadListing() {
 			suiteList = new ArrayList<Suite>();
+			reviews = new ArrayList<Review>();
 			
 			if(loggedIn == false ) {//||isAgent != true) {
 				System.out.println("Sorry you must Log In before uploading a listing");
@@ -404,7 +406,7 @@ public class HousingDriver {
 					
 				}
 			
-				Listing agentListing = new Listing(name, listingID, realID, address, suiteList,
+				Listing agentListing = new Listing(name, listingID, realID, address, reviews, suiteList,
 						 yearBuilt, distance, wifi, laundry, petFriendly, pool, gym, furnished);
 			
 

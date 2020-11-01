@@ -28,7 +28,7 @@ public class Listing {
 	
 	protected ArrayList<Suite> presentSuites;
 
-	public Listing(String name, int listingID, String agentID, String address, 
+	public Listing(String name, int listingID, String agentID, String address, ArrayList<Review> reviews, 
 			ArrayList<Suite> suites, int yearBuilt, double distFromCampus,
 			boolean freeWifi, boolean laundry, boolean petFriendly, boolean pool, boolean gym, boolean furnished) {
 		this.name = name;
@@ -38,7 +38,7 @@ public class Listing {
 		this.address = address;
 		//this.numBathroom = numBathroom;
 		//this.numBedroom = numBedroom;
-		this.reviews = new ArrayList<>();
+		this.reviews = reviews;
 		this.presentSuites = new ArrayList<>();
 		//this.suites = new ArrayList<>();
 		this.suites = suites;

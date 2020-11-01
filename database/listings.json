@@ -6,7 +6,15 @@
       "agentID": "390393",
       "address": "321 Avenue Dr",
       "distFromCampus": 5.6,
-      "reviews": [],
+      "reviews": [
+        {
+          "listID": 12,
+          "authorID": "smithA",
+          "date": "2020-4-8",
+          "reviewText": "I loved my stay here!",
+          "rating": 9
+        }
+      ],
       "suites": [
         {
           "listID": 12,
@@ -30,7 +38,15 @@
       "agentID": "567585",
       "address": "300 Parklane St",
       "distFromCampus": 2.7,
-      "reviews": [],
+      "reviews": [
+        {
+          "listID": 12,
+          "authorID": "smithB",
+          "date": "2019-4-8",
+          "reviewText": "I loved my stay here!",
+          "rating": 9
+        }
+      ],
       "suites": [
         {
           "listID": 34,
@@ -54,7 +70,15 @@
       "agentID": "465769",
       "address": "800 Twinpeak Rd",
       "distFromCampus": 7.1,
-      "reviews": [],
+      "reviews": [
+        {
+          "listID": 12,
+          "authorID": "smithC",
+          "date": "2018-4-8",
+          "reviewText": "I loved my stay here!",
+          "rating": 9
+        }
+      ],
       "suites": [
         {
           "listID": 5,
@@ -78,7 +102,15 @@
       "agentID": "randomAgenttest",
       "address": "Vista Lake Way",
       "distFromCampus": 4.0,
-      "reviews": [],
+      "reviews": [
+        {
+          "listID": 12,
+          "authorID": "smithD",
+          "date": "2016-4-8",
+          "reviewText": "I loved my stay here!",
+          "rating": 9
+        }
+      ],
       "suites": [
         {
           "listID": 98,
@@ -102,7 +134,15 @@
       "agentID": "test",
       "address": "North Main St",
       "distFromCampus": 8.0,
-      "reviews": [],
+      "reviews": [
+        {
+          "listID": 12,
+          "authorID": "smithE",
+          "date": "2015-4-8",
+          "reviewText": "I loved my stay here!",
+          "rating": 9
+        }
+      ],
       "suites": [
         {
           "listID": 344,
@@ -140,7 +180,15 @@
       "agentID": "test",
       "address": "14 Wallaby Way St",
       "distFromCampus": 5.0,
-      "reviews": [],
+      "reviews": [
+        {
+          "listID": 12,
+          "authorID": "smithF",
+          "date": "2014-4-8",
+          "reviewText": "I loved my stay here!",
+          "rating": 9
+        }
+      ],
       "suites": [
         {
           "listID": 23,
@@ -240,7 +288,22 @@
       "agentID": "test",
       "address": "428 Gamecock Ln",
       "distFromCampus": 7.0,
-      "reviews": [],
+      "reviews": [
+        {
+          "listID": 115,
+          "authorID": "braxtonbh1",
+          "date": "2020-11-01",
+          "reviewText": "Its alright. Watch for roaches...",
+          "rating": 5
+        },
+        {
+          "listID": 115,
+          "authorID": "braxtonbh1",
+          "date": "2020-11-01",
+          "reviewText": "It doesnt have roaches!!!",
+          "rating": 8
+        }
+      ],
       "suites": [
         {
           "listID": 115,
