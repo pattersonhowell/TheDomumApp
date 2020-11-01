@@ -231,6 +231,7 @@ public class Listing {
 
 	public void generateLease(User user) {
 		try {	
+			System.out.println("Priting Lease for "+user.getName()+" also see Txt File");
 			File fileRead  = new File("./TextFiles/LeasingAgreement.txt");
 			File fileWrite  = new File("./TextFiles/LeasingAgreement_"+user.getName());
 			Scanner scan = new Scanner(fileRead);		
@@ -244,18 +245,23 @@ public class Listing {
 		    	line = scan.nextLine(); 	   	
 		    	if(line.contains("Tenant:")) {
 		    		 output.write(line +user.getName() +"\n");
+		    		 System.out.println(line +user.getName() +"\n");
 		    	}		    	
 		    	else if(line.contains("Address:")) {
 		    		output.write(line+this.getAddress()+ "\n");
+		    		System.out.println(line+this.getAddress()+ "\n");
 		    	}		    	   		    		
 		    	else if(line.contains(":$")) {
 		    		output.write(line+this.getPrice()+"\n");
+		    		System.out.println(line+this.getPrice()+"\n");
 		    	}	
 		    	else  if (line.contains("Tenant Signature:")){
 			    	output.write(line+user.getName()+"\n");
+			    	System.out.println(line+user.getName()+"\n");
 		    	}
 		    	else {		    	
 		    		output.write(line+"\n");
+		    		System.out.println(line+"\n");
 		    	}		    	  		    		    	    	
 		    }
 		    output.close();//close IO devices
@@ -266,6 +272,7 @@ public class Listing {
 	}	
 	public void generateApplication(User user)  {	
 		try {				
+			System.out.println("Priting Appplication for "+user.getName()+" also see Txt File");
 			File fileRead  = new File("./TextFiles/Application.txt");			
 			File fileWrite  = new File("./TextFiles/Application_"+user.getName());						
 					
@@ -281,21 +288,27 @@ public class Listing {
 		    	
 		    if(line.contains("Address:")) {
 		    	output.write(line+this.getAddress()+ "\n");
+		    	System.out.println(line+this.getAddress()+ "\n");
 		    }	
 		    else if (line.contains("Price:")) {
 		    	output.write(line+this.getPrice()+ "\n");
+		    	System.out.println(line+this.getPrice()+ "\n");
 		    }
 		    else if (line.contains("Name:")) {
 		    	output.write(line + user.getName()+ "\n");
+		    	System.out.println(line + user.getName()+ "\n");
 		    }
 		    else if (line.contains("Phone:")) {
 		    	output.write(line+ user.getPhone() + "\n");
+		    	System.out.println(line+ user.getPhone() + "\n");
 		    }		    	
 		    else if (line.contains("Email:")) {
 		    	output.write(line+user.getEmail()+ "\n");
+		    	System.out.println(line+user.getEmail()+ "\n");
 		    }		    	
 		    else if (line.contains("Student ID:")) {
 		    	output.write(line+ user.getId()+ "\n");
+		    	System.out.println(line+user.getEmail()+ "\n");
 		    }	   	
   		    		    	    	
 		   }

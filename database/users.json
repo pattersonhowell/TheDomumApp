@@ -190,6 +190,16 @@
       "reviews": [],
       "realtyGroup": "Coldwell Banker",
       "managedListingIDs": []
+    },
+    {
+      "id": "2322342",
+      "name": "Will SMith",
+      "password": "password",
+      "address": "472 School House Lane",
+      "phone": "6107871245",
+      "email": "kmhagan@email.sc.edu",
+      "reviews": [],
+      "favoriteListingIDs": []
     }
   ]
 }
