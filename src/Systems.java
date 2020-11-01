@@ -1,10 +1,11 @@
 import java.util.ArrayList;
 
 public class Systems {	
-	//private ListingManager listingManager;
+	
 	ListingManager listingManager = ListingManager.getInstance();
-	//private UserManager userManager;
-	UserManager manager = UserManager.getInstance();	
+	
+	UserManager manager = UserManager.getInstance();
+	
 	public boolean verifiedLogin(String name, String password) {	
 		for(User x: manager.getUsers()) {
 			if(x.getName().equalsIgnoreCase(name) && x.getPassword().equalsIgnoreCase(password)) {

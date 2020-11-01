@@ -9,10 +9,10 @@ public class Listing {
 	protected String name;
 	public int listingID;
 	public String agentID;
-	protected double price;
+	protected double price; //covered by suites
 	protected String address; 
-	protected int numBathroom; 
-	protected int numBedroom;
+	protected int numBathroom; //covered by suites
+	protected int numBedroom;  //covered by suites
 	protected ArrayList<Review> reviews; 
 	protected ArrayList<Suite> suites;
 	protected int numberAvalible; 
@@ -34,15 +34,14 @@ public class Listing {
 		this.name = name;
 		this.listingID = listingID;
 		this.agentID = agentID;
-		//this.price = price;
+		
 		this.address = address;
-		//this.numBathroom = numBathroom;
-		//this.numBedroom = numBedroom;
+		
 		this.reviews = reviews;
 		this.presentSuites = new ArrayList<>();
-		//this.suites = new ArrayList<>();
+		
 		this.suites = suites;
-		//this.numberAvalible = numberAvalible;		
+				
 		this.yearBuilt = yearBuilt;
 		this.distFromCampus = distFromCampus;
 		this.freeWifi = freeWifi;

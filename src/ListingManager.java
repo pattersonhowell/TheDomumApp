@@ -10,7 +10,7 @@ public class ListingManager {
 	
 	ArrayList<Suite> returnSuites = new ArrayList<>();//specific suites for search
 	ArrayList<Suite> searchSuites = new ArrayList<>();
-	int duplicate = 0;
+	
 	
 	private static ListingManager listingManager;
 
@@ -47,8 +47,7 @@ public class ListingManager {
 	public Listing findListing(int listingId) {
 		for (Listing listing: listings) {
 			if(listing.getListingID()==listingId) {
-				//System.out.println("We found listing for ID: " + listingId);
-				//System.out.println(listing.toString());
+				
 				return listing;
 			}
 		}
@@ -216,7 +215,7 @@ public class ListingManager {
 			System.out.println(listing.toString()); 
 			listing.printPresentSuites();
 		}
-		//System.out.println(listOfSuites.toString());
+		
 		System.out.println("_____________________________________________________________________");
 
 	}
@@ -385,8 +384,7 @@ public class ListingManager {
 						
 			}
 		}
-		//Set<Listing> hashSet = new LinkedHashSet(searchResults);
-        //ArrayList<Listing> removedDuplicates = new ArrayList(hashSet);
+		
 		
 		
 		//printing search results
@@ -412,12 +410,7 @@ public class ListingManager {
 			
 			if(currentList.contains(list) ) {
 				returnList.add(list);
-				//returnSuite.add(suite);
-			}
-			for(int i = 0; i < returnList.size(); i++) {
-				if(list.listingID == returnList.get(i).listingID) {
-					duplicate = duplicate + 1;
-				}
+				
 			}
 		
 		}

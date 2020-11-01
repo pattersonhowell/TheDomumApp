@@ -9,7 +9,7 @@ public class HousingDriver {
 		private Scanner kb;
 		private Systems systems;
 		private boolean loggedIn;
-		private String realID = null; //using since we don't have a currentUser setup
+		private String realID = null; //using for verification 
 		private boolean isAgent;
 		private ArrayList<Suite> suiteList;
 		private ArrayList<Review> reviews;
@@ -109,7 +109,7 @@ public class HousingDriver {
 				System.out.println("Please enter your student ID");
 				String studentID = kb.next();
 				kb.nextLine();
-				realID = studentID; //using since we don't have a currentUser setup
+				realID = studentID; //(verification)
 				systems.signUpStudent(name, password, address, phone, email, studentID);
 				System.out.println("\nAccount created!");
 				loggedIn = true; //creating account should automatically log in
@@ -119,7 +119,7 @@ public class HousingDriver {
 				System.out.println("Please enter your agent ID");
 				String agentID = kb.next();
 				kb.nextLine();
-				realID = agentID; //using since we don't have a currentUser setup
+				realID = agentID; //(verification)
 				System.out.println("Please enter your real estate group");
 				String group = kb.nextLine();
 
@@ -246,7 +246,7 @@ public class HousingDriver {
 		private void searchByID() {
 			System.out.println("Please enter the listing ID: ");
 			int id = kb.nextInt();
-			//System.out.println(systems.listingID(id));
+			
 			systems.listingManager.findListing(id).suiteBuilder();
 			System.out.println(systems.listingID(id));
 		}
@@ -309,7 +309,7 @@ public class HousingDriver {
 			
 			System.out.println("Please enter the listing ID: ");
 			int id = kb.nextInt();
-			//System.out.println(systems.listingID(id));
+			
 			systems.listingManager.findListing(id).printReviews();
 		}
 		
@@ -319,7 +319,7 @@ public class HousingDriver {
 			reviews = new ArrayList<Review>();
 			
 			
-			if(loggedIn == false ) {//||isAgent != true) {
+			if(loggedIn == false ) { 
 				System.out.println("Sorry you must Log In before uploading a listing");
 			}
 			
@@ -336,10 +336,7 @@ public class HousingDriver {
 				int listingID = kb.nextInt();
 				kb.nextLine();
 			
-				//System.out.println("Enter your ID: ");
-				//String yourID = kb.nextLine();
-			
-			
+
 				System.out.println("Enter Listing Address: ");
 				String address = kb.nextLine();
 				
@@ -413,11 +410,7 @@ public class HousingDriver {
 			
 				Listing agentListing = new Listing(name, listingID, realID, address, reviews, suiteList,
 						 yearBuilt, distance, wifi, laundry, petFriendly, pool, gym, furnished);
-			
-
-						
-
-			
+	
 				systems.listingManager.agentUploadListing(agentListing);
 				
 				systems.listingManager.findListing(listingID).suiteBuilder();
