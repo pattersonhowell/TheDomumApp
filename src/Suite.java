@@ -19,6 +19,7 @@ public class Suite {
 		return "\nListID: " + listID + "\nPrice: " + price + "$\nBedrooms: " + numBedrooms + "\nBathrooms: " + numBathrooms + "\nAvailable Units: " + numAvailable;
 	}
 	
+	
 	public int getlistID() {
 		return listID;
 	}

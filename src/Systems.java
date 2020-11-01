@@ -61,8 +61,8 @@ public class Systems {
 		listingManager.printListings(listingManager.getListings());
 	}
 	
-	public void comprehensiveSearch(double price,int bed,int bath,double distance,boolean wifi,boolean laundry,boolean petFriendly,boolean pool,boolean furnished) {
-		listingManager.comprehensiveSearch(price,bed,bath,distance,wifi,laundry,petFriendly,pool,furnished);
+	public void comprehensiveSearch(double price,int bed,int bath,double distance,boolean wifi,boolean laundry,boolean petFriendly,boolean pool,boolean gym,boolean furnished) {
+		listingManager.comprehensiveSearch(price,bed,bath,distance,wifi,laundry,petFriendly,pool,gym,furnished);
 	}	
 	public Listing listingID(int id) {
 		return listingManager.findListing(id);

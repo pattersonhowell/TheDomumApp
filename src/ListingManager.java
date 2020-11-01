@@ -164,6 +164,17 @@ public class ListingManager {
 		}
 		return mathchingListings;
 	}
+	//GYM
+	public ArrayList<Listing> hasGymSearch(boolean value) {
+		ArrayList<Listing> mathchingListings = new ArrayList<Listing>();
+		for(Listing listing: listings) {
+			if(listing.isGym()==value) {
+				mathchingListings.add(listing);
+			}
+		}
+		return mathchingListings;
+	}
+	
 	public ArrayList<Listing> hasFreeWifiSearch(boolean value) {
 		ArrayList<Listing> mathchingListings = new ArrayList<Listing>();
 		for(Listing listing: listings) {
@@ -196,12 +207,13 @@ public class ListingManager {
 	public void printListings(ArrayList<Listing> listOfListings, ArrayList<Suite> listOfSuites) {
 		for (Listing listing: listOfListings) {
 			System.out.println("_____________________________________________________________________");
-			for(Suite suite: listOfSuites) {
-				System.out.println("_____________________________________________________________________");
-				System.out.println(listing.toString() + suite.toString());
-			}
-			//System.out.println(listing.toString() + listing.suites.toString());
+			
+			System.out.println("_____________________________________________________________________");
+				
+			System.out.println(listing.toString()); 
+			listing.printPresentSuites();
 		}
+		//System.out.println(listOfSuites.toString());
 		System.out.println("_____________________________________________________________________");
 
 	}
@@ -323,27 +335,49 @@ public class ListingManager {
 	 * @param furnished
 	 */
 
-	public void comprehensiveSearch(Double price, int bed, int bath, double distance, boolean wifi, boolean laundry, boolean petFriendly, boolean pool, boolean furnished) {
+	public void comprehensiveSearch(Double price, int bed, int bath, double distance, boolean wifi, boolean laundry, boolean petFriendly, boolean pool, boolean gym, boolean furnished) {
 		ArrayList<Listing> searchResults = new ArrayList<>();
 		ArrayList<Suite> searchSuites = new ArrayList<>();
 		
 		searchResults = (priceSearch(price));//	starting off arrayList with all matching price results
-		searchResults = checkDups(numBedSearch(bed),searchResults);//comparing the results so far with the new results and moving on the listings that are in common to next round
-		searchResults = checkDups(numBathSearch(bath),searchResults);
-		searchResults = checkDups(distFromCampusSearch(distance),searchResults);
-		searchResults = checkDups(hasFreeWifiSearch(wifi),searchResults);
-		searchResults = checkDups(laundrySearch(laundry),searchResults);
-		searchResults = checkDups(petFriendlySearch(petFriendly),searchResults);
-		searchResults = checkDups(hasPoolSearch(pool),searchResults);
-		searchResults = checkDups(isFurnishedSearch(furnished),searchResults);
 		
+		
+		searchResults = checkDups(numBedSearch(bed),searchResults);//comparing the results so far with the new results and moving on the listings that are in common to next round
+		
+		
+		searchResults = checkDups(numBathSearch(bath),searchResults);
+		
+		
+		searchResults = checkDups(distFromCampusSearch(distance),searchResults);
+		
+		if(wifi == true) {
+		searchResults = checkDups(hasFreeWifiSearch(wifi),searchResults);
+		}
+		if(laundry == true) {
+		searchResults = checkDups(laundrySearch(laundry),searchResults);
+		}
+		if(petFriendly == true) {
+		searchResults = checkDups(petFriendlySearch(petFriendly),searchResults);
+		}
+		if(pool == true) {
+		searchResults = checkDups(hasPoolSearch(pool),searchResults);
+		}
+		if(gym == true) {
+		searchResults = checkDups(hasGymSearch(gym),searchResults);
+		}
+		if(furnished == true) {
+		searchResults = checkDups(isFurnishedSearch(furnished),searchResults);
+		}
 		for(Listing list: searchResults) {
 			for(int i = 0; i < list.suites.size(); i++) {
-				if(list.suites.get(i).getPrice() <= price && 
-						(list.suites.get(i).getNumBedrooms() >= bed &&
-								(list.suites.get(i).getNumBathrooms() >= bath))) {
+				if(list.suites.get(i).getPrice() <= price  && 
+						list.suites.get(i).getNumBedrooms() >= bed  &&
+								list.suites.get(i).getNumBathrooms() >= bath) { 
 					searchSuites.add(list.suites.get(i));
 					System.out.println("a top Suite made it to the end");
+					list.presentSuites.add(list.suites.get(i));
+					 
+				
 				}
 						
 			}

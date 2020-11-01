@@ -24,6 +24,8 @@ public class Listing {
 	protected boolean gym;
 	protected boolean furnished; 
 	protected String suiteBuilder = "";
+	
+	protected ArrayList<Suite> presentSuites;
 
 	public Listing(int listingID, String agentID, String address, 
 			ArrayList<Suite> suites, int yearBuilt, double distFromCampus,
@@ -35,6 +37,7 @@ public class Listing {
 		//this.numBathroom = numBathroom;
 		//this.numBedroom = numBedroom;
 		this.reviews = new ArrayList<>();
+		this.presentSuites = new ArrayList<>();
 		//this.suites = new ArrayList<>();
 		this.suites = suites;
 		//this.numberAvalible = numberAvalible;		
@@ -71,9 +74,16 @@ public class Listing {
 		}
 	}
 	
+	public void printPresentSuites() {
+		for(Suite s: presentSuites) {
+			System.out.println(s.toString());
+		}
+	}
+	
 	public ArrayList<Suite> getSuites() {
 		return suites;
 	}
+	
 
 	public int getListingID() {
 		return listingID;

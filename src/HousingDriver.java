@@ -226,11 +226,14 @@ public class HousingDriver {
 
 			System.out.println("Do you want to search for Units that have a pool ? (Enter true or false)");
 			boolean pool = kb.nextBoolean();
+			
+			System.out.println("Do you want to search for Units that have a gym ? (Enter true or false)");
+			boolean gym = kb.nextBoolean();
 
 			System.out.println("Do you want to search for Units that are furnished ? (Enter true or false)");
 			boolean furnished = kb.nextBoolean();
 
-			systems.comprehensiveSearch(price,bed,bath,distance,wifi,laundry,petFriendly,pool,furnished);
+			systems.comprehensiveSearch(price,bed,bath,distance,wifi,laundry,petFriendly,pool, gym, furnished);
 		}
 
 		private void searchByID() {
