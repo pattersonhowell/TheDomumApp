@@ -350,7 +350,11 @@ public class HousingDriver {
 			
 				System.out.println("Has Pool? (true or false");
 				boolean pool = kb.nextBoolean();
-				kb.nextLine();							
+				kb.nextLine();
+				
+				System.out.println("Has Gym? (true or false");
+				boolean gym = kb.nextBoolean();
+				kb.nextLine();
 				
 				System.out.println("Pre-furnished? (true or false");
 				boolean furnished = kb.nextBoolean();
@@ -390,7 +394,7 @@ public class HousingDriver {
 				}
 			
 				Listing agentListing = new Listing(listingID, realID, address, suiteList,
-						 yearBuilt, distance, wifi, laundry, petFriendly, pool, furnished);
+						 yearBuilt, distance, wifi, laundry, petFriendly, pool, gym, furnished);
 			
 
 						

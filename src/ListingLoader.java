@@ -31,6 +31,7 @@ public class ListingLoader extends DataConstants{
 				boolean laundry = listingJSON.get("laundry").getAsBoolean();
 				boolean petFriendly = listingJSON.get("petFriendly").getAsBoolean();
 				boolean pool = listingJSON.get("pool").getAsBoolean();
+				boolean gym = listingJSON.get("gym").getAsBoolean();
 				boolean furnished = listingJSON.get("furnished").getAsBoolean();
 
 				// "reviews" is an object, so we need a special case
@@ -66,7 +67,7 @@ public class ListingLoader extends DataConstants{
 				// Finally, add all these together
 				Listing l = new Listing(listingID, agentID, address,
 						/*reviews,*/ suites, yearBuilt, distFromCampus, freeWifi, laundry,
-						petFriendly, pool, furnished);
+						petFriendly, pool, gym, furnished);
 				listings.add(l);
 			}
 			return listings;

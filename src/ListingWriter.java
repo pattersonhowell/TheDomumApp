@@ -68,6 +68,7 @@ public class ListingWriter extends DataConstants {
 		listingDetails.addProperty("laundry", listing.isLaundry());
 		listingDetails.addProperty("petFriendly", listing.isPetFriendly());
 		listingDetails.addProperty("pool", listing.isPool());
+		listingDetails.addProperty("gym", listing.isGym());
 		listingDetails.addProperty("furnished", listing.isFurnished());
 		return listingDetails;
 	}

@@ -21,12 +21,13 @@ public class Listing {
 	protected boolean laundry; 
 	protected boolean petFriendly;
 	protected boolean pool;
+	protected boolean gym;
 	protected boolean furnished; 
 	protected String suiteBuilder = "";
 
 	public Listing(int listingID, String agentID, String address, 
 			ArrayList<Suite> suites, int yearBuilt, double distFromCampus,
-			boolean freeWifi, boolean laundry, boolean petFriendly, boolean pool, boolean furnished) {
+			boolean freeWifi, boolean laundry, boolean petFriendly, boolean pool, boolean gym, boolean furnished) {
 		this.listingID = listingID;
 		this.agentID = agentID;
 		//this.price = price;
@@ -43,6 +44,7 @@ public class Listing {
 		this.laundry = laundry; 
 		this.petFriendly = petFriendly; 
 		this.pool = pool; 
+		this.gym = gym;
 		this.furnished = furnished; 
 	}	
 
@@ -171,9 +173,17 @@ public class Listing {
 	public boolean isPool() {
 		return pool;
 	}
+	
+	public boolean isGym() {
+		return gym;
+	}
 
 	public void setPool(boolean pool) {
 		this.pool = pool;
+	}
+	
+	public void setGym(boolean gym) {
+		this.gym = gym;
 	}
 
 	public boolean isFurnished() {
@@ -196,7 +206,7 @@ public class Listing {
 		return address +"\n"+ 
 				distFromCampus+" Miles from campus" +"\n" +"Built in: "+yearBuilt+ "\n"
 						+"Listing ID: "+listingID+ " AgentID: "+agentID +"\n" +"Free Wifi: "+freeWifi 
-						+" --Laundry Included: "+laundry+"-- Pet Friendly: "+petFriendly+ "--Pool: "+pool+ "--Furnished: " +furnished
+						+" --Laundry Included: "+laundry+"-- Pet Friendly: "+petFriendly+ "--Pool: "+pool+ "--Gym: "+gym+ "--Furnished: " +furnished
 						+ suiteBuilder;	
 	}	
 	
