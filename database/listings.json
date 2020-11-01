@@ -159,6 +159,35 @@
       "petFriendly": true,
       "pool": true,
       "furnished": true
+    },
+    {
+      "listingID": 111,
+      "agentID": "test",
+      "address": "Beaver Duck Way",
+      "distFromCampus": 10.0,
+      "reviews": [],
+      "suites": [
+        {
+          "listID": 111,
+          "numBedrooms": 3,
+          "numBathrooms": 3,
+          "numAvailable": 3,
+          "price": 300.0
+        },
+        {
+          "listID": 111,
+          "numBedrooms": 4,
+          "numBathrooms": 4,
+          "numAvailable": 4,
+          "price": 400.0
+        }
+      ],
+      "yearBuilt": 2004,
+      "freeWifi": true,
+      "laundry": true,
+      "petFriendly": true,
+      "pool": true,
+      "furnished": true
     }
   ]
 }

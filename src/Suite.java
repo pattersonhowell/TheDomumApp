@@ -19,4 +19,28 @@ public class Suite {
 		return "\nListID: " + listID + "\nPrice: " + price + "$\nBedrooms: " + numBedrooms + "\nBathrooms: " + numBathrooms + "\nAvailable Units: " + numAvailable;
 	}
 	
+	public int getlistID() {
+		return listID;
+	}
+	
+	public int getNumBedrooms() {
+		return numBedrooms;
+	}
+	
+	public int getNumBathrooms() {
+		return numBathrooms;
+	}
+	
+	public int getNumAvailable() {
+		return numAvailable;
+	}
+	
+	public double getPrice() {
+		return price;
+	}
+	
+	
+
+	
+	
 }

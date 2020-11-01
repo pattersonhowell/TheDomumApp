@@ -1,8 +1,17 @@
 import java.util.ArrayList;
+import java.util.LinkedHashSet;
+import java.util.Set;
+import java.util.stream.Collectors;
+
+
 
 public class ListingManager {
 	private static ArrayList<Listing> listings;
-
+	
+	ArrayList<Suite> returnSuites = new ArrayList<>();//specific suites for search
+	ArrayList<Suite> searchSuites = new ArrayList<>();
+	int duplicate = 0;
+	
 	private static ListingManager listingManager;
 
 	public ListingManager() {
@@ -69,8 +78,13 @@ public class ListingManager {
 	public ArrayList<Listing> priceSearch(double price) {
 		ArrayList<Listing> mathchingListings = new ArrayList<Listing>();
 		for (Listing listing: listings) {
-			if(listing.getPrice() <= price) {
-				mathchingListings.add(listing);
+			for(Suite suite: listing.suites) {
+				
+				if(suite.getPrice() <= price) {
+					mathchingListings.add(listing);
+					returnSuites.add(suite);
+					
+				}
 			}
 		}
 		return mathchingListings;
@@ -87,8 +101,14 @@ public class ListingManager {
 	public ArrayList<Listing> numBathSearch(int numBath) {
 		ArrayList<Listing> mathchingListings = new ArrayList<Listing>();
 		for (Listing listing: listings) {
-			if(listing.getNumBathroom() >= numBath) {
-				mathchingListings.add(listing);
+			
+			for(Suite suite: listing.suites) {
+				
+				if(suite.getNumBathrooms() >= numBath) {
+					mathchingListings.add(listing);
+					returnSuites.add(suite);
+					
+				}
 			}
 		}
 		return mathchingListings;
@@ -96,8 +116,14 @@ public class ListingManager {
 	public ArrayList<Listing> numBedSearch(int numBed) {
 		ArrayList<Listing> mathchingListings = new ArrayList<Listing>();
 		for (Listing listing: listings) {
-			if(listing.getNumBedroom() >= numBed) {
-				mathchingListings.add(listing);
+			
+			for(Suite suite: listing.suites) {
+				
+				if(suite.getNumBedrooms() >= numBed) {
+					mathchingListings.add(listing);
+					returnSuites.add(suite);
+					
+				}
 			}
 		}
 		return mathchingListings;
@@ -156,10 +182,25 @@ public class ListingManager {
 		}
 		return mathchingListings;
 	}
+	
 	public void printListings(ArrayList<Listing> listOfListings) {
 		for (Listing listing: listOfListings) {
 			System.out.println("_____________________________________________________________________");
 			System.out.println(listing.toString());
+		}
+		System.out.println("_____________________________________________________________________");
+	}
+	
+	
+	
+	public void printListings(ArrayList<Listing> listOfListings, ArrayList<Suite> listOfSuites) {
+		for (Listing listing: listOfListings) {
+			System.out.println("_____________________________________________________________________");
+			for(Suite suite: listOfSuites) {
+				System.out.println("_____________________________________________________________________");
+				System.out.println(listing.toString() + suite.toString());
+			}
+			//System.out.println(listing.toString() + listing.suites.toString());
 		}
 		System.out.println("_____________________________________________________________________");
 
@@ -284,6 +325,8 @@ public class ListingManager {
 
 	public void comprehensiveSearch(Double price, int bed, int bath, double distance, boolean wifi, boolean laundry, boolean petFriendly, boolean pool, boolean furnished) {
 		ArrayList<Listing> searchResults = new ArrayList<>();
+		ArrayList<Suite> searchSuites = new ArrayList<>();
+		
 		searchResults = (priceSearch(price));//	starting off arrayList with all matching price results
 		searchResults = checkDups(numBedSearch(bed),searchResults);//comparing the results so far with the new results and moving on the listings that are in common to next round
 		searchResults = checkDups(numBathSearch(bath),searchResults);
@@ -293,11 +336,30 @@ public class ListingManager {
 		searchResults = checkDups(petFriendlySearch(petFriendly),searchResults);
 		searchResults = checkDups(hasPoolSearch(pool),searchResults);
 		searchResults = checkDups(isFurnishedSearch(furnished),searchResults);
-
+		
+		for(Listing list: searchResults) {
+			for(int i = 0; i < list.suites.size(); i++) {
+				if(list.suites.get(i).getPrice() <= price && 
+						(list.suites.get(i).getNumBedrooms() >= bed &&
+								(list.suites.get(i).getNumBathrooms() >= bath))) {
+					searchSuites.add(list.suites.get(i));
+					System.out.println("a top Suite made it to the end");
+				}
+						
+			}
+		}
+		//Set<Listing> hashSet = new LinkedHashSet(searchResults);
+        //ArrayList<Listing> removedDuplicates = new ArrayList(hashSet);
+		
+		
 		//printing search results
-		this.printListings(searchResults);
+		this.printListings(searchResults, searchSuites);
 
 	}
+	
+	
+	
+	
 	/**
 	 * This method takes in the results of the search result and
 	 * Compares it to the list to return the listings that are in common
@@ -306,13 +368,27 @@ public class ListingManager {
 	 * @return
 	 */
 	private ArrayList<Listing> checkDups(ArrayList<Listing> currentList, ArrayList<Listing> searchResults) {
+		//int duplicate = 0;
+		
 		ArrayList<Listing> returnList = new ArrayList<>();
 		for(Listing list:searchResults) {
-			if(currentList.contains(list)) {
+			
+			if(currentList.contains(list) ) {
 				returnList.add(list);
+				//returnSuite.add(suite);
 			}
+			for(int i = 0; i < returnList.size(); i++) {
+				if(list.listingID == returnList.get(i).listingID) {
+					duplicate = duplicate + 1;
+				}
+			}
+		
 		}
-		return returnList;
+		
+		Set<Listing> hashSet = new LinkedHashSet(returnList);
+        ArrayList<Listing> removedDuplicates = new ArrayList(hashSet);
+		
+		return removedDuplicates;
 	}
 	public boolean verifyID(int listingID) {
 		for(Listing list:listings) {

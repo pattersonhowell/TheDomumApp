@@ -199,6 +199,15 @@ public class Listing {
 						+" --Laundry Included: "+laundry+"-- Pet Friendly: "+petFriendly+ "--Pool: "+pool+ "--Furnished: " +furnished
 						+ suiteBuilder;	
 	}	
+	
+	public String searchToString() {
+		return address +"\n"+ 
+				distFromCampus+" Miles from campus" +"\n" +"Built in: "+yearBuilt+ "\n"
+						+"Listing ID: "+listingID+ " AgentID: "+agentID +"\n" +"Free Wifi: "+freeWifi 
+						+" --Laundry Included: "+laundry+"-- Pet Friendly: "+petFriendly+ "--Pool: "+pool+ "--Furnished: " +furnished
+						+ ListingManager.getInstance().searchSuites;	
+	}	
+	
 
 	public void generateLease(User user) {
 		try {	
