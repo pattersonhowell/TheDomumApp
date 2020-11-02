@@ -327,6 +327,38 @@
       "pool": true,
       "gym": true,
       "furnished": true
+    },
+    {
+      "name": "LiveJ",
+      "listingID": 255,
+      "agentID": "7896",
+      "address": "400 Lake Avenue",
+      "distFromCampus": 3.7,
+      "reviews": [
+        {
+          "listID": 255,
+          "authorID": "smithJ",
+          "date": "2013-4-8",
+          "reviewText": "I loved my stay here!",
+          "rating": 7
+        }
+      ],
+      "suites": [
+        {
+          "listID": 255,
+          "numBedrooms": 1,
+          "numBathrooms": 1,
+          "numAvailable": 7,
+          "price": 600.34
+        }
+      ],
+      "yearBuilt": 2008,
+      "freeWifi": true,
+      "laundry": true,
+      "petFriendly": true,
+      "pool": false,
+      "gym": false,
+      "furnished": false
     }
   ]
 }
