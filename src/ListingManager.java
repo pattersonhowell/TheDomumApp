@@ -376,7 +376,7 @@ public class ListingManager {
 						list.suites.get(i).getNumBedrooms() == bed  &&
 								list.suites.get(i).getNumBathrooms() >= bath) { 
 					searchSuites.add(list.suites.get(i));
-					System.out.println("a top Suite made it to the end");
+					//System.out.println("a top Suite made it to the end");
 					list.presentSuites.add(list.suites.get(i));
 					 
 				
