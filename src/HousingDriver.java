@@ -351,7 +351,7 @@ public class HousingDriver {
 				kb.nextLine();
 			
 			
-				System.out.println("Free Wifi? (true or false");
+				System.out.println("Free Wifi? (true or false)");
 				boolean wifi = kb.nextBoolean();
 				kb.nextLine();
 						
