@@ -8,6 +8,10 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 
+/**
+ * Class to write new users to json file
+ * @author pattersonhowell
+ */
 public class UserWriter extends DataConstants {
     public static void writeUser() {
         JsonObject jBase = new JsonObject();
