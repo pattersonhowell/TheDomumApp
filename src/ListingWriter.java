@@ -7,8 +7,15 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 
+/**
+ * Class to Write new Listings to json file
+ * @author pattersonhowell
+ */
 public class ListingWriter extends DataConstants {
 
+	/**
+	 * Setting up 
+	 */
 	public static void writeListings() {
 		JsonObject jBase = new JsonObject();
 		JsonArray jArray = new JsonArray();
@@ -29,6 +36,11 @@ public class ListingWriter extends DataConstants {
 		}
 	}
 	
+	/**
+	 * Formatting json to write Listing properly
+	 * @param listing Listing to add
+	 * @return Details of listing
+	 */
 	private static JsonObject getListingJSON(Listing listing) {
 		JsonObject listingDetails = new JsonObject();
 		listingDetails.addProperty("name", listing.getName());

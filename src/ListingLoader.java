@@ -5,8 +5,16 @@ import java.util.ArrayList;
 import com.google.gson.*;
 //import com.google.gson.stream.JsonReader;
 
+/**
+ * Class to Load Listings from json file
+ * @author pattersonhowell
+ */
 public class ListingLoader extends DataConstants{
 
+	/**
+	 * Loading listings to List of listings
+	 * @return the list of new Listings
+	 */
 	public static ArrayList<Listing> loadListings() {
 //		Gson gson = new Gson();
 		ArrayList<Listing> listings = new ArrayList<>();
@@ -21,11 +29,7 @@ public class ListingLoader extends DataConstants{
 				String name = listingJSON.get("name").getAsString();
 				int listingID = listingJSON.get("listingID").getAsInt();
 				String agentID = listingJSON.get("agentID").getAsString();
-				//double price = listingJSON.get("price").getAsDouble();
 				String address = listingJSON.get("address").getAsString();
-				//int numBathroom = listingJSON.get("numBathroom").getAsInt();
-				//int numBedroom = listingJSON.get("numBedroom").getAsInt();
-				//int numAvailable = listingJSON.get("numberAvailable").getAsInt();
 				int yearBuilt = listingJSON.get("yearBuilt").getAsInt();
 				double distFromCampus = listingJSON.get("distFromCampus").getAsDouble();
 				boolean freeWifi = listingJSON.get("freeWifi").getAsBoolean();

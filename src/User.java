@@ -6,6 +6,10 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+/**
+ * Base class for any user
+ * @author pattersonhowell
+ */
 public class User {		
 	private String id;
 	private String name;
@@ -15,6 +19,15 @@ public class User {
 	private String email;
 	public ArrayList<Review> reviews;
 	
+	/**
+	 * Creating a user
+	 * @param id Their ID
+	 * @param name Their name
+	 * @param password Their password
+	 * @param address Their address
+	 * @param phone Their phone number
+	 * @param email Their email
+	 */
 	public User(String id, String name, String password, String address, String phone, String email)  {// ArrayList<Review> reviews) {
 		this.id = id;
 		this.name = name;
@@ -25,6 +38,11 @@ public class User {
 		this.reviews = new ArrayList<Review>();//We should not take in Reviews when creating but we should initialize -KH
 	}
 
+	/**************************************************************
+	 * BASIC GETTERS AND SETTERS
+	 * @return WHAT WAS RETRIEVED
+	 */
+	
 	public String getId() {
 		return id;
 	}
@@ -81,6 +99,9 @@ public class User {
 		this.reviews = reviews;
 	}
 
+	/**
+	 * Displaying a User's information
+	 */
 	public String toString() {
 		return "ID: " + id + "\nName: " + name + "\nPassword: " + password + "\nAddress: " 
 				+ address + "\nPhone: " + phone + "\nEmail: " + email;

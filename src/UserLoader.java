@@ -2,6 +2,10 @@ import java.util.ArrayList;
 import java.io.FileReader;
 import com.google.gson.*;
 
+/**
+ * Class to load Users in from json file
+ * @author pattersonhowell
+ */
 public class UserLoader extends DataConstants{
 
 	public static ArrayList<User> loadUsers() {

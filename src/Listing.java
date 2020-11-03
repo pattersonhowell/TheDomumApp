@@ -5,7 +5,12 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+/**
+ * Base class for a Listing
+ * @author pattersonhowell
+ */
 public class Listing {
+	
 	protected String name;
 	public int listingID;
 	public String agentID;
@@ -15,7 +20,7 @@ public class Listing {
 	protected int numBedroom;  //covered by suites
 	protected ArrayList<Review> reviews; 
 	protected ArrayList<Suite> suites;
-	protected int numberAvalible; 
+	protected int numberAvalible; //covered by suites
 	protected int yearBuilt;
 	protected double distFromCampus; 
 	protected boolean freeWifi;
@@ -25,23 +30,36 @@ public class Listing {
 	protected boolean gym;
 	protected boolean furnished; 
 	protected String suiteBuilder = "";
-	
 	protected ArrayList<Suite> presentSuites;
 
+	/**
+	 * Creating a Listing
+	 * @param name Name of complex
+	 * @param listingID ID for complex
+	 * @param agentID ID for agent
+	 * @param address Location of complex
+	 * @param reviews Reviews of Listing
+	 * @param suites Suites in complex
+	 * @param yearBuilt When complex was built
+	 * @param distFromCampus How far complex is from campus
+	 * @param freeWifi Wifi in complex
+	 * @param laundry In room laundry
+	 * @param petFriendly Pet rule
+	 * @param pool Pool at complex
+	 * @param gym Gym at complex
+	 * @param furnished Furniture provided
+	 */
 	public Listing(String name, int listingID, String agentID, String address, ArrayList<Review> reviews, 
 			ArrayList<Suite> suites, int yearBuilt, double distFromCampus,
 			boolean freeWifi, boolean laundry, boolean petFriendly, boolean pool, boolean gym, boolean furnished) {
+		
 		this.name = name;
 		this.listingID = listingID;
 		this.agentID = agentID;
-		
 		this.address = address;
-		
 		this.reviews = reviews;
 		this.presentSuites = new ArrayList<>();
-		
-		this.suites = suites;
-				
+		this.suites = suites;		
 		this.yearBuilt = yearBuilt;
 		this.distFromCampus = distFromCampus;
 		this.freeWifi = freeWifi;
@@ -52,6 +70,9 @@ public class Listing {
 		this.furnished = furnished; 
 	}	
 
+	/**
+	 * Printing Reviews for a Listing
+	 */
 	public void printReviews() {
 		for(Review r: reviews) {
 			System.out.println("_______________________________________________________");
@@ -59,29 +80,47 @@ public class Listing {
 		}
 	}
 	
-	
-	
+	/**
+	 * Adding a Review to a Listing
+	 * @param review Review to add
+	 */
 	public void addReview(Review review) {
 		reviews.add(review);
 	}
 	
+	/**
+	 * Adding suite to a Listing
+	 * @param suite Suite to add
+	 */
 	public void addSuite(Suite suite) {
 		suites.add(suite);
 	}
 	
-	
+	/**
+	 * Printing Suites of a Listing
+	 */
 	public void printSuites() {
 		for(Suite s: suites) {
 			System.out.println(s.toString());
 		}
 	}
 	
+	/**
+	 * Printing Suites that match a search preferences
+	 */
 	public void printPresentSuites() {
 		for(Suite s: presentSuites) {
 			System.out.println(s.toString());
 		}
 	}
 	
+	/*****************************************************
+	 * Getting attributes
+	 * @return what was retrieved
+	 */
+	/*****************************************************
+	 * Setting attributes
+	 */
 	public ArrayList<Suite> getSuites() {
 		return suites;
 	}
@@ -214,6 +253,10 @@ public class Listing {
 	public void setFurnished(boolean furnished) {
 		this.furnished = furnished;
 	}	
+	
+	/**
+	 * Building a String of Suites to attach to a Listing's print out
+	 */
 	public void suiteBuilder() {
 		for(int i = 0; i < suites.size(); i++) {
 			suiteBuilder += suites.get(i).toString() +"\n\n";
@@ -221,7 +264,9 @@ public class Listing {
 		
 	}
 	
-
+	/**
+	 * Printing a Listing and its suites to the screen
+	 */
 	@Override
 	public String toString() {
 		return name + "\n" + address +"\n"+ 
@@ -232,15 +277,18 @@ public class Listing {
 						+ suiteBuilder;	
 	}	
 	
-	public String searchToString() {
-		return name + "\n" + address +"\n"+ 
-				distFromCampus+" Miles from campus" +"\n" +"Built in: "+yearBuilt+ "\n"
-						+"Listing ID: "+listingID+ " AgentID: "+agentID +"\n" +"Free Wifi: "+freeWifi 
-						+" --Laundry Included: "+laundry+"-- Pet Friendly: "+petFriendly+ "--Pool: "+pool+ "--Furnished: " +furnished
-						+ ListingManager.getInstance().searchSuites;	
-	}	
+	//public String searchToString() {
+		//return name + "\n" + address +"\n"+ 
+				//distFromCampus+" Miles from campus" +"\n" +"Built in: "+yearBuilt+ "\n"
+						//+"Listing ID: "+listingID+ " AgentID: "+agentID +"\n" +"Free Wifi: "+freeWifi 
+						//+" --Laundry Included: "+laundry+"-- Pet Friendly: "+petFriendly+ "--Pool: "+pool+ "--Furnished: " +furnished
+						//+ ListingManager.getInstance().searchSuites;	
+	//}	
 	
-
+	/**
+	 * Generating a lease for a User
+	 * @param user Who it's for
+	 */
 	public void generateLease(User user) {
 		try {	
 			System.out.println("Priting Lease for "+user.getName()+" also see Txt File");
@@ -282,6 +330,11 @@ public class Listing {
 			e.printStackTrace();
 		}
 	}	
+	
+	/**
+	 * Generating an application for a User
+	 * @param user Who it's for
+	 */
 	public void generateApplication(User user)  {	
 		try {				
 			System.out.println("Priting Appplication for "+user.getName()+" also see Txt File");
