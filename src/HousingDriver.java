@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class HousingDriver {
 		private String[] welcomeMenuOptions = {"Log in", "Create Account","Browse as Guest"};		
-		private String [] agentMenu = { "Upload a Listing", "Remove a Listing", "View your listings (Not implemented yet)","Exit"};
+		private String [] agentMenu = { "Upload a Listing", "Remove a Listing", "View your listings ","Exit"};
 		private String [] studentMenu = {"Browse All Listings","Enter Search Preferences","Search by Listing ID", "Generate Application","Generate Lease", "Leave a Listing Review","Browse Reviews By ID", "Add a roomate","Exit"};
 		private Scanner kb;
 		private Systems systems;
@@ -18,16 +18,22 @@ public class HousingDriver {
 			kb = new Scanner(System.in);
 			systems = new Systems();
 			loggedIn = false;
-		}
+		}	
 		public static void main(String[] args) {
 			HousingDriver domumInterface = new HousingDriver();
 			domumInterface.run();			
 		}
+		/**
+		 * Method that launches app 
+		 */
 		public void run() {
 			System.out.println("Welcome to Domum!");
 			welcomeMenu();	
 			branchMenu();
-		}				
+		}			
+		/**
+		 * Method prompting the user, to sign up, login, or quit 
+		 */
 		private void welcomeMenu() {
 			while(true) {
 				System.out.println("\n--Welcome Menu--");
@@ -56,7 +62,10 @@ public class HousingDriver {
 				}
 			}
 		}
-		private void branchMenu() {//this method automatically branches the program depending on if a student or agent is using it 
+		/**
+		 * This method automatically branches the program depending on if a student or agent is using it 
+		 */
+		private void branchMenu() {
 			if(realID==null) {
 				System.out.println("Please Sign Up or log in");
 				return;
@@ -68,6 +77,9 @@ public class HousingDriver {
 				agentMenu();
 			}		
 		}
+		/**
+		 * This method prompts user for credentials then checks to see if They are a verified user 
+		 */
 		private void logIn() {
 			System.out.println("--Log in--\nEnter your first and last name: ");
 			String name = kb.nextLine();
@@ -81,7 +93,9 @@ public class HousingDriver {
 				realID = systems.returnID(name, password);
 			}
 		}
-
+		/**
+		 * This method prompts user for credentials then creates the respective account 
+		 */
 		private void createAccount() {
 			System.out.println("Would you like to register as a (1) student or (2) agent?");
 			int choice = kb.nextInt();
@@ -129,7 +143,11 @@ public class HousingDriver {
 				isAgent = true;
 			}
 		}
-		
+		/**
+		 * Method that is repeatedly used to take in user input 
+		 * @param numCommands
+		 * @return
+		 */
 		private int getUserCommand(int numCommands) {
 			System.out.println("What would you like to do?: ");
 
@@ -141,7 +159,9 @@ public class HousingDriver {
 
 			return -1;
 		}
-		
+		/**
+		 * Agent menu allowing the agent to Upload a Listing, Remove a Listing, or Exit
+		 */
 		private void agentMenu() {
 			while(true) {
 				System.out.println("Agent Menu");
@@ -167,7 +187,12 @@ public class HousingDriver {
 					return;
 				}	
 			}							
-		}					
+		}		
+		/**
+		 * Student menu allowing students to Browse All Listings,
+		 * Enter Search Preferences,Search by Listing ID, Generate Application,
+		 * Generate Lease, Leave a Listing Review,Browse Reviews By ID, Add a roomate,Exit};
+		 */
 		private void studentMenu() {
 			while(true) {
 				System.out.println("Student Menu");
@@ -208,6 +233,9 @@ public class HousingDriver {
 
 			}
 		}	
+		/**
+		 * Method prompts user for input to return the corosponding listings 
+		 */
 		private void searchInput() {
 			System.out.println("Listing Search: ");
 			System.out.println("What is your maximum price ?");
@@ -242,7 +270,9 @@ public class HousingDriver {
 
 			systems.comprehensiveSearch(price,bed,bath,distance,wifi,laundry,petFriendly,pool, gym, furnished);
 		}
-
+		/**
+		 * Method prompts returns the listing with the corrosponding Listing ID
+		 */
 		private void searchByID() {
 			System.out.println("Please enter the listing ID: ");
 			int id = kb.nextInt();
@@ -250,7 +280,9 @@ public class HousingDriver {
 			systems.listingManager.findListing(id).suiteBuilder();
 			System.out.println(systems.listingID(id));
 		}
-
+		/**
+		 * Method generates an application if the user is logged in, prompts the user for a listing ID
+		 */
 		private void generateApp() {
 			//systems.printUserData();
 			if(loggedIn==false) {
@@ -264,7 +296,9 @@ public class HousingDriver {
 				systems.generateApp(listingID,realID);
 			}
 		}
-
+		/**
+		 * Method generates an lease if the user is logged in, prompts the user for a listing ID
+		 */
 		private void generateLease() {
 			if(loggedIn==false) {
 				System.out.println("Sorry you must Log In before generating this application");
@@ -275,7 +309,9 @@ public class HousingDriver {
 				systems.generateLease(listingID, realID);
 			}
 		}
-
+		/**
+		 * Method allows a user to leave a review on a listing 
+		 */
 		private void leaveListingReview() {
 			if(loggedIn == false) {
 				System.out.println("Sorry you must Log In before leaving a listing review");
@@ -304,7 +340,9 @@ public class HousingDriver {
 				
 			}
 		}
-		
+		/**
+		 * Method allows user to enter a listing ID and see the reviews 
+		 */
 		private void browseReviewsByID() {
 			
 			System.out.println("Please enter the listing ID: ");
@@ -312,8 +350,9 @@ public class HousingDriver {
 			
 			systems.listingManager.findListing(id).printReviews();
 		}
-		
-		
+		/**
+		 * Method is used for an agent to upload a listing 
+		 */		
 		private void uploadListing() {
 			suiteList = new ArrayList<Suite>();
 			reviews = new ArrayList<Review>();
@@ -406,8 +445,7 @@ public class HousingDriver {
 					suiteList.add(addedSuite);
 					
 					
-				}
-			
+				}			
 				Listing agentListing = new Listing(name, listingID, realID, address, reviews, suiteList,
 						 yearBuilt, distance, wifi, laundry, petFriendly, pool, gym, furnished);
 	
@@ -423,7 +461,9 @@ public class HousingDriver {
 			
 			}			
 		}		
-
+		/**
+		 * Method allows an agnet to remove a listing if they are loggedin and a listing ID is given
+		 */
 		public void removeListing() {
 			if(loggedIn == false || isAgent != true) {
 				System.out.println("Sorry you must Log In before removing a listing");
@@ -434,7 +474,9 @@ public class HousingDriver {
 				systems.removeListing(listingID);
 			}
 		}				
-			
+		/**
+		 * Method checks to see if a certain user is in the system and capable of being a student's roomate
+		 */
 		public void addRoommate() {
 			if(loggedIn) {
 				System.out.println("Enter the username of your roommate:");
