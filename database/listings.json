@@ -298,7 +298,7 @@
           "price": 700.0
         },
         {
-          "listID":777,
+          "listID": 777,
           "numBedrooms": 3,
           "numBathrooms": 3,
           "numAvailable": 3,
