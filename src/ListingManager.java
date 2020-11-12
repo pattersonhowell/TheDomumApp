@@ -54,7 +54,7 @@ public class ListingManager {
 	 * Removing a listing and updating json
 	 * @param listingID
 	 */
-	public void removeListing(int listingID) {//KH changed this method to take in listing ID rather than listing
+	public void removeListing(int listingID) {
 		for(Listing list:listings) {
 			if(list.getListingID()==listingID) {
 				listings.remove(list);
