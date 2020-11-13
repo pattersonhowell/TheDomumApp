@@ -1,3 +1,68 @@
 {
-  "listings": []
+  "listings": [
+    {
+      "name": "Blue House",
+      "listingID": 1,
+      "agentID": "00406",
+      "address": "672 School Drive",
+      "distFromCampus": 4.0,
+      "reviews": [],
+      "suites": [
+        {
+          "listID": 2,
+          "numBedrooms": 3,
+          "numBathrooms": 2,
+          "numAvailable": 5,
+          "price": 600.0
+        }
+      ],
+      "yearBuilt": 1960,
+      "freeWifi": true,
+      "laundry": false,
+      "petFriendly": true,
+      "pool": false,
+      "gym": true,
+      "furnished": true
+    },
+    {
+      "name": "Green House",
+      "listingID": 2,
+      "agentID": "00501",
+      "address": "555 Pine Rd ",
+      "distFromCampus": 2.0,
+      "reviews": [],
+      "suites": [
+        {
+          "listID": 2,
+          "numBedrooms": 3,
+          "numBathrooms": 2,
+          "numAvailable": 5,
+          "price": 600.0
+        }
+      ],
+      "yearBuilt": 2011,
+      "freeWifi": true,
+      "laundry": true,
+      "petFriendly": true,
+      "pool": true,
+      "gym": true,
+      "furnished": true
+    },
+    {
+      "name": "Magena House",
+      "listingID": 111,
+      "agentID": "1232",
+      "address": "3 Acorn Lane",
+      "distFromCampus": 5.0,
+      "reviews": [],
+      "suites": [],
+      "yearBuilt": 2003,
+      "freeWifi": true,
+      "laundry": false,
+      "petFriendly": true,
+      "pool": false,
+      "gym": true,
+      "furnished": true
+    }
+  ]
 }

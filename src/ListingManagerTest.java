@@ -9,15 +9,16 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 
 /**
- * Class that tests functionality of ListingManager
+ * Class that tests functionality of ListingManager, 
+ * Checks both cases when dealing with boolean and search methods
+ * but only tests functionality on add/remove methods
  * @author Kevin Hagan *
  */
 public class ListingManagerTest {	
-	  private ListingManager listingManager = ListingManager.getInstance();	  
-	
+	  private ListingManager listingManager = ListingManager.getInstance();	  	
 	  	  
 	/**
-	* Before the tests, this method clears the Listings and adds 2 new listings for further testing
+	* Before the tests, this method clears the Listings and adds 3 new listings for further testing
 	* @throws Exception
 	*/    
 	 @Before 
@@ -27,7 +28,7 @@ public class ListingManagerTest {
 		ArrayList<Suite> suite = new ArrayList<Suite>();//so we can add object and avoid null pointer
 		suite.add(new Suite(02,3,2,5,600));//new suite ID=02, 3 beds, 2 baths, 5 aval, 600per month
 		listingManager.addListing(new Listing("Blue House",01,"00406","672 School Drive",nullRev,suite,1960,4,true,false,true,false,true,true));
-		listingManager.addListing(new Listing("Green House",02,"00501","555 Pine Rd ",nullRev,suite,2011,2,true,true,true,true,true,true));
+		listingManager.addListing(new Listing("Green House",02,"00501","555 Pine Rd ",nullRev,suite,2011,2,true,true,true,true,true,true));	
 		ListingWriter.writeListings();		
 	}
 
@@ -37,8 +38,8 @@ public class ListingManagerTest {
 	 */	 
 	@After
 	public void tearDownAfterClass() throws Exception {
-		listingManager.getListings().clear();
-		ListingWriter.writeListings();//per video on Junit Library system 					
+//		listingManager.getListings().clear();
+//		ListingWriter.writeListings();//per video on Junit Library system 					
 	}	
 	
 	/**
@@ -67,8 +68,7 @@ public class ListingManagerTest {
 	 * This method tests the ShowALlListings method by comparing size with the expected size 
 	 */	
 	@Test
-	public void testShowALlListings() 
-	{		
+	public void testShowALlListings() {		
 		assertEquals(2,listingManager.showAllListings().size());
 	}
 	
@@ -83,15 +83,12 @@ public class ListingManagerTest {
 		Listing magentaHouse = new Listing("Magena House",111,"1232","3 Acorn Lane",magentaHouserev,magentaHouseSuite,2003,5,true,false,true,false,true,true);
 		listingManager.addListing(magentaHouse);		
 		assertEquals(magentaHouse,listingManager.findListing(111));		
-	}
-	
+	}	
 	
 	/**
 	 * This method tests the FindListing method given an ID that is not in the system 
 	 * IT should return Null in this case 
-	 */
-	
-	
+	 */	
 	@Test
 	public void testFindListingFalse() {		
 		assertNull(listingManager.findListing(25));	
@@ -127,27 +124,50 @@ public class ListingManagerTest {
 			if(rev==myReview) {
 				assertEquals(myReview,rev);
 			}
-		}
-		
+		}		
+	}
+	/**
+	 * Tests price search when given price limit above every listing
+	 */
+	@Test
+	public void testPriceSearch() {
+		ArrayList<Listing> returnSearch = listingManager.priceSearch(600);			
+		assertEquals(listingManager.getListings(),returnSearch);	
+	}
+	/**
+	 * Tests price search when given price below above every listing
+	 */
+	@Test
+	public void testPriceSearchFalse() {
+		ArrayList<Listing> returnSearch = listingManager.priceSearch(400);			
+		assertEquals(0,returnSearch.size());
 	}
 	
-	
-	
-	
-	
-	
-	
-	
-	
+	/**
+	 * Tests Distance from campus search using a distance that only green house is expected
+	 */		
+	@Test
+	public void testDistFromCampusSearch() {
+		ArrayList<Listing> returnSearch = listingManager.distFromCampusSearch(2.5);
+		ArrayList<Listing> expectedList = new ArrayList<Listing>();		
+		ArrayList<Review> nullRev = new ArrayList<Review>();//so we can add object and avoid null pointer
+		ArrayList<Suite> suite = new ArrayList<Suite>();//so we can add object and avoid null pointer
+		suite.add(new Suite(02,3,2,5,600));//new suite ID=02, 3 beds, 2 baths, 5 aval, 600per month				
+		expectedList.add(new Listing("Green House",02,"00501","555 Pine Rd ",nullRev,suite,2011,2,true,true,true,true,true,true));	
+		assertNotSame(expectedList,returnSearch);	
+	}
+	/**
+	 * Tests Distance from campus search using a distance that should not return any listings
+	 */	
+	@Test
+	public void testDistFromCampusSearchFalse() {
+		ArrayList<Listing> returnSearch = listingManager.distFromCampusSearch(.5);
 
-	
-	
-	
-//	ArrayList<Review> yellowHouseRev = new ArrayList<Review>();		
-//	ArrayList<Suite> yellowHouseSuite = new ArrayList<Suite>();
-//	Listing yellowHouse = new Listing("YellowHouse ",25,"1232","6 Geffory Lane",yellowHouseRev,yellowHouseSuite,2003,5,true,false,true,false,true,true);
+		assertEquals(0,returnSearch.size());
+	}
 
-	
+
+
 	
 	
 	
