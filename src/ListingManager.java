@@ -8,6 +8,7 @@ import java.util.Set;
  * @author pattersonhowell
  * Creates a Singleton 
  */
+
 public class ListingManager {
 	
 	private static ArrayList<Listing> listings;
@@ -184,8 +185,7 @@ public class ListingManager {
 				
 				if(suite.getNumBedrooms() == numBed) {
 					mathchingListings.add(listing);
-					returnSuites.add(suite);
-					
+					returnSuites.add(suite);					
 				}
 			}
 		}

@@ -454,6 +454,38 @@
       "pool": false,
       "gym": true,
       "furnished": true
+    },
+    {
+      "name": "Blue House",
+      "listingID": 5555,
+      "agentID": "72892",
+      "address": "672 School Drive",
+      "distFromCampus": 4.0,
+      "reviews": [],
+      "suites": [],
+      "yearBuilt": 1960,
+      "freeWifi": true,
+      "laundry": false,
+      "petFriendly": true,
+      "pool": false,
+      "gym": true,
+      "furnished": true
+    },
+    {
+      "name": "Blue House",
+      "listingID": 5555,
+      "agentID": "72892",
+      "address": "672 School Drive",
+      "distFromCampus": 4.0,
+      "reviews": [],
+      "suites": [],
+      "yearBuilt": 1960,
+      "freeWifi": true,
+      "laundry": false,
+      "petFriendly": true,
+      "pool": false,
+      "gym": true,
+      "furnished": true
     }
   ]
 }

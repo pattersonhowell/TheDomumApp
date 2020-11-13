@@ -87,8 +87,7 @@ public class SystemsTest {
 	}
 	
 	@Test
-	public void testReturnUserWithName() {
-		
+	public void testReturnUserWithName() {		
 		User test = systems.returnUserWithName("Tom Burch");
 		assertNotNull(test);
 	}
