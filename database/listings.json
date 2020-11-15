@@ -47,22 +47,6 @@
       "pool": true,
       "gym": true,
       "furnished": true
-    },
-    {
-      "name": "Magena House",
-      "listingID": 111,
-      "agentID": "1232",
-      "address": "3 Acorn Lane",
-      "distFromCampus": 5.0,
-      "reviews": [],
-      "suites": [],
-      "yearBuilt": 2003,
-      "freeWifi": true,
-      "laundry": false,
-      "petFriendly": true,
-      "pool": false,
-      "gym": true,
-      "furnished": true
     }
   ]
 }

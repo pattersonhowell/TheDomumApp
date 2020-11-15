@@ -15,7 +15,7 @@ import org.junit.Test;
  * @author Kevin Hagan *
  */
 public class ListingManagerTest {	
-	  private ListingManager listingManager = ListingManager.getInstance();	  	
+	  private ListingManager listingManager = ListingManager.getInstance();  	
 	  	  
 	/**
 	* Before the tests, this method clears the Listings and adds 3 new listings for further testing

@@ -1,215 +1,25 @@
 {
   "users": [
     {
-      "id": "47848585",
-      "name": "John Doe",
-      "password": "somepassword123",
-      "address": "123 Sesame St",
-      "phone": "(123) 456-7890",
-      "email": "johndoe@gmail.com",
-      "reviews": [
-        {
-          "listID": 0,
-          "authorID": "303029",
-          "date": "9/17/2020",
-          "reviewText": "Lorem Ipsum",
-          "rating": 5
-        },
-        {
-          "listID": 1,
-          "authorID": "390393",
-          "date": "10/1/2020",
-          "reviewText": "Terrible person, would give zero stars if I could",
-          "rating": 1
-        }
-      ],
-      "favoriteListingIDs": [
-        12,
-        5
-      ]
-    },
-    {
-      "id": "390393",
-      "name": "Tom Burch",
-      "password": "reallybadpassword",
-      "address": "505 Woodland Ave",
-      "phone": "(803) 999-9999",
-      "email": "tburch@gmail.com",
-      "reviews": [
-        {
-          "listID": 0,
-          "authorID": "47848585",
-          "date": "9/10/2020",
-          "reviewText": "Great realtor!",
-          "rating": 5
-        }
-      ],
-      "realtyGroup": "Star Bean Agency",
-      "managedListingIDs": [
-        12,
-        13
-      ]
-    },
-    {
-      "id": "test",
-      "name": "kevin",
-      "password": "frogs",
-      "address": "test test",
-      "phone": "test",
-      "email": "test",
-      "reviews": [],
-      "realtyGroup": "",
-      "managedListingIDs": []
-    },
-    {
-      "id": "howellpatterson",
-      "name": "pat howell ",
-      "password": "pass",
-      "address": "beaver duck",
+      "id": "111",
+      "name": "John Smith",
+      "password": "johnspassword",
+      "address": "23 River Creek",
       "phone": "123456789",
-      "email": "me@gmail.com",
+      "email": "johnsemail.com",
       "reviews": [],
       "favoriteListingIDs": []
     },
     {
-      "id": "marcusjwhite",
-      "name": "marcus white",
-      "password": "pass",
-      "address": "lake carolina",
-      "phone": "123456789",
-      "email": "mjwhite@email.com",
-      "reviews": [],
-      "favoriteListingIDs": []
-    },
-    {
-      "id": "MrUndercover",
-      "name": "Agent undercover",
-      "password": "donotpass",
-      "address": "Dark Alley Dr.",
-      "phone": "246813579",
-      "email": "undercover@email.com",
-      "reviews": [],
-      "realtyGroup": "",
-      "managedListingIDs": []
-    },
-    {
-      "id": "MrRemover",
-      "name": "Agent Remover",
-      "password": "delete",
-      "address": "Shady Creek Ln",
+      "id": "222",
+      "name": "Sam Brown",
+      "password": "samspassword",
+      "address": "14 Wall St",
       "phone": "987654321",
-      "email": "remove@email.com",
+      "email": "samsemail.com",
       "reviews": [],
-      "realtyGroup": "",
+      "realtyGroup": "StudentEstates",
       "managedListingIDs": []
-    },
-    {
-      "id": "lockheadEstate",
-      "name": "Ag. John Lockhead",
-      "password": "realEstate4all",
-      "address": "14 Wallaby Way Sydney",
-      "phone": "975318642",
-      "email": "realEstate@gmail.com",
-      "reviews": [],
-      "realtyGroup": "",
-      "managedListingIDs": []
-    },
-    {
-      "id": "smithProperty",
-      "name": "Ag. Smith",
-      "password": "noneyabusiness",
-      "address": "101 Creek Rd",
-      "phone": "192837465",
-      "email": "smith@email.com",
-      "reviews": [],
-      "realtyGroup": "",
-      "managedListingIDs": []
-    },
-    {
-      "id": "johnsonEstates",
-      "name": "Ag. Johnson",
-      "password": "donotenter",
-      "address": "209 WoodFarm Ln",
-      "phone": "918273645",
-      "email": "johnson@email.com",
-      "reviews": [],
-      "realtyGroup": "Coldwell Banker",
-      "managedListingIDs": []
-    },
-    {
-      "id": "markisme",
-      "name": "mark smith",
-      "password": "password",
-      "address": "beaver dr",
-      "phone": "987654321",
-      "email": "mark@email.com",
-      "reviews": [],
-      "realtyGroup": "Coldwell Banker",
-      "managedListingIDs": []
-    },
-    {
-      "id": "whiteAgent",
-      "name": "AG white",
-      "password": "pass",
-      "address": "12 Deer Rd",
-      "phone": "123456789",
-      "email": "white@email.com",
-      "reviews": [],
-      "realtyGroup": "Coldwell Banker",
-      "managedListingIDs": []
-    },
-    {
-      "id": "brownAgent",
-      "name": "Ag. Brown",
-      "password": "pass",
-      "address": "13 Lake Dr",
-      "phone": "123456789",
-      "email": "brown@email.com",
-      "reviews": [],
-      "realtyGroup": "Coldwell Bandker",
-      "managedListingIDs": []
-    },
-    {
-      "id": "butlerAgent",
-      "name": "agent butler",
-      "password": "pass",
-      "address": "14 hugard st",
-      "phone": "987654321",
-      "email": "butler@email.com",
-      "reviews": [],
-      "realtyGroup": "Coldwell Banker",
-      "managedListingIDs": []
-    },
-    {
-      "id": "butlertheagent",
-      "name": "Agent butler",
-      "password": "pass",
-      "address": "my address",
-      "phone": "123456789",
-      "email": "myemail.com",
-      "reviews": [],
-      "realtyGroup": "Coldwell Banker",
-      "managedListingIDs": []
-    },
-    {
-      "id": "2322342",
-      "name": "Will SMith",
-      "password": "password",
-      "address": "472 School House Lane",
-      "phone": "6107871245",
-      "email": "kmhagan@email.sc.edu",
-      "reviews": [],
-      "favoriteListingIDs": []
-    },
-    {
-      "id": "braxtonbh1",
-      "name": "braxton howell",
-      "password": "pass",
-      "address": "200 Beaver Dam",
-      "phone": "123456789",
-      "email": "braxton@email.com",
-      "reviews": [],
-      "favoriteListingIDs": []
     }
   ]
 }

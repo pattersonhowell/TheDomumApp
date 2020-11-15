@@ -64,7 +64,7 @@ public class Systems {
 	public void deleteAccount(String name, String password) {
 		ArrayList<User> users = manager.getUsers();
 		int index = users.indexOf(name);
-		users.remove(index);
+		//users.remove(index);
 	}		
 	/**
 	 * takes a name and returns the corresponding user
