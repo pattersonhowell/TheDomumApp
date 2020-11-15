@@ -33,5 +33,8 @@ public class UserManagerTest {
 	@Test
 	public void testAddUser() {
 		User jackie = new User("03", "Jackie", "jackie123", "52 Sesame Street", "5923908476", "jackie@aol");
+		int originalSize = userManager.getUsers().size();
+		userManager.addUser(jackie);
+		assertEquals(originalSize+1, userManager.getUsers().size());
 	}
 }
