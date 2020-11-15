@@ -1,3 +1,25 @@
 {
-  "users": []
+  "users": [
+    {
+      "id": "111",
+      "name": "John Smith",
+      "password": "johnspassword",
+      "address": "23 River Creek",
+      "phone": "123456789",
+      "email": "johnsemail.com",
+      "reviews": [],
+      "favoriteListingIDs": []
+    },
+    {
+      "id": "222",
+      "name": "Sam Brown",
+      "password": "samspassword",
+      "address": "14 Wall St",
+      "phone": "987654321",
+      "email": "samsemail.com",
+      "reviews": [],
+      "realtyGroup": "StudentEstates",
+      "managedListingIDs": []
+    }
+  ]
 }

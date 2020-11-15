@@ -7,8 +7,10 @@ import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
-/*
+/**
  * Testing class for Systems
+ * @author pattersonhowell
+ *
  */
 public class SystemsTest {
 	private Systems systems;
@@ -37,6 +39,10 @@ public class SystemsTest {
 	public static void tearDownAfterClass() throws Exception {
 	}
 
+	/**
+	 * Adding listings and users to test in each method
+	 * @throws Exception
+	 */
 	@Before
 	public void setUp() throws Exception {
 		
@@ -67,6 +73,9 @@ public class SystemsTest {
 		
 	}
 	
+	/**
+	 * testing if a user logged in with the correct credentials
+	 */
 	@Test
 	public void testVerifiedLoginTrue() {
 		
@@ -74,6 +83,9 @@ public class SystemsTest {
 		assertTrue(login);
 	}
 	
+	/**
+	 * testing if a user logged in with incorrect credentials
+	 */
 	@Test
 	public void testVerifiedLoginFalse() {
 		
@@ -81,6 +93,9 @@ public class SystemsTest {
 		assertFalse(login);
 	}
 	
+	/**
+	 * testing if a user logged in with incorrect credentials
+	 */
 	@Test
 	public void testVerifiedLoginFalse2() {
 		
@@ -88,7 +103,9 @@ public class SystemsTest {
 		assertFalse(login);
 	}
 	
-	
+	/**
+	 * testing if a given person is a user in the system
+	 */
 	@Test
 	public void testVerifiedUsuerTrue() {
 		
@@ -96,6 +113,9 @@ public class SystemsTest {
 		assertTrue(user);
 	}
 	
+	/**
+	 * testing if a given person is not a user in the system
+	 */
 	@Test
 	public void testVerifiedUsuerFalse() {
 		
@@ -103,7 +123,9 @@ public class SystemsTest {
 		assertFalse(user);
 	}
 	
-
+	/**
+	 * testing if signing up as a student adds the user to the system
+	 */
 	@Test
 	public void testSignUpStudent() {
 		
@@ -112,6 +134,9 @@ public class SystemsTest {
 		assertEquals(prevSize + 1, userManager.getUsers().size());
 	}
 	
+	/**
+	 * testing if signing up as an agent adds the user to the system
+	 */
 	@Test
 	public void testSignUpAgent() {
 		
@@ -120,7 +145,9 @@ public class SystemsTest {
 		assertEquals(prevSize + 1, userManager.getUsers().size());
 	}
 	
-
+	/**
+	 * testing browsing anonymously 
+	 */
 	@Test
 	public void testBrowseAnonymously() {
 		
@@ -128,7 +155,9 @@ public class SystemsTest {
 		assertNotNull(browse);
 	}
 	
-	
+	/**
+	 * testing if an account can be deleted from system
+	 */
 	@Test
 	public void testDeleteAccount() {
 		
@@ -138,13 +167,18 @@ public class SystemsTest {
 		
 	}
 	
-	
+	/**
+	 * testing if a user can be found by their name
+	 */
 	@Test
 	public void testReturnUserWithName() {		
 		User test = systems.returnUserWithName("Sam Brown");
 		assertNotNull(test);
 	}
 	
+	/**
+	 * testing if a user cannot be found by their name
+	 */
 	@Test
 	public void testReturnUserWithNameNull() {
 		
@@ -152,21 +186,27 @@ public class SystemsTest {
 		assertNull(test);
 	}
 	
-	
+	/**
+	 * testing print call
+	 */
 	@Test
 	public void testPrintListings() {
 		systems.printListings();
 		assertNotNull(systems.listingManager.getListings());
 	}
 	
-	
+	/**
+	 * testing a specific search call
+	 */
 	@Test
 	public void testComprehensiveSearch() {
 		systems.comprehensiveSearch(1000, 2, 2, 100, true, true, false, true, false, true);
 		//double void call, testing the call
 	}
 	
-	
+	/**
+	 * testing if a listing can be found by its id
+	 */
 	@Test 
 	public void testListingID() {
 		
@@ -174,6 +214,9 @@ public class SystemsTest {
 		assertNotNull(test);
 	}
 	
+	/**
+	 * testing if a listing cannot be found by an id
+	 */
 	@Test
 	public void testListingIDNull() {
 		
@@ -181,6 +224,9 @@ public class SystemsTest {
 		assertNull(test);
 	}
 	
+	/**
+	 * testing if a listing cannot be found by an id
+	 */
 	@Test
 	public void testListingIDNull2() {
 		
@@ -188,7 +234,9 @@ public class SystemsTest {
 		assertNull(test);
 	}
 	
-	
+	/**
+	 * testing if a user's id can be found using their name and password
+	 */
 	@Test
 	public void testReturnID() {
 		
@@ -196,6 +244,9 @@ public class SystemsTest {
 		assertEquals("222", id);
 	}
 	
+	/**
+	 * testing if a user's id cannot be found using incorrect name and  incorrect password
+	 */
 	@Test
 	public void testReturnIDNull() {
 		
@@ -203,6 +254,9 @@ public class SystemsTest {
 		assertNull(id);
 	}
 	
+	/**
+	 * testing if a user's id cannot be found using their name and incorrect password
+	 */
 	@Test
 	public void testReturnIDNull2() {
 		
@@ -210,6 +264,9 @@ public class SystemsTest {
 		assertNull(id);
 	}
 	
+	/**
+	 * testing if a user's id cannot be found using incorrect name and correct password
+	 */
 	@Test
 	public void testReturnIDNull3() {
 		
@@ -217,7 +274,9 @@ public class SystemsTest {
 		assertNull(id);
 	}
 	
-	
+	/**
+	 * testing if a listing can be removed from system
+	 */
 	@Test
 	public void testRemoveListing() {
 		
@@ -227,6 +286,9 @@ public class SystemsTest {
 		
 	}
 	
+	/**
+	 * testing if a listing that DNE cannot be removed from system
+	 */
 	@Test
 	public void testRemoveListingDNE() {
 		
@@ -235,7 +297,9 @@ public class SystemsTest {
 		assertEquals(prevSize, listingManager.getListings().size());
 	}
 	
-	
+	/**
+	 * testing if a certain user is a student
+	 */
 	@Test
 	public void testIsStudent() {
 		
@@ -243,6 +307,9 @@ public class SystemsTest {
 		assertTrue(test);
 	}
 	
+	/**
+	 * testing if a certain user is not a student
+	 */
 	@Test
 	public void testIsStudentFalse() {
 		boolean test = systems.isStudent("333");
