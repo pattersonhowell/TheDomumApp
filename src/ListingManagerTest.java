@@ -1,5 +1,7 @@
 import static org.junit.Assert.*;
 
+import java.io.ByteArrayOutputStream;
+import java.io.PrintStream;
 import java.util.ArrayList;
 
 import org.junit.After;
@@ -9,12 +11,10 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 
 
-
 /**
  * Class that tests functionality of ListingManager, 
  * Checks both cases when dealing with boolean and search methods
- * but only tests functionality on add/remove methods
- * Cannot Test  the Comprehensive search method (which is a big part of the coverage) as that method does not return anything
+ * Only tests functionality on add/remove methods *
  * @author Kevin Hagan *
  */
 public class ListingManagerTest {	
@@ -143,19 +143,7 @@ public class ListingManagerTest {
 		int previousSize =listingManager.getListings().size();
 		listingManager.agentUploadListing(redHouse);
 		assertEquals(previousSize+1,listingManager.getListings().size()); 				
-	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+	}		
 	/**
 	 * Tests price search when given price limit above every listing
 	 */
@@ -364,10 +352,21 @@ public class ListingManagerTest {
 	public void testVerifyIDFalse() {
 		assertFalse(listingManager.verifyID(223));			
 	}
-		
-		
 	
-	
-	
-
+	/**
+	 * Tests ComprehensiveSearch with input that should only display GreenHouse
+	 * SInce this method prints something, I captured the output and checked if it contained
+	 * "Green House" 
+	 * @throws Exception
+	 */		
+	@Test
+	public void testComprehensiveSearch()  {		
+		  ByteArrayOutputStream outPut = new ByteArrayOutputStream();
+	      System.setOut(new PrintStream(outPut));
+	     //changing System.out to go to outPut 
+	      //calling method that would usually print 
+	      listingManager.comprehensiveSearch(700.0, 5, 2, 10, true, true, true, true, true, true);	
+	      String expectedOutput = "Green House";	      
+	      assertTrue(outPut.toString().contains(expectedOutput));		
+	}		
 }
