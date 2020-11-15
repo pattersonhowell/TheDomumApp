@@ -309,134 +309,136 @@ public class ListingManager {
 	 * @param WHAT TO EDIT
 	 */
 	//id
-	public void editAgentID(Listing listing, String ID) {
-		for(Listing x:listings) {
-			if(x==listing) {
-				x.setAgentID(ID);
-			}
-		}
-		writeListings();
-	}
-	
-	//price
-	public void editPrice(Listing listing, double price) {
-		for(Listing x:listings) {
-			if(x==listing) {
-				x.setPrice(price);
-			}
-		}
-		writeListings();
-	}
-	
-	//address
-	public void editAddress(Listing listing, String address) {
-		for(Listing x:listings) {
-			if(x==listing) {
-				x.setAddress(address);
-			}
-		}
-		writeListings();
-	}
-	
-	//number of bedrooms
-	public void editNumberBed(Listing listing, int numBed) {
-		for(Listing x:listings) {
-			if(x==listing) {
-				x.setNumBedroom(numBed);
-			}
-		}
-		writeListings();
-	}
-	
-	//number of bathrooms
-	public void editNumberBath(Listing listing, int numBath) {
-		for(Listing x:listings) {
-			if(x==listing) {
-				x.setNumBathroom(numBath);
-			}
-		}
-		writeListings();
-	}
-	
-	//year built 
-	public void editYearBuilt(Listing listing, int yearBuilt) {
-		for(Listing x:listings) {
-			if(x==listing) {
-				x.setYearBuilt(yearBuilt);
-			}
-		}
-		writeListings();
-	}
-	
-	//distance from campus
-	public void editDistanceFromCampus(Listing listing, double distance) {
-		for(Listing x:listings) {
-			if(x==listing) {
-				x.setDistFromCampus(distance);
-			}
-		}
-		writeListings();
-	}
-	
-	//availibility
-	public void editNumAvalible(Listing listing, int numAvalible) {
-		for(Listing x:listings) {
-			if(x==listing) {
-				x.setNumberAvalible(numAvalible);
-			}
-		}
-		writeListings();
-	}
-	
-	//wifi
-	public void editFreeWifiStatus(Listing listing,boolean value) {
-		for(Listing x:listings) {
-			if(x==listing) {
-				x.setFreeWifi(value);
-			}
-		}
-		writeListings();
-	}
-	
-	//washer and dryer
-	public void editLaundryStatus(Listing listing,boolean value) {
-		for(Listing x:listings) {
-			if(x==listing) {
-				x.setLaundry(value);
-			}
-		}
-		writeListings();
-	}
-	
-	//pet friendly
-	public void editPetFriendlyStatus(Listing listing,boolean value) {
-		for(Listing x:listings) {
-			if(x==listing) {
-				x.setPetFriendly(value);
-			}
-		}
-		writeListings();
-	}
-	
-	//pool
-	public void editPoolStatus(Listing listing,boolean value) {
-		for(Listing x:listings) {
-			if(x==listing) {
-				x.setPool(value);
-			}
-		}
-		writeListings();
-	}
-	
-	//pre-furnished
-	public void editFurnishedStatus(Listing listing,boolean value) {
-		for(Listing x:listings) {
-			if(x==listing) {
-				x.setFurnished(value);
-			}
-		}
-		writeListings();
-	}
+	//Our final program didn't get around to using these methods
+	//For testing purposes we are not including them 
+//	public void editAgentID(Listing listing, String ID) {
+//		for(Listing x:listings) {
+//			if(x==listing) {
+//				x.setAgentID(ID);
+//			}
+//		}
+//		writeListings();
+//	}
+//	
+//	//price
+//	public void editPrice(Listing listing, double price) {
+//		for(Listing x:listings) {
+//			if(x==listing) {
+//				x.setPrice(price);
+//			}
+//		}
+//		writeListings();
+//	}
+//	
+//	//address
+//	public void editAddress(Listing listing, String address) {
+//		for(Listing x:listings) {
+//			if(x==listing) {
+//				x.setAddress(address);
+//			}
+//		}
+//		writeListings();
+//	}
+//	
+//	//number of bedrooms
+//	public void editNumberBed(Listing listing, int numBed) {
+//		for(Listing x:listings) {
+//			if(x==listing) {
+//				x.setNumBedroom(numBed);
+//			}
+//		}
+//		writeListings();
+//	}
+//	
+//	//number of bathrooms
+//	public void editNumberBath(Listing listing, int numBath) {
+//		for(Listing x:listings) {
+//			if(x==listing) {
+//				x.setNumBathroom(numBath);
+//			}
+//		}
+//		writeListings();
+//	}
+//	
+//	//year built 
+//	public void editYearBuilt(Listing listing, int yearBuilt) {
+//		for(Listing x:listings) {
+//			if(x==listing) {
+//				x.setYearBuilt(yearBuilt);
+//			}
+//		}
+//		writeListings();
+//	}
+//	
+//	//distance from campus
+//	public void editDistanceFromCampus(Listing listing, double distance) {
+//		for(Listing x:listings) {
+//			if(x==listing) {
+//				x.setDistFromCampus(distance);
+//			}
+//		}
+//		writeListings();
+//	}
+//	
+//	//availibility
+//	public void editNumAvalible(Listing listing, int numAvalible) {
+//		for(Listing x:listings) {
+//			if(x==listing) {
+//				x.setNumberAvalible(numAvalible);
+//			}
+//		}
+//		writeListings();
+//	}
+//	
+//	//wifi
+//	public void editFreeWifiStatus(Listing listing,boolean value) {
+//		for(Listing x:listings) {
+//			if(x==listing) {
+//				x.setFreeWifi(value);
+//			}
+//		}
+//		writeListings();
+//	}
+//	
+//	//washer and dryer
+//	public void editLaundryStatus(Listing listing,boolean value) {
+//		for(Listing x:listings) {
+//			if(x==listing) {
+//				x.setLaundry(value);
+//			}
+//		}
+//		writeListings();
+//	}
+//	
+//	//pet friendly
+//	public void editPetFriendlyStatus(Listing listing,boolean value) {
+//		for(Listing x:listings) {
+//			if(x==listing) {
+//				x.setPetFriendly(value);
+//			}
+//		}
+//		writeListings();
+//	}
+//	
+//	//pool
+//	public void editPoolStatus(Listing listing,boolean value) {
+//		for(Listing x:listings) {
+//			if(x==listing) {
+//				x.setPool(value);
+//			}
+//		}
+//		writeListings();
+//	}
+//	
+//	//pre-furnished
+//	public void editFurnishedStatus(Listing listing,boolean value) {
+//		for(Listing x:listings) {
+//			if(x==listing) {
+//				x.setFurnished(value);
+//			}
+//		}
+//		writeListings();
+//	}
 	
 	/**
 	 * This method generates all of the listings that fit a certain criteria
@@ -508,7 +510,7 @@ public class ListingManager {
 	 * @param searchResults results of search
 	 * @return Listings in common
 	 */
-	private ArrayList<Listing> checkDups(ArrayList<Listing> currentList, ArrayList<Listing> searchResults) {
+	public ArrayList<Listing> checkDups(ArrayList<Listing> currentList, ArrayList<Listing> searchResults) {
 		
 		ArrayList<Listing> returnList = new ArrayList<>();
 		for(Listing list:searchResults) {

@@ -9,18 +9,18 @@
       "reviews": [],
       "suites": [
         {
-          "listID": 2,
-          "numBedrooms": 3,
-          "numBathrooms": 2,
+          "listID": 1,
+          "numBedrooms": 1,
+          "numBathrooms": 1,
           "numAvailable": 5,
-          "price": 600.0
+          "price": 300.0
         }
       ],
       "yearBuilt": 1960,
       "freeWifi": true,
-      "laundry": false,
+      "laundry": true,
       "petFriendly": true,
-      "pool": false,
+      "pool": true,
       "gym": true,
       "furnished": true
     },
@@ -34,7 +34,7 @@
       "suites": [
         {
           "listID": 2,
-          "numBedrooms": 3,
+          "numBedrooms": 5,
           "numBathrooms": 2,
           "numAvailable": 5,
           "price": 600.0
