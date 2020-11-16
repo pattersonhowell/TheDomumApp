@@ -20,9 +20,9 @@ public class UserManagerTest {
 	public void setup() throws Exception {
 		userManager.getUsers().clear();
 		ArrayList<User> users = new ArrayList<User>();
-		User dom = new User("01", "Dom", "domum", "123 domum st", "12345678910", "domumtest@gmail");
+		User dom = new Student("01", "Dom", "domum", "123 domum st", "12345678910", "domumtest@gmail");
 		userManager.addUser(dom);
-		userManager.addUser(new User("02", "Mum", "mumod", "123 mumod st", "01987654321", "mumodtest@gmail"));
+		userManager.addUser(new Agent("02", "Mum", "mumod", "123 mumod st", "01987654321", "mumodtest@gmail", "Some Group"));
 		UserWriter.writeUser();
 	}
 	
@@ -34,7 +34,7 @@ public class UserManagerTest {
 		UserManager.getInstance().getUsers().clear();
 		UserWriter.writeUser();
 	}
-	
+
 	/**
 	 * tests if a user is being added by getting the users ArrayList size before and after a user is added
 	 */
@@ -76,5 +76,37 @@ public class UserManagerTest {
 	public void testUserTakenFalse() {
 		User zach = new User("05", "Zach", "zach123", "0152 Ball St", "9658721096", "zach@hotmail");
 		assertFalse(userManager.userTaken(zach));
+	}
+
+	/**
+	 * Tests if an ArrayList of integers (favorite listings) are added to a Student correctly
+	 */
+	@Test
+	public void testAddFaveListing() {
+		ArrayList<User> users = userManager.getUsers();
+		Student s = (Student)users.get(0);
+		ArrayList<Integer> faves = new ArrayList<>();
+		faves.add(1);
+		faves.add(4);
+		faves.add(9);
+		s.setFavoriteListings(faves);
+		users.set(0, s);
+		assertEquals(faves, ((Student) users.get(0)).getFavoriteListings());
+	}
+
+	/**
+	 * Tests if an ArrayList of integers (managed listings) are added to an Agent correctly
+	 */
+	@Test
+	public void testAddManagedListing() {
+		ArrayList<User> users = userManager.getUsers();
+		Agent a = (Agent)users.get(1);
+		ArrayList<Integer> managed = new ArrayList<>();
+		managed.add(7);
+		managed.add(1);
+		managed.add(4);
+		a.setManagedListings(managed);
+		users.set(1, a);
+		assertEquals(managed, ((Agent)users.get(1)).getManagedListings());
 	}
 }
